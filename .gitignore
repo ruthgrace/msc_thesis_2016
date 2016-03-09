@@ -7,4 +7,5 @@
 *.toc
 *.blg
 *.bbl
+.DS_Store
 

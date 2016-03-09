@@ -1,0 +1,3 @@
+[submodule "unifrac_paper"]
+	path = unifrac_paper
+	url = https://github.com/ruthgrace/unifrac_paper.git
