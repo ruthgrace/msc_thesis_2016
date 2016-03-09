@@ -1,13 +1,10 @@
-appendixa.aux
-chapter1.aux
-chapter2.aux
-westernthesis.app
-westernthesis.aux
-westernthesis.dvi
-westernthesis.lof
-westernthesis.log
-westernthesis.lot
-westernthesis.toc
-westernthesis.blg
-westernthesis.bbl
+*.aux
+*.app
+*.dvi
+*.lof
+*.log
+*.lot
+*.toc
+*.blg
+*.bbl
 
