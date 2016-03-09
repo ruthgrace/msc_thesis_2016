@@ -180,33 +180,33 @@
 
 %\renewcommand{\appendixtocname}{\Huge \textbf{List of Appendices} \normalsize}
 \newcommand{\blank}{\hspace{-2mm}}
-\newcommand{\super}{Dr. A. I. McLeod} %supervisor
-\newcommand{\superj}{Dr. A. Manning} %joint supervisor, if there is one, leave blank if not (lbin)... only one of the three.
+\newcommand{\super}{Dr. Gregory B. Gloor} %supervisor
+\newcommand{\superj}{} %joint supervisor, if there is one, leave blank if not (lbin)... only one of the three.
 \newcommand{\superc}{} %co-supervisor, if there is one, leave blank if not (lbin)
 \newcommand{\supera}{} %alternate supervisor, if there is one, leave blank if not (lbin)
-\newcommand{\sco}{Dr. W. J. Braun}  %member of supervisory committee
-\newcommand{\sct}{Dr. A. Bing}  %other member of supervisory committee (lbin)
-\newcommand{\examo}{Dr. Q. Ring}  %examining committee (up to four, if less leave blank)
-\newcommand{\examt}{Dr. W. Fing}
-\newcommand{\examth}{Dr. G. Hing}
+\newcommand{\sco}{Dr. Lindi M. Wahl}  %member of supervisory committee
+\newcommand{\sct}{Dr. David R. Edgell}  %other member of supervisory committee (lbin)
+\newcommand{\examo}{Dr. ExaminerA}  %examining committee (up to four, if less leave blank)
+\newcommand{\examt}{Dr. ExaminerB}
+\newcommand{\examth}{Dr. ExaminerC}
 \newcommand{\examf}{}
-\newcommand{\department}{Statistics and Actuarial Science}
+\newcommand{\department}{Biochemistry}
 \newcommand{\degree}{Masters of Science}
-\newcommand{\firstname}{Tom}
-\newcommand{\middlename}{}
-\newcommand{\lastname}{Smith}
+\newcommand{\firstname}{Ruth}
+\newcommand{\middlename}{Grace}
+\newcommand{\lastname}{Wong}
 %\renewcommand{\author}[1]{\ifx\empty#1\else\gdef\@author{#1}\fi} 
 \newcommand{\authorname}{{\firstname} {\middlename} {\lastname}}
-\newcommand{\titl}{Computational Statistics: Time Series and Data Mining}
-\newcommand{\spinetitle}{Plib}%only if the above is more than 60 characters
-\newcommand{\thesisformat}{Monograph} %or Integrated Article
+\newcommand{\titl}{Computational microbiome analysis: methods and applications}
+\newcommand{\spinetitle}{Computational microbiome analysis: methods and applications}%only if the above is more than 60 characters
+\newcommand{\thesisformat}{Integrated Article} %or Monograph
 \newcommand{\gyear}{\number\year}
 \newcommand{\makecoauthor}{
 %Type information about coauthorship here/
-I would like to acknowlege my imaginary friend, Jummi for doing all the work. 
 }
 \newcommand{\makeacknowlege} {
 %Type in acknowlegements here
+Many thanks to Dr. Gregory B. Gloor and Dr. Jean Macklaim, who taught me everything, and Dr. Lindi M. Wahl and Dr. David R. Edgell for being part of my wonderfully supportive committee.
 }
 \newcommand{\listappendixname}{List of Appendices}
 \newlistof{myappendices}{app}{\listappendixname}
@@ -346,10 +346,10 @@ Chair of the Thesis Examination Board
 %%  ***  Put your Abstract here.   ***
 %% (150 words for M.Sc. and 350 words for Ph.D.)
 
-This is a really silly abstract.
+With the advent of next generation sequencing, scientists can obtain a more comprehensive snapshot of the bacterial composition of the microbiome, what genes they have, and what proteins they produce. We are in a phase of developing the experiments and accompanying statistical techniques to elucidate the exact mechanisms by which the human microbiome affects health and disease. In this thesis we explore alternatives to the standard weighted and unweighted UniFrac metric for measuring the difference between microbiome samples, to elucidate different trends and outliers. We also apply next generation sequencing and computational analysis techniques to gut microbiome data to examine relationship of the microbiota to athersclerosis and non alcoholic fatty liver disease.
 
 \vfill
-\textbf{Keywords:} Time series analysis, data mining
+\textbf{Keywords:} Human microbiome, next generation sequencing, bioinformatics, atherosclerosis, non alcoholic fatty liver disease
 \newpage
 \tableofcontents\newpage
 \newpage
@@ -404,20 +404,25 @@ This is a really silly abstract.
 \begin{table}[ht]
 \begin{tabular}{ll}
 \textbf{Name:} & \firstname{} \lastname\\\\
-\textbf{Post-Secondary} & La La School\\
-\textbf{Education and}& La La Land\\
-\textbf{Degrees:}& 1996 - 2000 M.A.\\\\
+\textbf{Post-Secondary} & The University of Western Ontario\\
+\textbf{Education and}& London, ON\\
+\textbf{Degrees:}& 2010-2014 B.M.Sc.\\\\
 & University of Western Ontario\\
 & London, ON\\
-& 2008 - 2012 Ph.D.\\\\
-\textbf{Honours and}& NSERC PGS M\\
-\textbf{Awards:}& 2006-2007\\\\
-\textbf{Related Work}& Teaching Assistant\\
-\textbf{Experience:}& The University of Western Ontario\\
-& 2008 - 2012\\
+& 2014-2016 M.Sc.\\\\
+\textbf{Honours and}& Western Gold Medal\\
+\textbf{Awards:}& 2014\\\\
+& Leland Ritcey Prize\\
+& 2011\\\\
+\textbf{Related Work}& Summer Intern, Persistent Disk Team\\
+\textbf{Experience:}& Google Inc., New York office\\
+& Summer 2015\\\\
+& Google Summer of Code Participant\\
+& Bader Lab, University of Toronto\\
+& Summer 2014\\
 \end{tabular}
 \end{table}
 \subsubsection*{Publications:}
-La La
+Wong, Ruth G., Jia R. Wu, Gregory B. Gloor. "Expanding the UniFrac toolbox." Full length paper accepted for oral presentation at the Great Lakes Bioinformatics and the Canadian Computational Biology Conference 2016.
 \end{document}
 
