@@ -27,6 +27,7 @@
 %\usepackage{hyperref} %comment out for hardcopy
 \usepackage{txfonts}
 \usepackage{tocloft}
+\usepackage{standalone}
 \makeatletter
 \numberwithin{figure}{chapter}
 \newenvironment{acknowledgements}%
@@ -378,7 +379,11 @@ With the advent of next generation sequencing, scientists can obtain a more comp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{introduction}
-\include{chapter2}
+\chapter{Expanding the UniFrac toolbox}
+\include{unifrac_paper/expanding_the_unifrac_toolbox}
+\include{atherosclerosis}
+\include{nafld}
+\include{discussion}
 
 
 %% This adds a line for the Bibliography in the Table of Contents.
