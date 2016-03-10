@@ -12,4 +12,5 @@
 *.out
 *.synctex.gz
 *.fls
-
+*.bcf
+*.run.xml
