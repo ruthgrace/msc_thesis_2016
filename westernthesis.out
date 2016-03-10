@@ -1,0 +1,56 @@
+\BOOKMARK [0][-]{Doc-Start}{Certificate of Examination}{}% 1
+\BOOKMARK [0][-]{Doc-Start}{Abstract}{}% 2
+\BOOKMARK [0][-]{Doc-Start}{List of Figures}{}% 3
+\BOOKMARK [0][-]{Doc-Start}{List of Tables}{}% 4
+\BOOKMARK [0][-]{Doc-Start}{List of Appendices}{}% 5
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 6
+\BOOKMARK [1][-]{section.1.1}{The human microbiome}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Exploring the human microbiome}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{Illumina next generation sequencing platform}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.4}{Gene tag abundance}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.4.1}{16S rRNA gene sequencing experiment}{section.1.4}% 11
+\BOOKMARK [2][-]{subsection.1.4.2}{Operational Taxonomic Units}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.3}{General protocol and rationale}{section.1.4}% 13
+\BOOKMARK [2][-]{subsection.1.4.4}{Data analysis}{section.1.4}% 14
+\BOOKMARK [1][-]{section.1.5}{The metagenomic experiment}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.5.1}{Sequencing}{section.1.5}% 16
+\BOOKMARK [2][-]{subsection.1.5.2}{Imputation}{section.1.5}% 17
+\BOOKMARK [2][-]{subsection.1.5.3}{Data analysis}{section.1.5}% 18
+\BOOKMARK [1][-]{section.1.6}{Points of failure}{chapter.1}% 19
+\BOOKMARK [2][-]{subsection.1.6.1}{Collection methods differ}{section.1.6}% 20
+\BOOKMARK [2][-]{subsection.1.6.2}{Microbiome data is highly variable between individuals}{section.1.6}% 21
+\BOOKMARK [2][-]{subsection.1.6.3}{Microbiome data involves the comparison of many features}{section.1.6}% 22
+\BOOKMARK [2][-]{subsection.1.6.4}{Microbiome data is compositional}{section.1.6}% 23
+\BOOKMARK [2][-]{subsection.1.6.5}{Microbiome data is sparse}{section.1.6}% 24
+\BOOKMARK [1][-]{section.1.7}{The gut microbiome in atherosclerosis-susceptible and atherosclerosis-resistant patients}{chapter.1}% 25
+\BOOKMARK [1][-]{section.1.8}{The gut microbiome in patients with non-alcoholic steatohepatitis compared to healthy controls}{chapter.1}% 26
+\BOOKMARK [0][-]{chapter.2}{Expanding the UniFrac toolbox}{}% 27
+\BOOKMARK [1][-]{subsection.2.0.1}{Unweighted UniFrac}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.0.2}{Weighted UniFrac}{subsection.2.0.1}% 29
+\BOOKMARK [2][-]{subsection.2.0.3}{Analytical techniques}{subsection.2.0.1}% 30
+\BOOKMARK [2][-]{subsection.2.0.4}{Data preparation}{subsection.2.0.1}% 31
+\BOOKMARK [2][-]{subsection.2.0.5}{Unweighted Unifrac is highly sensitive to rarefaction variants}{subsection.2.0.1}% 32
+\BOOKMARK [2][-]{subsection.2.0.6}{Why does Unweighted Unifrac have discrepancies when analyzing rarefied data?}{subsection.2.0.1}% 33
+\BOOKMARK [2][-]{subsection.2.0.7}{Information UniFrac}{subsection.2.0.1}% 34
+\BOOKMARK [2][-]{subsection.2.0.8}{Tongue and cheek comparison}{subsection.2.0.1}% 35
+\BOOKMARK [2][-]{subsection.2.0.9}{Breast milk Data}{subsection.2.0.1}% 36
+\BOOKMARK [0][-]{chapter.3}{The human microbiome and atherosclerosis}{}% 37
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.1.1}{Atherosclerosis risk}{section.3.1}% 39
+\BOOKMARK [2][-]{subsection.3.1.2}{Metabolic potential of gut microbiota}{section.3.1}% 40
+\BOOKMARK [2][-]{subsection.3.1.3}{Metabolic potential of mouth microbiota}{section.3.1}% 41
+\BOOKMARK [2][-]{subsection.3.1.4}{Bacteria and atherosclerotic plaques}{section.3.1}% 42
+\BOOKMARK [2][-]{subsection.3.1.5}{Project proposal}{section.3.1}% 43
+\BOOKMARK [1][-]{section.3.2}{Methods}{chapter.3}% 44
+\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 45
+\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 46
+\BOOKMARK [0][-]{chapter.4}{The human microbiome and non-alcoholic fatty liver disease}{}% 47
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 48
+\BOOKMARK [1][-]{section.4.2}{Methods}{chapter.4}% 49
+\BOOKMARK [1][-]{section.4.3}{Results}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.4}{Discussion}{chapter.4}% 51
+\BOOKMARK [0][-]{chapter.5}{Theorems}{}% 52
+\BOOKMARK [1][-]{section.5.1}{Basic Theorems}{chapter.5}% 53
+\BOOKMARK [0][-]{theorem.5.1.1}{Bibliography}{}% 54
+\BOOKMARK [0][-]{Appendix.a.A}{Proofs of Theorems}{}% 55
+\BOOKMARK [0][-]{equation.a.A.0.1}{Curriculum Vitae}{}% 56
