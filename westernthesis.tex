@@ -65,6 +65,10 @@
 
 \usepackage{placeins}
 
+\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{westernthesis.bib}
+\addbibresource{unifrac_paper/unifrac.bib}
+
 \makeatletter
 \numberwithin{figure}{chapter}
 \newenvironment{acknowledgements}%
@@ -428,7 +432,7 @@ With the advent of next generation sequencing, scientists can obtain a more comp
 %% ***   Set the bibliography style.   ***
 \bibliographystyle{plain} % (change according to your preference)
 %%% ***   Set the bibliography file.   ***
-\bibliography{westernthesis}{}
+\printbibliography
 %% ***   NOTE   ***
 %% If you don't use bibliography files, comment out the previous line
 %% and use \begin{thebibliography}...\end{thebibliography}.  (In that
