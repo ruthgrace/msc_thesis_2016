@@ -65,13 +65,15 @@ However, it is difficult to determine how a batch of sequences should be partiti
 \subsection{General protocol and rationale}
 The 16S rRNA gene sequencing experiment uses next generation sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
 
-\begin{wrapfigure}{L}{6cm}
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{16S_rRNA_pipeline_first_half.png}
-  \caption{Birds birds birds}
-\end{wrapfigure}
-
 \paragraph{Pre-sequencing processing}\mbox{}\\
 There are several very general steps to the pre-sequencing process:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=0.8\textheight]{16S_rRNA_pipeline.png}
+\caption{A long memory time series\label{ts1}}
+\end{center}
+\end{figure}
 
 \begin{enumerate}
 \item Take a biological sample and extract the DNA
@@ -102,6 +104,8 @@ Annotation was done by  matching our OTUs to the SILVA database (Quast, 2013).
 
 Alternatively, an Individual Sequence Unit (ISU) based approach can be taken, where the individual sequences are preserved even after grouping into OTUs, so that different strains within the same OTU can be analyzed separately (Callahan, 2015).
 
+\FloatBarrier
+
 \subsection{Data analysis}
 There are two goals in gene tag data analysis. First, is there any structure in the data (separation, clustering, correlations, differentials, etc.)? Second, what drives the structure in the data?
 
@@ -115,9 +119,19 @@ Principal Component Analysis is necessary for multivariate statistics, and It is
 In 2005, Lozupone et al introduced the UniFrac distance metric, a measure to calculate the difference between microbiomes that incorporated phylogenetic distance (Lozupone, 2005). The goal of UniFrac was to enable objective comparison between microbiome samples from different conditions. In 2007, Lozupone added a proportional weighting to the original unweighted method (Lozupone, 2007). Since then, papers reporting these metrics have garnered over a thousand citations, and enabled research about everything from how kwashiorkor causes malnutrition (Smith, 2013) to how people can have similar microbiomes to their pet dogs (Song, 2013).  Except for Generalized UniFrac, used to make hybrid unweighted and weighted UniFrac comparisons (Chen, 2012), few advances in the metric have occurred since 2007. 
 
 \paragraph{Unweighted UniFrac}\mbox{}\\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{unifrac.png}
+\caption{A long memory time series\label{ts1}}
+\end{center}
+\end{figure}
+
 Unweighted UniFrac uses an inferred evolutionary distance to measure similarity between samples. It requires a reference phylogenetic tree containing all the taxa present in the samples to be examined. The calculation is performed by dividing the branch lengths shared between the two samples by the branch lengths covered by either sample. A distance of 0 means that the samples have an identical set of taxa detected, and a distance of 1 means that the two samples share no taxa in common.
 
 The qualitative rather than quantitative nature of unweighted UniFrac makes the metric very sensitive to sequencing depth. A greater sequencing depth generally results in the detection of a greater number of taxa. To account for this problem, ecologists use a technique called rarefaction to normalize the sequencing depth across samples by random sampling without replacement (de Cárcer, 2011). However, in unweighted UniFrac samples move relative to the other samples in different rarefaction instances, to the point where they can switch from being a member of one cluster of data to another, as demonstrated in the chapter Expanding the UniFrac Toolbox.
+
+\FloatBarrier
 
 \paragraph{Weighted UniFrac}\mbox{}\\
 Weighted UniFrac is an implementation of the Kantorovich-Rubinstein distance in mathematics, also known as the earth mover's distance (Evans, 2012). Rather than looking only at the presence or absence of taxa, each branch length of the phylogenetic tree is weighted by the difference in proportional abundance of the taxa between the two samples. This technique reduces the problem of low abundance taxa being represented as a 0 or by a low count depending on sampling depth. In unweighted UniFrac, such taxa would flip from absent to present, and could skew the measurement: this would be especially problematic if the taxa are on a long branch. In weighted UniFrac, low abundance taxa have a much lower weight and so will have a lower impact on the total distance reported by the metric.
@@ -143,6 +157,14 @@ In 2006, Turnbaugh et al published a paper showing that an obesity associated gu
 All of this information can be determined by either imputation or actual sequencing, discussed in the next sections.
 
 \subsection{Sequencing}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=0.8\textheight]{Metagenomic_pipeline.png}
+\caption{A long memory time series\label{ts1}}
+\end{center}
+\end{figure}
+
 The goal of metagenomic analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes, sorting them by the known function of the protein for which they code (such as the catalyzation of a certain reaction), and checking if any functions are differentially present between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis is as follows:
 
 \begin{enumerate}
@@ -167,6 +189,8 @@ Once the sequenced reads have been mapped to the annotated reference sequence, t
 
 Issues with sequencing and the analysis of sequencing data arise from sampling and the fat nature of the data. The sequences that are read by the sequencer are only a small fraction of the DNA from the sample. Additionally, primers used for sequencing may be biased for certain sequences more than others. Lastly, the data is very fat, which is to say that there are magnitudes more variables (in the form of functional annotations of genes) than there are samples. This makes it difficult to have enough power to detect small differences in the data, a concept expanded upon in the Points of Failure section below.
 
+\FloatBarrier
+
 \subsection{Imputation}
 Deep metagenomic sequencing can be imputed using a tool called PiCrust from a gene tag experiment (Langille, 2013). PiCrust uses the Greengenes database (DeSantis, 2006) to identify the bacterial taxa in the sample, and pulls their genomes from the Integrated Microbial Genomes database (Markowitz, 2012). With the genomes, the program tries to predict what would be seen if the samples underwent deep metagenomic sequencing. For taxa without a fully sequenced genome, PiCrust infers the genetic content based on ancestors in the phylogenetic tree. PiCrust produces metagenome predictions with Spearman r=~0.7 (Langille, 2013), compared to a full metagenomic sequencing experiment.
 
@@ -176,9 +200,19 @@ Imputation is useful for identifying potential correlations that should be explo
 Data analysis can be performed by performed by seeing if functions are differentially abundant between samples in different groups (described in the “Compositional data analysis” section), examining functional categorizations, and checking for pathway enrichment.
 
 \paragraph{Functional categorization}\mbox{}\\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{stripchart.png}
+\caption{A long memory time series\label{ts1}}
+\end{center}
+\end{figure}
+
 We use the SEED annotation, which has four different levels of categorization. Subsystem 4 is the most atomic categorization level and describes the specific function of the protein group, for example, “Isovaleryl-CoA dehydrogenase (EC 1.3.99.10)”. Subsystem 3, 2, and 1 are increasing more general levels of categorizations, from enzyme families to large categorizations such as genes related to carbohydrate metabolism.
 
 Even if the subsystem 4 functional categories are not significantly different between groups, they each have an effect size with a direction. Stripcharts can be used to plot the effect sizes of the subsystem 4 categories for a larger category. For example, by plotting the effect sizes of all the subsystem 4 categorizations under Carbohydrate Metabolism, one can visually see if there are any obvious directional trends for carbohydrate metabolism functions being more present in the experimental group compared to the control.
+
+\FloatBarrier
 
 \paragraph{Pathway enrichment}\mbox{}\\
 Biological pathways can be thought of as made up of a series of chemical reactions, each catalyzed by a protein enzyme, which is encoded by a gene. KEGG (Kyoto Encyclopaedia of Genes and Genomes) is a manually curated annotation database that matches genes to pathways (Kanehisa, 2000). This database allows researchers to see if there is differential abundance of pathways encoded by functionally annotated genes, even when the genes may not be differentially abundant by themselves.
