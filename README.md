@@ -10,7 +10,7 @@ Run:
 
 ```
 latex westernthesis
-bibtex westernthesis
+biber westernthesis
 latex westernthesis
 pdflatex westernthesis
 ```
