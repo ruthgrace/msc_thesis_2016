@@ -41,21 +41,25 @@ In total, 92 samples were collected: 41 from patients with NASH, 18 from patient
 
 [TO DO: include information about sample collection and exclusion criteria]
 
-DNA extraction was performed with the \href{http://omegabiotek.com/store/product/stool-dna-kit/}{E.Z.N.A.® Stool DNA Kit}, and the protocol was followed with the addition of lysozyme with an extra 30 minute incubation at 37 degrees Celcius at the beginning.
+DNA extraction was performed with the \href{http://omegabiotek.com/store/product/stool-dna-kit/}{E.Z.N.A.® Stool DNA Kit}, and the protocol was followed with the addition of lysozyme with an extra 30 minute incubation at 37 degrees Celcius, between steps 2 and 3.
 
 \subsection{16S rRNA gene tag experiment}
 
-DNA was amplified by PCR according to the Earth Microbiome protocol \cite{caporaso2012ultra}, with the addition of barcodes so that all the samples could be sequenced in the same sequencing run \cite{gloor2010microbiome}. The DNA was sequenced on the Illumina MiSeq platform with paired end 150 nucleotide reads.
+DNA was amplified by PCR according to the Earth Microbiome protocol \cite{caporaso2012ultra}, with the addition of barcodes so that all the samples could be sequenced in the same sequencing run \cite{gloor2010microbiome}. The DNA was sequenced on the Illumina MiSeq platform with paired end 150 nucleotide reads, producing ___ reads in total.
 
-Reads were quality filtered and overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into Operational Taxonomic Units using the mothur software suite \cite{schloss2009introducing}, and annotated with the SILVA database \cite{quast2013silva}, producing a table of counts per operational taxonomic unit per sample. Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
+Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into Operational Taxonomic Units using UCLUST \cite{edgar2010search}, and annotated with the SILVA database \cite{quast2013silva}, producing a table of counts per operational taxonomic unit per sample. ___ reads (some \%) were succesfully overlapped and annotated with ___ OTUs. Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 
 \subsection{Metagenomic experiment}
 
 A deep metagenomic sequencing experiment was performed using samples from 10 healthy controls and 10 of the patients with NASH. Samples from healthy patients were selected to exclude confounding factors, such as having a different country of birth, which could affect diet. Samples from NASH patients were selected for the strongest NASH phenotype.
 
-The DNA was sequenced on the Illumini HiSeq platform, with single end 100 nucleotide reads. Samples were barcoded and sequenced on the same sequencing run. After sequencing, the reads were quality filtered and demultiplexed to separate the reads for each sample.
+The DNA was sequenced on the Illumini HiSeq platform, with single end 100 nucleotide reads. Samples were barcoded and sequenced on the same sequencing run. After sequencing, the reads were quality filtered and demultiplexed to separate the reads for each sample, yielding ___ reads in total.
 
-To annotate the reads, we used a two pronged strategy. First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment, annotated the library with the SEED database \cite{overbeek2005subsystems}, and mapped the reads onto this library. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub. Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo} removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, annotated the assembled sequences with the SEED database \cite{overbeek2005subsystems}, and mapped the reads onto this. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
+To annotate the reads, we used a two pronged strategy:
+
+First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment. For each genus the OTUs were annotated with, we randomly picked 10 strain genomes from the NCBI bacterial genome database. For genus where there were less than 10 fully sequenced representatives, we selected all genomes available. The library was made with ___ genomes from ___ bacterial genus. The library was then annotated with the SEED database \cite{overbeek2005subsystems}, sequenced reads were mapped onto this library. Out of ___ reads total, ___ were annotated by this method, over ___ unique SEED hierarchy annotations. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub.
+
+Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo}, producing __ sequences, and removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, leaving __ sequences. The assembled sequences were annotated with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this. __ additional were annotated by this method, over ___ unique SEED hierarchy annotations. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
 
 Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 
