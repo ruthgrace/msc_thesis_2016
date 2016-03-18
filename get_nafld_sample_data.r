@@ -14,3 +14,7 @@ print(paste(length(which(is.na(groups))),"healthy subjects"))
 print(paste(length(which(groups==0)),"subjects with SS"))
 
 print(paste(length(which(groups==1)),"subjects with NASH"))
+
+print(paste(sum(otu.tab),"annotated reads"))
+
+print(paste(ncol(otu.tab),"OTUs"))

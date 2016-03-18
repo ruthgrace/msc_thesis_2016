@@ -102,7 +102,10 @@ We used UCLUST to cluster the reads into groups of 97\% identity \cite{edgar2010
 Annotation was done by  matching our OTUs to the SILVA database \cite{quast2013silva}.
 \end{enumerate}
 
-Alternatively, an Individual Sequence Unit (ISU) based approach can be taken, where the individual sequences are preserved even after grouping into OTUs, so that different strains within the same OTU can be analyzed separately \cite{callahan2015dada2}.
+\item Generate a phylogenetic tree
+This can be done using the center-most sequence of each cluster that forms each OTU, and putting the sequences in a multiple sequence alignment, using software such as MUSCLE \cite{edgar2004muscle}.
+
+Alternatively, an Individual Sequence Unit (ISU) based approach rateher than an OTU based approach can be taken, where the individual sequences are preserved even after grouping into OTUs, so that different strains within the same OTU can be analyzed separately \cite{callahan2015dada2}.
 
 \FloatBarrier
 
