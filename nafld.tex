@@ -70,6 +70,8 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 
 [consider adding nice bar graphs]
 
+No obvious structure or separation is evident from the principal components analysis in Fig.~\ref{nafld_fig2}. Furthermore the variance explained by each principal component axis is not notably high, indicating a rather uniform data set.
+
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_pcoa.png}
@@ -77,8 +79,6 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 \end{center}
 \label{nafld_fig2}
 \end{figure}
-
-
 
 \begin{figure}[h]
 \begin{center}
@@ -91,12 +91,16 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_effect_sizes.png}
-\caption{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study.}
+\caption{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The y intercepts of the regression lines are all between 0.005 and 0.025, close to zero. The slopes of the regression lines are 0.94293, 0.625174, and 0.66172, respectively. The median difference in the absolute effect sizes is -0.02076 for Healthy vs. NASH - Healthy vs. SS, 0.017070 for Healthy vs. extreme NASH - Healthy vs. SS, and 0.04256 for Healthy vs. extreme NASH - Healthy vs. NASH.}
 \end{center}
 \label{nafld_fig4}
 \end{figure}
 
+A differential expression analysis performed with ALDEx2 yielded no significantly differentially abundant OTUs (Fig.~\ref{nafld_fig3}). However, the effect size of each OTU in each comparison is correlated, and the regression line indicates that the effect sizes are higher in the Healthy vs. extreme NASH compared to the Healthy vs. SS or Healthy vs. NASH comparison.
+
 \subsection{Metagenomic experiment}
+
+[needs to be filled in]
 
 \section{Discussion}
 
