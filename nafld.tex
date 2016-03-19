@@ -119,9 +119,16 @@ A differential expression analysis performed with ALDEx2 yielded no significantl
 \includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
 \caption{\textbf{Biplot derived from MetaPhlAn.} This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explaiend by the first and the second coordinate is not particularly high, indicating that there is not a clear unidirectional separation between groups.}
 \end{center}
-\label{nafld_metaphlan_barplot}
+\label{nafld_metaphlan_biplot}
 \end{figure}
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metaphlan_aldex.png}
+\caption{\textbf{Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.} This plot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. No taxa are more differential between groups than within groups.}
+\end{center}
+\label{nafld_metaphlan_aldex}
+\end{figure}
 
 \section{Discussion}
 
