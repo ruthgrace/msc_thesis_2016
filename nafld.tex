@@ -106,12 +106,12 @@ A differential expression analysis performed with ALDEx2 yielded no significantl
 
 \paragraph{MetaPhlAn}\mbox{}\\
 
-[TO DO: find proper 16S taxa assignments and compare effect sizes with MetaPhlAn results]
+We ran the metagenomic sequences through MetaPhlAn to infer what the results would be with 16S rRNA gene tag sequencing, so that we could compare with our empirical 16S rRNA gene tag sequencing results. The effect size Spearman coefficient (Fig.~\ref{nafld_metaphlan_effect}) is smaller than the effect size coefficient between the healthy vs. SS and healthy vs. NASH comparison, even though in this case the same samples are being compared.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_barplot_dendogram.png}
-\caption{\textbf{Taxa barplot dendogram derived from MetaPhlAn.} The metagenomic reads were input into MetaPhlAn to generate a count table. The taxa in the count table were filtered such that only taxa with at least 1\% abundance in any sample was kept.}
+\caption{\textbf{Taxa barplot dendogram derived from MetaPhlAn.} The metagenomic reads were input into MetaPhlAn to generate a count table. The taxa in the count table were filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that three samples were output to have exactly the same counts (HLD_80, HLD_85, and CL_165), despite not all being in the same condition.}
 \end{center}
 \label{nafld_metaphlan_barplot}
 \end{figure}
@@ -132,11 +132,19 @@ A differential expression analysis performed with ALDEx2 yielded no significantl
 \label{nafld_metaphlan_aldex}
 \end{figure}
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metaphlan_16s_effects.png}
+\caption{\textbf{Effect size correlation between MetaPhlAn and 16S rRNA gene tag sequencing.} For this plot, taxa were amalgamated at the genus level. The Spearman coefficient is 0.5193331. The three samples with identical counts have been removed (otherwise the Spearman coefficent would have been 0.4456304).}
+\end{center}
+\label{nafld_metaphlan_effect}
+\end{figure}
+
 \section{Discussion}
 
 Given the inconsistency in the five papers that have been published about NAFLD and the gut microbiome, we have performed our analysis with care in an effort to find true effects. We found that there was no significant difference between groups by sample clustering (Fig.~\ref{nafld_fig2}) or at the level of the individual OTUs (Fig.~\ref{nafld_fig3}).
 
-There are several factors that would make such a study underpowered. First, the gut microbiome is highly diverse between individuals. This is compounded by the fact that the samples were taken from a diverse Toronto population, including people who immigrated from other countries who likely have different diets. Additionally, the nature of microbimoe data is that there are very many more variables (in the form of OTUs or annotated gene functions) than samples.
+There are several factors that would make such a study underpowered. First, the gut microbiome is highly diverse between individuals. This is compounded by the fact that the samples were taken from a diverse Toronto population, including people who immigrated from other countries who likely have different diets. Additionally, the nature of microbiome data is that there are very many more variables (in the form of OTUs or annotated gene functions) than samples.
 
 From Fig.~\ref{nafld_fig4}, the correlation shows that even though there is not enough power to detect a significant difference, the difference from the healthy baseline are moving in the same direction through simple steatosis to nonalcoholic steatohepatitis to extreme NASH.
 
