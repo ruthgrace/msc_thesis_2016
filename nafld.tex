@@ -51,10 +51,14 @@ Several papers have already been published in the literature on the topic of NAF
 \label{nafld_fig1}
 \end{figure}
 
-\begin{itemize}
-\item Jiang et al, 2015 \cite{jiang2015dysbiosis} compared 53 NAFLD patients with 32 healthy controls. The NAFLD patients had a significantly higher BMI ($P<0.01$). Each sample had an average of 0.6 million reads. The reads were annotated with the Ribosomal Database Project \cite{cole2009ribosomal} and differential abundance was determined using Projection on Latent Structures - Discriminant Analysis (PLS-DA) methods. They found that members of the \textit{Lentisphaerae} phyla and the \textit{Oscillibacter} and \textit{Flavonifractor} genera had a significantly higher proportional abundance in the healthy group, and members of the \textit{Clostridium XI}, \textit{Anaerobacter}-related, \textit{Streptococcus}, and \textit{Lactobacillus} genera had a significantly higher proportional abundance in the NAFLD group.
+\bf{Study} & \bf{Subjects} & \bf{Sequencing} & \bf{Analysis} & \bf{Results}\\ \hline
 
-\item Zhu et al, 2013 \cite{zhu2013characterization} compared 16 non-obese controls, 25 obese patients, and 22 NASH patients
+\paragraph{Jiang et al, 2015 \cite{jiang2015dysbiosis}}\mbox{}\\
+This group compared 53 NAFLD patients with 32 healthy controls. The NAFLD patients had a significantly higher BMI ($P<0.01$). Each sample had an average of 0.6 million reads, from sequencing the V3 region of the 16S rRNA gene on the Illumina sequencing platform. The reads were annotated with the Ribosomal Database Project \cite{cole2009ribosomal} and differential abundance was determined using Projection on Latent Structures - Discriminant Analysis (PLS-DA) methods. They found that members of the \textit{Lentisphaerae} phyla and the \textit{Oscillibacter} and \textit{Flavonifractor} genera had a significantly higher proportional abundance in the healthy group, and members of the \textit{Clostridium XI}, \textit{Anaerobacter}-related, \textit{Streptococcus}, and \textit{Lactobacillus} genera had a significantly higher proportional abundance in the NAFLD group.
+
+ 
+\paragraph{Zhu et al, 2013 \cite{zhu2013characterization}}\mbox{}\\
+This group compared 16 non-obese controls, 25 obese patients, and 22 NASH patients. All of the patients were pediatric, and the NAFLD group all had a BMI higher than the 85th percentile while the healthy group had BMIs less than the 85th percentile. Reads were sequenced in a 454 pyrosequencer and analyzed with MG-RAST \cite{} and QIIME \cite{}. Note that in the PCoA plot, there is only 11\% variance explained by the first component, and they had to plot the first component with the 3rd component (3\% variance explained) to show the group separation. By comparing the average absolute read count for each taxa in each group, this group found that members of the \textit{Proteobacteria} phylum, the \textit{Enterobacteriaceae} family, and the \textit{Escherichia} genus had significantly higher counts in NASH patients compared to obese patients and healthy controls.
 
 \item Raman et al, 2013 \cite{raman2013fecal} compared 30 NAFLD patients with 30 healthy controls
 
@@ -62,6 +66,8 @@ Several papers have already been published in the literature on the topic of NAF
 
 \item Boursier et al, 2015 \cite{boursier2016severity} compared 30 patients with F0 or F1 fibrosis to 27 patients with F2 or greater fibrosis, 35 of which had NASH
 \end{itemize}
+
+Many of the studies had healthy controls with a lower BMI, so it is difficult to separate whether the differences found are related to NAFLD progression or obesity.
 
 Fig.~\ref{nafld_fig1} shows a Venn diagram illustrating the inconsistency of the literature on the gut microbiome and NAFLD. Of these, only Raman et al \cite{raman2013fecal} reported using a multiple test correction.
 
