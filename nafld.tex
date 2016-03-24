@@ -22,14 +22,23 @@ On a metabolite level, Raman et al. found differences in the number of volatile 
 Some groups claim a link between ethanol-producing gut bacteria and NAFLD \cite{zhu2013characterization} \cite{jiang2015dysbiosis}, however the evidence was inconclusive since no multiple test correction was performed.
 
 \subsection{Data}
+Applying next generation sequencing techniques to microbiome research is a relatively new field that has yet to set data analysis standards. There are some considerations that should be made when constructing a data analysis strategy.
 
-multivariate
+\paragraph{Data is multivariate}
+Generally experiments of this nature typically have low sample sizes due to budget constraints, sample collection difficulties, patient compliance, and other issues.
 
-compositional
+As a result, the number of taxa or gene functions comparisons made are often a magnitude larger than the sample size. This is known in statistics as having more variables than observations, or having fat data. The higher the ratio of variables to observations are, the less likely standard statistical techniques are to be reliable \cite{osborne2004sample}.
 
-small sample sizes
-- multipile test correctoin
-- CODA
+Researchers should include multiple test corrections to ensure that the results they are reporting are true, at the expense of having p-values less than 0.05. Unfortunately many studies have been published in high impact journals without multiple test corrections, including a famous paper linking the gut microbiome to autism published in Cell \cite{hsiao2013microbiota}.
+
+\paragraph{Data is compositional}
+In both gene tag sequencing and metagenomic sequencing experiments, the data is in the form of a list of counts per feature, with the features composing an aspect of the microbiome for each sample. This is compositional data. The total number of reads yielded by the sequencing platform is often platform-dependant and not biologically relevant.
+
+This constrained sum causes the abundance of different taxa to appear to be negatively correlated with each other when analyzed by conventional statistics. When one taxa increases in abundance, the counts detected in other taxa decrease in abundance, even if the taxa are not decreasing in abundance biologically.
+
+Compositional data should be analyzed in a compositional way. In Euclidean space, data points can increase or decrease freely. Compositional data is under a sum constraint, and exist in a non-Euclidean space known as the Aitchison simplex \cite{aitchison1982statistical}. Data transformations such as the centered log ratio can be performed to put the data into Euclidean space, so that it can be analyzed with standard statistical methods that depend on Cartesian coordinates and linear relationships.
+
+However, these techniques are not yet mainstream in the field, resulting in a high number of conclusions made that are not reproducible.
 
 \subsection{Literature}
 Several papers have already been published in the literature on the topic of NAFLD and the gut microbiome:
@@ -37,7 +46,7 @@ Several papers have already been published in the literature on the topic of NAF
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{nafld_papers.png}
-\caption{\textbf{Venn diagram of genus found to be differentially abundant by different studies between NASH/NAFLD and healthy controls.} Boursier et al 2015 is not included as they reported a p-value of less than 0.05 for the Bacteroides genus only, which was not reported in any of the other studies. Only 3 out of the 16 genus claimed to be differentially abundant were the same in two studies: Escherichia was found in the Zhu \cite{zhu2013characterization} and Jiang \cite{jiang2015dysbiosis} studies, and Lactobacillus and Oscillibacter were found in the Jiang \cite{jiang2015dysbiosis} and Raman \cite{raman2013fecal} studies.}
+\caption{\textbf{Venn diagram of genera found to be differentially abundant by different studies between NASH/NAFLD and healthy controls.} Only 3 out of the 16 genera claimed to be differentially abundant were found in two studies: members of the \textit{Escherichia} genus were found in the Zhu \cite{zhu2013characterization} and Jiang \cite{jiang2015dysbiosis} studies, and members of the \textit{Lactobacillus} and \textit{Oscillibacter} genus were found in the Jiang \cite{jiang2015dysbiosis} and Raman \cite{raman2013fecal} studies.}
 \end{center}
 \label{nafld_fig1}
 \end{figure}
