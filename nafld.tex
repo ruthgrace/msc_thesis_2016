@@ -134,13 +134,15 @@ The DNA was sequenced on the Illumina HiSeq platform, with single end 100 nucleo
 
 We used a two pronged strategy to annotate the reads:
 
-First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment. For each genus observed we randomly picked 10 strain genomes from the NCBI bacterial genome database. For genera with less than 10 fully sequenced representatives, we selected all available genomes. The library was made with 1134 genomes from 104 bacterial genera. The library was then clustered at 99\% identity for each genus using CD-HIT \cite{li2006cd} to decrease the number of open reading frames (ORFs) in the library from 3,495,887 to 2,256,844. Annotation was performed with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this ORF library. Out of approximately 2 billion reads total, 58.5 million (30.6\%) were mapped by this method, over 5836 unique SEED hierarchy annotations. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub.
+First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment. For each genus observed we randomly picked 10 strain genomes from the NCBI bacterial genome database. For genera with less than 10 fully sequenced representatives, we selected all available genomes. The library was made with 1134 genomes from 104 bacterial genera. The open reading frame (ORF) library was then clustered at 99\% identity for each genus using CD-HIT \cite{li2006cd} to decrease the number of ORFs in the library from 3,495,887 to 2,256,844. Annotation was performed with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this ORF library. Out of approximately 2 billion reads total, 58.5 million (30.6\%) were mapped by this method, over 5836 unique SEED hierarchy annotations. The primary limitation of this method is a lack of annotated bacterial sequences. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub.
 
 Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo}, producing 8847816 sequences, and removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, leaving 5,876,423 sequences. [FILL IN THIS] of these assembled sequences were successfully annotated with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this. [FILL IN THIS] additional reads were annotated by this method, over [FILL IN THIS] unique SEED hierarchy annotations. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
 
 Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 
 [TO DO: the full workflow is included in APPENDIX (refernece)]
+
+\FloatBarrier
 
 \subsection{MetaPhlAn}
 
@@ -189,6 +191,8 @@ When comparing all the healthy samples with all the NASH samples, the genus with
 
 A differential expression analysis performed with ALDEx2 yielded no significantly differentially abundant OTUs (Fig.~\ref{nafld_fig3}). However, the effect size of each OTU in each comparison is correlated, and the regression line indicates that the effect sizes are higher in the Healthy vs. extreme NASH compared to the Healthy vs. SS or Healthy vs. NASH comparison.
 
+\FloatBarrier
+
 \subsection{Metagenomic experiment}
 
 \paragraph{MetaPhlAn}\mbox{}\\
@@ -226,6 +230,8 @@ We ran the metagenomic sequences through MetaPhlAn to infer what the results wou
 \end{center}
 \label{nafld_metaphlan_effect}
 \end{figure}
+
+\FloatBarrier
 
 \section{Discussion}
 
