@@ -98,7 +98,7 @@ DNA extraction was performed with the \href{http://omegabiotek.com/store/product
 
 DNA was amplified by PCR using the Earth Microbiome V4 primer set \cite{caporaso2012ultra}, with the addition of combinatorial in-line barcodes so that all the samples could be sequenced in the same sequencing run \cite{gloor2010microbiome}. The DNA was sequenced on the Illumina MiSeq platform with paired end 220 nucleotide reads, producing 25 million reads in total.
 
-Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into Operational Taxonomic Units using UCLUST \cite{edgar2010search}, and annotated with the SILVA database \cite{quast2013silva} using mothur \cite{schloss2009introducing}, producing a table of counts per operational taxonomic unit per sample. Twelve milion (48\%) of the reads were succesfully overlapped and annotated into 232 OTUs. Differential abundance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
+Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into Operational Taxonomic Units (OTUs) using UCLUST \cite{edgar2010search}, and annotated with the SILVA database \cite{quast2013silva} using mothur \cite{schloss2009introducing}, producing a table of counts per operational taxonomic unit per sample. Twelve milion (48\%) of the reads were succesfully overlapped and annotated into 232 OTUs. Differential abundance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 
 A generalized workflow for processing 16S rRNA gene sequencing reads is available at \url{https://github.com/ggloor/miseq_bin}. The workflow for the 16S rRNA gene tag experiment analysis from the count table stage is on GitHub: \url{https://github.com/ruthgrace/nafld_metaphlan_pca}.
 
@@ -160,7 +160,7 @@ NASH severity\\ \hline
 \bf{Study exclusion criteria}\\ \hline
 Took antibiotics at any point\\ \hline
 Started Optifast diet early\\ \hline
-Sample not frozen as quickly after collection\\ \hline
+Sample not frozen immediately after collection\\ \hline
 Blood glucose over 7.8 mmol/l\\ \hline
 \end{tabular}
 \label{nafld_table_1}
@@ -245,7 +245,7 @@ We ran the metagenomic sequences through MetaPhlAn to infer what the results wou
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
-\caption{\textbf{Biplot derived from MetaPhlAn.} This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explaiend by the first and the second coordinate is not particularly high, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
+\caption{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal coordinate analysis. The variance explained by each OTU is overlayed on the same principal coordinate analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explaiend by the first and the second coordinate is not particularly high, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
 \end{center}
 \label{nafld_metaphlan_biplot}
 \end{figure}
