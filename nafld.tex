@@ -208,6 +208,14 @@ No obvious structure or separation is evident from the principal components anal
 
 \begin{figure}[h]
 \begin{center}
+\includegraphics[width=0.95\textwidth]{16s_biplot.png}
+\caption{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal coordinate analysis. The variance explained by each OTU is overlayed on the same principal coordinate analysis plot. Note that the variance explained by the first and the second coordinate is 9\% and 8\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. }
+\end{center}
+\label{nafld_fig2}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_aldex.png}
 \caption{\textbf{Difference within vs. difference between groups.} Each point represents one OTU, and the differential abundance of that OTU within groups is plotted against the differential abundance between groups. None of the OTUs are more different between groups than within groups. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study.}
 \end{center}
@@ -245,7 +253,7 @@ We ran the metagenomic sequences through MetaPhlAn to infer what the results wou
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
-\caption{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal coordinate analysis. The variance explained by each OTU is overlayed on the same principal coordinate analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explaiend by the first and the second coordinate is not particularly high, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
+\caption{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal coordinate analysis. The variance explained by each OTU is overlayed on the same principal coordinate analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explained by the first and the second coordinate is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
 \end{center}
 \label{nafld_metaphlan_biplot}
 \end{figure}
