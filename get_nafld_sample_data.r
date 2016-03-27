@@ -1,27 +1,3 @@
-# run from exponent unifrac repo: /Users/dphamnyghonca/Desktop/gloor/exponentUnifrac
-
-MyMeta<- read.table("data/nash_data/metadata.txt", header=T, sep="\t", row.names=1, comment.char="", check.names=FALSE)
-
-otu.tab <- read.table("exponentUnifrac/data/nash_data/summed_data_gg.txt", header=T, sep="\t", row.names=1, comment.char="", check.names=FALSE)
-otu.tab <- t(otu.tab)
-metadata <- MyMeta[grepl("a$",rownames(MyMeta)),]
-rownames(metadata) <- gsub("a$","",rownames(metadata))
-
-groups <- metadata$SSvsNASH[match(rownames(otu.tab),rownames(metadata))]
-
-print(paste(length(which(is.na(groups))),"healthy subjects"))
-
-print(paste(length(which(groups==0)),"subjects with SS"))
-
-print(paste(length(which(groups==1)),"subjects with NASH"))
-
-print(paste(sum(otu.tab),"annotated reads"))
-
-print(paste(ncol(otu.tab),"OTUs"))
-
-
-
-
 # run using metadoot.tsv table in gloor folder
 d <- read.table("metadoot.tsv",sep="\t",quote="",row.names=1,header=TRUE)
 d <- d[which(d$stage == "baseline"),]
@@ -85,6 +61,3 @@ print(paste(sum(otu.tab),"annotated reads"))
 
 print(paste(ncol(otu.tab),"OTUs"))
 
-otu.tab <- t(otu.tab)
-
-write.table(otu.tab,file="exponentUnifrac/data/nash_data/summed_data_gg_baseline_only.txt", row.names=TRUE,quote=FALSE)
