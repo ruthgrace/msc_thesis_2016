@@ -102,9 +102,13 @@ Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into O
 
 [TO DO: the full workflow is included in APPENDIX (refernece)]
 
+The workflow for the 16S rRNA gene tag experiment analysis from the count table stage is on GitHub: \url{https://github.com/ruthgrace/nafld_metaphlan_pca}.
+
 \subsection{MetaPhlAn}
 
 MetaPhlAn (Metagenomic Phylogenetic Analysis) \cite{segata2012metagenomic} is a piece of software that allows one to infer the taxa present based on the metagenomic sequencing experiment. We used this to generate a count table per taxa per sample, and will compare it to our experimental results from the 16S rRNA gene tag sequencing experiment.
+
+The MetaPhlAn tutorial (\url{https://bitbucket.org/nsegata/metaphlan/wiki/MetaPhlAn_Pipelines_Tutorial}) was followed, using an additoinal marker_counts option in the merge_metaphlan_tables.py step to produce a count table instead of a relative abundance table. The workflow for the MetaPhlAn analysis from the count table stage is on GitHub: \url{https://github.com/ruthgrace/nafld_metaphlan_pca}.
 
 \subsection{Metagenomic experiment}
 
