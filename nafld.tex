@@ -227,7 +227,7 @@ When comparing all the healthy samples with all the NASH samples, the genus with
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_effect_sizes.png}
-\caption{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The y intercepts of the regression lines are all between 0.005 and 0.025, close to zero. The median difference in the absolute effect sizes is -0.02076 for Healthy vs. NASH - Healthy vs. SS, 0.017070 for Healthy vs. extreme NASH - Healthy vs. SS, and 0.04256 for Healthy vs. extreme NASH - Healthy vs. NASH.}
+\caption{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The median difference in the absolute effect sizes is -0.02076 for Healthy vs. NASH - Healthy vs. SS, 0.017070 for Healthy vs. extreme NASH - Healthy vs. SS, and 0.04256 for Healthy vs. extreme NASH - Healthy vs. NASH.}
 \end{center}
 \label{nafld_fig4}
 \end{figure}
@@ -268,6 +268,8 @@ A differential expression analysis performed with ALDEx2 between healthy vs. SS,
 \paragraph{MetaPhlAn}\mbox{}\\
 
 We ran the metagenomic sequences through MetaPhlAn to infer what the results would be with 16S rRNA gene tag sequencing, so that we could compare with our empirical 16S rRNA gene tag sequencing results. The effect size Spearman coefficient (Fig.~\ref{nafld_metaphlan_effect}) is smaller than the effect size coefficient between the healthy vs. SS and healthy vs. NASH comparison, even though in this case the same samples are being compared.
+
+The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and could not be compared directly, so the effect size comparison in Fig.~\ref{nafld_metaphlan_effect} was done at the genus level. Note that OTUs can reside in between genuses, such that the genus classificaiton is not perfectly concordant between the two comparisons.
 
 \begin{figure}[h]
 \begin{center}
