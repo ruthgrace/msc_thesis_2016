@@ -90,9 +90,7 @@ Since these five studies do not form a consistent story about the gut microbiome
 \FloatBarrier
 
 \section{Methods}
-In total, 92 samples were collected: 41 from patients with non-alcoholic steatohepatitis (NASH), 18 from patients with simple steatosis (SS), and 33 from healthy controls.
-
-[TO DO: include information about sample collection and exclusion criteria + BMI of healthy controls]
+In total, 92 samples were collected: 41 from patients with non-alcoholic steatohepatitis (NASH), 18 from patients with simple steatosis (SS), and 33 from healthy controls. The median BMIs were 26.70, 27.34, and 32.06, and the median ages were 36, 49, and 46.5 for healthy, SS, and NASH respectively.
 
 DNA extraction was performed with the \href{http://omegabiotek.com/store/product/stool-dna-kit/}{E.Z.N.A.® Stool DNA Kit}, and the protocol was followed with the addition of lysozyme with an extra 30 minute incubation at 37 degrees Celcius, between steps 2 and 3.
 
@@ -108,25 +106,47 @@ Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into O
 
 \textsc{\begin{table}[!ht]
 % \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\caption{ \textbf{List of inclusion and exclusion criteria.} The first table has the inclusion and exclusion criteria for the 16S rRNA gene tag experiment, and the second table has the exclusion critiera for the patients selected for the metagenomic study.}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\caption{ \textbf{List of overall study inclusion and exclusion criteria.} This table lists the inclusion and exclusion criteria for the 16S rRNA gene tag experiment.}
+\begin{tabular}{|l|}
 \hline
-\bf{OTU.ID} & \bf{A} & \bf{B} & \bf{\shortstack{A\\R1}} & \bf{\shortstack{B\\R1}} & \bf{\shortstack{A\\R2}} & \bf{\shortstack{B\\R2}}\\ \hline
-OTU.16340 & 52 & 1 & 8 & 1 & 12 & 1\\ \hline
-OTU.17317 & 17 & 4 & 3 & 4 & 5 & 4\\ \hline
-OTU.20 & 70 & 18 & 14 & 18 & 20 & 18\\ \hline
-OTU.37867 & 59 & 10 & 9 & 10 & 11 & 10\\ \hline
-\textbf{OTU.37990} & 7 & 59 & \textbf{0} & 59 & \textbf{1} & 59\\ \hline
-OTU.38187 & 646 & 115 & 132 & 115 & 122 & 115\\ \hline
-OTU.38446 & 6 & 8 & 0 & 8 & 1 & 8\\ \hline
-OTU.45429 & 218 & 6 & 55 & 6 & 49 & 6\\ \hline
+\bf{Study inclusion criteria}\\ \hline
+BMI > 40 kg/m2 or BMI >35-40 kg/m2 with severe weight loss responsive comorbidities, i.e. DM2, hypertension, hyperlipidemia, sleep apnea and/or gastroesophageal reflux disease or physical problems interfering with lifestyle (e.g., joint disease treatable but for the obesity, or body size problems precluding or severely interfering with employment, family function, and ambulation) and who have been assessed by the multidisciplinary bariatric team as suitable candidates for laparoscopic RYGB\\ \hline
+Male and female\\ \hline
+Age 18 years or older\\ \hline
+Alcohol consumption <20g/d\\ \hline
+If known to have hyperlipidemia or DM2, need to be stable drug regimen for at least 3 months prior to study entry\\ \hline
+\bf{Study exclusion criteria}\\ \hline
+Liver disease of other etiology\\ \hline
+Advanced liver disease (need for liver transplantation in one year or complications such as variceal bleeding, ascites or jaundice)\\ \hline
+Abnormal coagulation or other reasons contraindicating a liver biopsy\\ \hline
+Medications known to precipitate steatohepatitis 6 months prior to entry\\ \hline
+Regular intake of non-steroidal anti-inflammatory drugs; prebiotics, probiotics or antibiotics, ursodeoxycholic acid or any experimental drug in the 3 months prior to study entry\\ \hline
+Type 1 diabetes\\ \hline
+Chronic gastrointestinal diseases\\ \hline
+Previous gastrointestinal surgery modifying the anatomy (prior to bariatric surgery)\\ \hline
+Smoking\\ \hline
+Pregnancy or breastfeeding\\ \hline
+Patients not tolerating Optifast, which is a standard weight loss diet given to all patients pre-bariatric surgery\\ \hline
 \end{tabular}
-\begin{flushleft}
-\end{flushleft}
 \label{nafld_table_1}
 % \end{adjustwidth}
 \end{table}}
 
+\textsc{\begin{table}[!ht]
+% \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\caption{ \textbf{List of inclusion and exclusion criteria for metagenomic study.} Patients were selected for the metagenomic study out of the patients selected for the 16S rRNA gene tag sequencing study with the following criteria. Ten healthy and ten patients with NASH were selected in total.}
+\begin{tabular}{|l|}
+\hline
+\bf{Study inclusion criteria}\\ \hline
+
+\bf{Study exclusion criteria}\\ \hline
+Took antibiotics at any point\\ \hline
+Started Optifast diet early\\ \hline
+Sample not frozen as quickly after collection\\ \hline
+\end{tabular}
+\label{nafld_table_1}
+% \end{adjustwidth}
+\end{table}}
 
 A metagenomic sequencing experiment was performed using total bacterial DNA from 10 healthy controls and 10 of the patients with NASH. Samples from healthy patients were selected to exclude confounding factors. Samples from NASH patients were selected for the most extreme NASH phenotype, and had higher effect sizes in the 16S rRNA gene tag experiment than the full NASH group.
 
