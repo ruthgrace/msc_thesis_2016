@@ -84,3 +84,7 @@ print(paste(length(which(d$HealthyVsNASH=="NASH")),"subjects with NASH"))
 print(paste(sum(otu.tab),"annotated reads"))
 
 print(paste(ncol(otu.tab),"OTUs"))
+
+otu.tab <- t(otu.tab)
+
+write.table(otu.tab,file="exponentUnifrac/data/nash_data/summed_data_gg_baseline_only.txt", row.names=TRUE,quote=FALSE)
