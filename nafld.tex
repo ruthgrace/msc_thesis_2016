@@ -90,15 +90,15 @@ Since these five studies do not form a consistent story about the gut microbiome
 \FloatBarrier
 
 \section{Methods}
-In total, 92 samples were collected: 41 from patients with non-alcoholic steatohepatitis (NASH), 18 from patients with simple steatosis (SS), and 33 from healthy controls. The median BMIs were 26.70, 27.34, and 32.06, and the median ages were 36, 49, and 46.5 for healthy, SS, and NASH respectively.
+In total, 67 samples were collected: 29 from patients with non-alcoholic steatohepatitis (NASH), 14 from patients with simple steatosis (SS), and 24 from healthy controls. The median BMIs were 26.70, 27.34, and 32.06, and the median ages were 36, 49, and 46.5 for healthy, SS, and NASH respectively.
 
 DNA extraction was performed with the \href{http://omegabiotek.com/store/product/stool-dna-kit/}{E.Z.N.A.® Stool DNA Kit}, and the protocol was followed with the addition of lysozyme with an extra 30 minute incubation at 37 degrees Celcius, between steps 2 and 3.
 
 \subsection{16S rRNA gene tag experiment}
 
-DNA was amplified by PCR using the Earth Microbiome V4 primer set \cite{caporaso2012ultra}, with the addition of combinatorial in-line barcodes so that all the samples could be sequenced in the same sequencing run \cite{gloor2010microbiome}. The DNA was sequenced on the Illumina MiSeq platform with paired end 220 nucleotide reads, producing 35 million reads in total.
+DNA was amplified by PCR using the Earth Microbiome V4 primer set \cite{caporaso2012ultra}, with the addition of combinatorial in-line barcodes so that all the samples could be sequenced in the same sequencing run \cite{gloor2010microbiome}. The DNA was sequenced on the Illumina MiSeq platform with paired end 220 nucleotide reads, producing 25 million reads in total.
 
-Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into Operational Taxonomic Units using UCLUST \cite{edgar2010search}, and annotated with the SILVA database \cite{quast2013silva} using mothur \cite{schloss2009introducing}, producing a table of counts per operational taxonomic unit per sample. 17 million reads (48\%) were succesfully overlapped and annotated into 232 OTUs. Differential abundance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
+Reads were overlapped with Pandaseq \cite{masella2012pandaseq}, clustered into Operational Taxonomic Units using UCLUST \cite{edgar2010search}, and annotated with the SILVA database \cite{quast2013silva} using mothur \cite{schloss2009introducing}, producing a table of counts per operational taxonomic unit per sample. Twelve milion (48\%) of the reads were succesfully overlapped and annotated into 232 OTUs. Differential abundance was analyzed using ALDEx2 \cite{fernandes2014unifying}.
 
 [TO DO: the full workflow is included in APPENDIX (refernece)]
 

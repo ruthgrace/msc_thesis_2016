@@ -2,7 +2,7 @@
 
 MyMeta<- read.table("data/nash_data/metadata.txt", header=T, sep="\t", row.names=1, comment.char="", check.names=FALSE)
 
-otu.tab <- read.table("data/nash_data/summed_data_gg.txt", header=T, sep="\t", row.names=1, comment.char="", check.names=FALSE)
+otu.tab <- read.table("exponentUnifrac/data/nash_data/summed_data_gg.txt", header=T, sep="\t", row.names=1, comment.char="", check.names=FALSE)
 otu.tab <- t(otu.tab)
 metadata <- MyMeta[grepl("a$",rownames(MyMeta)),]
 rownames(metadata) <- gsub("a$","",rownames(metadata))
@@ -63,3 +63,24 @@ as.character(metagenomic.metadata$exclusion.criteria)
   #   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   #  33.00   44.50   49.00   47.43   51.75   61.00 
    
+otu.tab <- read.table("exponentUnifrac/data/nash_data/summed_data_gg.txt", header=T, sep="\t", row.names=1, comment.char="", check.names=FALSE)
+otu.tab <- t(otu.tab)
+
+otu.tab.d <- rownames(d)
+otu.tab.d <- gsub("\\(","-",otu.tab.d)
+otu.tab.d[which(otu.tab.d == "CL-151-BL-2")] <- "CL-151-BL-R2"
+otu.tab.d[which(otu.tab.d == "CL-141-BL-2")] <- "CL-141-BL-R2"
+otu.tab.d[which(otu.tab.d == "CL-166-BL-2")] <- "CL-166-BL"
+
+otu.tab.original <- otu.tab
+otu.tab <- otu.tab[which(rownames(otu.tab) %in% otu.tab.d),]
+
+print(paste(length(which(d$HealthyVsNASH=="Healthy")),"healthy subjects"))
+
+print(paste(length(which(is.na(d$HealthyVsNASH))),"subjects with SS"))
+
+print(paste(length(which(d$HealthyVsNASH=="NASH")),"subjects with NASH"))
+
+print(paste(sum(otu.tab),"annotated reads"))
+
+print(paste(ncol(otu.tab),"OTUs"))
