@@ -1,8 +1,28 @@
-\chapter{Proofs of Theorems}\label{AppA}
+\chapter{Workflows}\label{AppA}
 \myappendices{Appendix \ref{AppA} \byname{AppA}}
-\begin{proof}[Proof of Theorem \ref{eipi}]
-\begin{eqnarray}
-e^{i\pi} &=& \cos(\pi) + i\sin(\pi)\\
-&=& -1
-\end{eqnarray} \qed
-\end{proof}
+\section{Non-alcoholic fatty liver disease metagenomic workflow}
+
+\subsection{Filter OTUs}
+In this experiment, the sequencing depth is expected to have the power to detect a 2 fold change up or down in bacteria that are 0.2\% abundant in a sample. The OTUs were filtered to remove any with an abundance lower than 0.2\% in all samples, and the OTU seed sequences were retrieved.
+
+\subsection{Get reference library genomes}
+The list of genomes used in the reference library was created using two sources: the Human Microbiome Project gut reference genomes (http://hmpdacc.org/HMRGD/healthy/), and the NCBI complete and draft bacterial genomes (http://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch&BLAST_SPEC=MicrobialGenomes).
+
+\paragraph{Human Microbiome Project}\mbox{}\\
+The Human Microbiome Project gut reference genomes (http://hmpdacc.org/HMRGD/healthy/) were all added to the reference library genome list for the metagenomic study.
+
+\paragraph{NCBI complete and draft bacterial genomes}\mbox{}\\
+The draft and complete bacterial genomes can be queried here: \url{http://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch&BLAST_SPEC=MicrobialGenomes}. During this process, we ran into a bug using the NCBI webtool and had to search once through the wgs database, and once with Complete Genomes to get both the draft and the complete genomes.
+
+The BLAST output can be downloaded. In this case we were only interested in the genomes that matched with 98\% identity or greater. For these genomes we extracted the GI number, and performed web scraping in Python to visit \url{http://www.ncbi.nlm.nih.gov/nuccore/\<GI number\>} and programatically retrieve the taxon ID. The taxon ID is found in \url{ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt} and the corresponding FTP link is used to download the genome. For each species found by this method, the genomes for 10 random strains are downloaded (or all of the strains if there are less than 10), to increase the coverage of the library.
+
+\subsection{Get reference library coding sequences}
+Some of the genomes have a .gff file which includes the locations of the coding sequences already. For the rest, we used Glimmer \cite{delcher2007identifying} to predict open reading frames.
+
+\subsection{Annotate reference library coding sequences}
+Annotation was performed by querying the SEED database \cite{overbeek2005subsystems} using command line BLAST (\url{http://www.ncbi.nlm.nih.gov/books/NBK279690/}). This is the most computationally intensive part of the process and can take a number of days, depending on your computing platform. The specific SEED database we used was downloaded June 2013, and had the fig.pegs from the 2010 SEED database which are missing from the 2013 database manually added in.
+
+\subsection{Map seqeunced reads to reference library}
+Once the sequenced reads are available, they can be mapped to the reference library using Bowtie2 \cite{langmead2012fast}. Custom scripts were used to convert the mapping output to a table of counts per annotation per sample, which can then be analyzed with differential expression tools such as ALDEx2 \cite{fernandes2014unifying}.
+
+All of the scripts used to perform the above for the metagenomic non-alcoholic fatty liver disease experiment can be found at \url{https://github.com/ruthgrace/make_functional_mapping_library} in their unedited glory.
