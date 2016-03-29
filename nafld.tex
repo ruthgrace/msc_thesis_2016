@@ -377,12 +377,12 @@ Family XIII & Incertae Sedis & $91$ & $-0.985$ & $-0.563$ & $-0.622$ & NA & NA \
 
 We ran the metagenomic sequences through MetaPhlAn to infer what the results would be with 16S rRNA gene tag sequencing, so that we could compare with our empirical 16S rRNA gene tag sequencing results. The effect size Spearman coefficient (Fig.~\ref{nafld_metaphlan_effect}) is smaller than the effect size coefficient between the healthy vs. SS and healthy vs. NASH comparison, even though in this case the same samples are being compared.
 
-The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and could not be compared directly, so the effect size comparison in Fig.~\ref{nafld_metaphlan_effect} was done at the genus level. Note that OTUs can reside in between genuses, such that the genus classificaiton is not perfectly concordant between the two comparisons.
+The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and could not be compared directly, so the effect size comparison in Fig.~\ref{nafld_metaphlan_effect} was done at the genus level. Note that OTUs can reside in between genuses, such that the genus classificaiton is not perfectly concordant between the two comparisons. The top four relatively abundant genera from the MetaPhlAn analysis were \textit{Ruminococcus}, \textit{Eubacterium}, \textit{Coprococcus}, and \textit{Bacteroides}. Only \textit{Bacteroides} is also on the top four relatively abundant genera from the 16S rRNA gene tag sequencing experiment.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_barplot_dendogram.png}
-\caption{\textbf{Taxa barplot dendogram derived from MetaPhlAn.} The metagenomic reads were input into MetaPhlAn to generate a count table. The taxa in the count table were filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that three samples were output to have exactly the same counts (HLD\_80, HLD\_85, and CL\_165), despite not all being in the same condition.}
+\caption{\textbf{Taxa barplot dendogram derived from MetaPhlAn.} The metagenomic reads were input into MetaPhlAn to generate a count table. The taxa in the count table were filtered such that only taxa with at least 1\% abundance in any sample was kept. In this barplot, each bar represents one sample, and each color represents one genus, with the size of the colored segments corresponding with the relative abundance of the genus.}
 \end{center}
 \label{nafld_metaphlan_barplot}
 \end{figure}
