@@ -1,6 +1,6 @@
 \chapter{Introduction}
 % Following the PLoS guidelines, I will use sections, subsections, and paragraphs for my headings.
-This thesis focuses on the human microbiome, its relation to human diseases, and techniques used in the data analysis and exploration of it. During the course of my thesis, I conducted one study about non-alcoholic fatty liver disease, and wrote a conference paper about alternate weightings of a common microbiome analysis technique (UniFrac). Each of these topics is represented as a chapter of my thesis.
+This thesis focuses on the human microbiome, its relation to human diseases, and techniques used in the analysis and exploration of data derived from it. During the course of my thesis, I conducted one study about non-alcoholic fatty liver disease, and investigated alternate weightings of a common microbiome analysis technique (UniFrac). Each of these topics is represented as a chapter of my thesis.
 
 \section{The human microbiome}
 Approximately half of the cells that make up the human body are bacterial \cite{sender2016revised}. Trillions of these bacteria live in the gut \cite{guarner2003gut}, and have a massive metabolic potential. For example, the gut microbiome has been shown to produce changes in hormone levels \cite{markle2013sex}, short chain fatty acid levels \cite{turnbaugh2008diet}, and ethanol levels \cite{krebs1970physiological}, to name a few. The human gut microbiome can even digest polysaccharides otherwise unusable by humans \cite{flint2008polysaccharide}.
@@ -71,7 +71,7 @@ There are several very general steps to the pre-sequencing process:
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height=0.8\textheight]{16S_rRNA_pipeline.png}
-\caption{\textbf{16S rRNA gene tag experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a count table of reads per operational taxonomic unit per sample.}
+\caption[16S rRNA gene tag experiment workflow.]{\textbf{16S rRNA gene tag experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a count table of reads per operational taxonomic unit per sample.}
 \end{center}
 \end{figure}
 
@@ -126,7 +126,7 @@ In 2005, Lozupone et al introduced the UniFrac distance metric, a measure to cal
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=\textwidth]{unifrac.png}
-\caption{\textbf{Unweighted UniFrac.} When two samples do not share any branches of the phylogenetic tree, the unweighted UniFrac distance is maximized at 1. When two samples share half of their branch lengths on the phylogenetic tree, the unweighted UniFrac distance is 0.5. If the two samples contain exactly the same taxa, the unweighted UniFrac distance is minimized at 0, since the samples share all branches.}
+\caption[Unweighted UniFrac.]{\textbf{Unweighted UniFrac.} When two samples do not share any branches of the phylogenetic tree, the unweighted UniFrac distance is maximized at 1. When two samples share half of their branch lengths on the phylogenetic tree, the unweighted UniFrac distance is 0.5. If the two samples contain exactly the same taxa, the unweighted UniFrac distance is minimized at 0, since the samples share all branches.}
 \end{center}
 \end{figure}
 
@@ -164,7 +164,7 @@ All of this information can be determined by either imputation or actual sequenc
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height=0.8\textheight]{Metagenomic_pipeline.png}
-\caption{\textbf{Metagenomic experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a table of number of sequencing reads per functionally annotated gene per sample.}
+\caption[Metagenomic experiment workflow.]{\textbf{Metagenomic experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a table of number of sequencing reads per functionally annotated gene per sample.}
 \end{center}
 \end{figure}
 
@@ -207,7 +207,7 @@ Data analysis can be performed by performed by seeing if functions are different
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=\textwidth]{stripchart.png}
-\caption{\textbf{Example of stripcharts for subsystem 2 and 3 functional categorizations.} Dots on the left side are subsystem 4 annotations found to be more abundant in the healthy condition while dots on the right side are subsystem 4 annotations found to be more abundant in the bacterial vaginosis condition. Colored dots were found to be significantly differentially abundant. Figure taken from \cite{macklaim2013comparative}.}
+\caption[Example of stripcharts for subsystem 2 and 3 functional categorizations.]{\textbf{Example of stripcharts for subsystem 2 and 3 functional categorizations.} Dots on the left side are subsystem 4 annotations found to be more abundant in the healthy condition while dots on the right side are subsystem 4 annotations found to be more abundant in the bacterial vaginosis condition. Colored dots were found to be significantly differentially abundant. Figure taken from \cite{macklaim2013comparative}.}
 \end{center}
 \end{figure}
 
