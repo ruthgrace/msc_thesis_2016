@@ -5,7 +5,7 @@ It is clear that more robust statistical analysis is necessary in this field. Th
 
 The chapter about nonalcoholic fatty liver disease (NAFLD) showcased five studies which all claimed to have found a difference in the gut microbiome of patients with nonalcoholic fatty liver disease compared to healthy controls, but with almost non-overlapping results (Fig.~\ref{nafld_fig1}). Some of the variation can be explained by differences in sequencing platform (Roche 454 vs. Illumina MiSeq). More variation can be explained by the variable region of the 16S rRNA gene chosen for sequencing - one study used V1-2, one study used V3, one study used V4, and the other two studies did not report which variable region was used. Three out of five studies used healthy controls with a lower BMI than the NAFLD group, such that differences due to level of obesity could not be distinguished from differences due to NAFLD. Lastly, only one of the studies performed a multiple test correction, so most of the results could not be distinguished from false positives.
 
-[TODO: add in bit about nature statistics biology and reproducibility craziness]
+[TODO: add in bit about nature statistics biology and reproducibility]
 
 \section{Recommendations}
 Throughout this thesis we have made a case for compositional data analysis. Currently the analytical tools with the most widespread use in the field are the unweighted and weighted UniFrac distance for principal components analysis or principal coordinates analysis, along with software such as metagenomeSeq \cite{paulson2014metagenomeseq}, DESeq2 \cite{love2014moderated}, and metastats \cite{paulson2011metastats} for differential expression analysis. These are commonly accessed through pipelines such as QIIME and mothur. Many of these have roots in ecology, for example, the Shannon diversity index. Shannon diversity is commonly measured in microbiome papers, but does not make sense for complex biological samples where diversity can be increased by performing deeper sequencing to uncover more bacterial taxa.
@@ -18,17 +18,12 @@ Additionally, the use of pipelines make it easy for researchers to attempt to an
 
 \section{Summary}
 
-summary/conclusion
-- we did some methods development and applied it to nafld
-- found that many studies in this field cannot be replicated
-- made recommendations
+In this work we have done some methods development and applied it to a study on the gut microbiome of patients with nonalcoholic fatty liver disease (NAFLD). Specifically, we investigated alternate weightings for the UniFrac distance metric (information and ratio UniFrac), allowing the visualization of outliers in certain cases (Fig.~\ref{fig7}), as well as the spread of similar but non-identical data (Fig.~\ref{fig8}). In the NAFLD study, ratio UniFrac produces a principal component analysis with 34.8\% of the variance explained in the first component, compared to 24.4\% for weighted UniFrac and 14.4\% in unweighted UniFrac.
 
-field needs some standards like clinical genomics (other fields?)
-GWAS studies - reproducibility/batch effects
+We have also found that many studies in the field are not performed in a statistically sound way, publishing results that cannot be reproduced. Resources, software, and tool recommendations are made in the previous section to prevent this.
 
-microbiome standardized way too early, before they knew what they were looking at
-- the human microbiome project
-- done by ecologists ?
- — ecological diversity (one of hte HMP paper in supplementary data, found that diversity indices track how deeply you sequence and tell you nothing else)
+The field of microbiome research is in need of standards, such as those set for clinical genomics. When clinical genomics was a budding field, many genome wide association studies were published claiming to have found single nucleotide polymorphisms (SNPs) corresponding to genetic conditions. Discordant results between similar studies prompted the development of standards to ensure statistical validity in analysis and reproducible results. The quality of this information was paramount as study results moved from research labs to clinics for patient genetic counselling. Factors contributing to irreproducibility included batch effects from sample processing \cite{leek2010tackling}, ancestry differences \cite{price2006principal}, and variations in genotype calling methods \cite{miclaus2010variability}, and recommendations were made to avoid pooling the sequences together \cite{mccarthy2008genome}, and for using sample sizes in the thousands \cite{burton2007genome}, stratification detection \cite{price2006principal}, and technical replicates \cite{hong2012technical}, and experimental validation \cite{mccarthy2008genome}. Patient genomes must be sequenced at 30 times coverage or higher to validate the presence of SNPs \cite{rehm2013acmg}
 
-- learned as they went along, but were under a tight timeline
+Interestingly, the field of microbiome research seems to have standardized too early. Efforts such as the Human Microbiome Project, set a precident for the types of analyses performed, as well as the tools and techniques researchers use. Some of these have foundations in ecology and are not necessarily applicable to microbiome research, and only a limited number of alternatives have been discussed in the literature. Pipelines such as QIIME \cite{caporaso2010qiime} and mothur \cite{schloss2009introducing} make it comparatively difficult for researchers to explore other analysis options, both in terms of analysing the data, but also in terms of getting alternative options published, due to bias from peer reviews for the standard techniques.
+
+The field of microbiome research has shown lots of promise, yeilding findings such as an obesity-associated increased capacity for energy harvest \cite{turnbaugh2006obesity}, and leading to clinical interventions for diseases such as \textit{C. diff} \cite{petrof2013stool}. With more time and more research, tools and techniques will be developed to perform robust microbiome research, potentially leading to methods to modulate the microbiome and increase quality of life through preventative and restorative medical interventions.
