@@ -21,17 +21,18 @@ The questions that the data can answer directly are: Is there a significant diff
 The two metagenomic experiments that can be done with microbiome next generation sequencing data used in this thesis are gene tag abundance and deep metagenomic sequencing \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}. The process and resulting data of each experiment is described in the next section, followed by a piece about data analysis and points of failure.
 
 \section{Illumina next generation sequencing platform}
-Illumina is a next generation sequencing platform. The Illumina MiSeq machines yields up to 25 million reads of paired end 300 nucleotide sequences, and the Illumina HiSeq machines yield up to 4 billion reads of paired end 125 nucleotide sequences, as stated on the official Illumina website (http://www.illumina.com/systems.html). The sequencing works as follows:
+The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illumina MiSeq machines yields up to 25 million reads of paired end 300 nucleotide sequences, and the Illumina HiSeq machines yield up to 4 billion reads of paired end 125 nucleotide sequences, as stated on the official Illumina website (http://www.illumina.com/systems.html). The sequencing works as follows:
 
 \begin{enumerate}
 \item DNA is amplified or fragmented to smaller pieces
 \item Adaptors are ligated to the ends of the DNA
 \item The DNA is denatured into single strands
-\item The DNA washed on a flow cell covered in primers, such that complementary DNA sticks
-\item The DNA on the flow cell is replicated to form clusters of identical sequences
+\item The DNA is placed on a flow cell covered in oligonucleotides, such that the DNA fragments are bound to the oligonucleotides
+\item The DNA on the flow cell is replicated in situ to form clusters of identical sequences
 \item The DNA is made single stranded again
 \item Primers, nucleotides, DNA polymerase, and fluorescently labelled nucleotide terminators are added
-\item A camera can detect the fluorescently labelled nucleotide terminators for each added base on each cluster of identical sequences, allowing the DNA to be sequenced.
+\item A microscope can detect the fluorescently labelled nucleotide terminators for each added base on each cluster of identical sequences, allowing the DNA to be sequenced.
+\item Fluorescent bases are repeated added until the desired number of cycles is complete.
 \end{enumerate}
 
 The Illumina technology has been used for years \cite{bentley2008accurate}, and standard protocols exist for library preparation, with kits available commercially.
