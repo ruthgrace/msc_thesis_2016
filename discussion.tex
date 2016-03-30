@@ -1,15 +1,22 @@
 \chapter{Discussion}
 
+\section{Rampant lack of reproducibility}
 It is clear that more robust statistical analysis is necessary in this field. The chapter on expanding the UnIFrac toolbox highlighted examples of misuse of unweighted UniFrac in papers published in Cell and Nature. One claimed to find differences in the gut microbiome of mice modelling autism spectrum disorder, compared to healthy controls. The other claimed to find differences in the gut microbiome of humanized mice fed a more traditional fibrous diet compared to mice compared to mice fed a diet similar in composition to the Western diet. These studies had small sample sizes (n = 20 and 10 respectively), used unweighted UniFrac (which we have shown to be unreliable), and had a low amount of variance explained by the principal components axes (14\% on PC1).
 
 The chapter about nonalcoholic fatty liver disease (NAFLD) showcased five studies which all claimed to have found a difference in the gut microbiome of patients with nonalcoholic fatty liver disease compared to healthy controls, but with almost non-overlapping results (Fig.~\ref{nafld_fig1}). Some of the variation can be explained by differences in sequencing platform (Roche 454 vs. Illumina MiSeq). More variation can be explained by the variable region of the 16S rRNA gene chosen for sequencing - one study used V1-2, one study used V3, one study used V4, and the other two studies did not report which variable region was used. Three out of five studies used healthy controls with a lower BMI than the NAFLD group, such that differences due to level of obesity could not be distinguished from differences due to NAFLD. Lastly, only one of the studies performed a multiple test correction, so most of the results could not be distinguished from false positives.
 
-recommendations
-- compositional data analysis
-- look at your data (variance explained, etc.)
-- ways to make inferences on data that are not p-value based (like our effect size stuff)
+[TODO: add in bit about nature statistics biology and reproducibility craziness]
 
-nature statistics biology
+\section{Recommendations}
+Throughout this thesis we have made a case for compositional data analysis. Currently the analytical tools with the most widespread use in the field are the unweighted and weighted UniFrac distance for principal components analysis or principal coordinates analysis, along with software such as metagenomeSeq \cite{paulson2014metagenomeseq}, DESeq2 \cite{love2014moderated}, and metastats \cite{paulson2011metastats} for differential expression analysis. These are commonly accessed through pipelines such as QIIME and mothur. Many of these have roots in ecology, for example, the Shannon diversity index. Shannon diversity is commonly measured in microbiome papers, but does not make sense for complex biological samples where diversity can be increased by performing deeper sequencing to uncover more bacterial taxa.
+
+While compositional data analysis may not be at a stage where it is ready to set as the standard analytical tool, we believe that this model is much closer to the correct answer than the standard toolkit used by microbiome researchers. Recommended compositional data resources include the book \textit{Analyzing compositional data with R} \cite{van2013analyzing}, the 16S rRNA gene sequencing compositional analysis workshop (hosted online \href{https://github.com/ggloor/compositions/blob/master/background_reading/CJM_supplement/workshop.pdf}{on GitHub}) and all the other resources hosted by the CoDa organization (\url{http://www.compositionaldata.com/}). Recommended software and tools for microbial network correations include SPARCC \cite{friedman2012inferring}, SpiecEasi \cite{kurtz2015sparse} or the phi metric \cite{lovell2015proportionality}. Recommended software and tools for differential expression analysis include the analysis of composition of microbiomes (ANCOM) \cite{mandal2015analysis} and ALDEx2 for differential expression analysis \cite{fernandes2014unifying}.
+
+There is also a dependance on the p-value for statistical analysis, which may not make sense in microbiome research where the number of variables being compared is far greater than the number of samples. We recommend other approaches such as looking at patterns in effect size as with the NAFLD study, where we found that the effect size of the OTUs relatively increased in one condition tended to increase with the severity of the disease.
+
+Additionally, the use of pipelines make it easy for researchers to attempt to analyse their data without looking at the data raw. We recommend visualizing the data in bar graphs (as in Fig.~\ref{nafld_16s_barplot}), principal components (as in Fig.~\ref{nafld_fig2}), as well as looking at the raw counts throughout the analysis process. This way the research can identify outliers that may not be obvious by conventional analytical techniques (Fig.~\ref{fig7}), correct data formatting errors, and ensure that filters and other data transformations are not removing all of the useful information.
+
+\section{Summary}
 
 summary/conclusion
 - we did some methods development and applied it to nafld
