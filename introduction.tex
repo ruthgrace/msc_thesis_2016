@@ -5,37 +5,42 @@ This thesis focuses on the human microbiome, its relation to human diseases, and
 \section{The human microbiome}
 Approximately half of the cells that make up the human body are bacterial \cite{sender2016revised}. Trillions of these bacteria live in the gut \cite{guarner2003gut}, and have a massive metabolic potential. For example, the gut microbiome has been shown to produce changes in hormone levels \cite{markle2013sex}, short chain fatty acid levels \cite{turnbaugh2008diet}, and ethanol levels \cite{krebs1970physiological}, to name a few. The human gut microbiome can even digest polysaccharides otherwise unusable by humans \cite{flint2008polysaccharide}.
 
-This massive metabolic potential produces measurable symptomatic effects. Transplanting gut bacteria from obese mice to lean mice has been shown to convert lean mice to absorb more calories from the same food \cite{turnbaugh2006obesity}. The microbiome can also affect behavior: Completely germ free mice exhibit more anxiety-like behaviors than specific pathogen free mice \cite{neufeld2011reduced}.
+This massive metabolic potential produces measurable symptomatic effects. Transplanting gut bacteria from obese mice to lean mice has been shown to allow lean mice to absorb more calories from the same amount of food, thereby becoming more obese \cite{turnbaugh2006obesity}. The microbiome can also affect behavior: Completely germ free mice exhibit more anxiety-like behaviors than specific pathogen free mice that contain a complex gut microbiome \cite{neufeld2011reduced}.
 
-Study of the human microbiome opens up a host of possibilities for reducing the effects of disease and improving quality of life. However, until recently, a deep understanding of the human microbiome has been beyond the reach of available technology. For example, \textit{Escherichia coli} is a common model gut bacteria because it is easy to culture, however in reality this species only makes up less than 1\% of the average human gut microbiome \cite{arumugam2011enterotypes}.
+Study of the human microbiome opens up a host of possibilities for reducing the effects of disease and improving quality of life. However, until recently, a deep understanding of the human microbiome has been beyond the reach of available technology. For example, \textit{Escherichia coli} is a common model gut bacteria because it is easy to culture, however in reality this species makes up less than 1\% of the average human gut microbiome \cite{arumugam2011enterotypes}.
 
-With the advent of next generation sequencing, scientists can obtain a more comprehensive snapshot of the bacterial composition of the microbiome, what genes they have, and what proteins they produce \cite{di2013high}. We are in a phase of developing the experiments and accompanying statistical techniques to elucidate the exact mechanisms by which the human microbiome affects health and disease. Armed with a deeper understanding of how the microbiome works, we may be able to modulate the microbiome to improve quality of life.
+With the advent of next generation DNA sequencing, scientists can obtain a more comprehensive snapshot of the bacterial composition of the microbiome, what genes are present, and what proteins are produced \cite{di2013high}. We are in a phase of developing the experiments and accompanying statistical techniques to elucidate the exact mechanisms by which the human microbiome affects health and disease. Armed with a deeper understanding of how the microbiome works, we may be able to modulate the microbiome to improve quality of life.
 
 \section{Exploring the human microbiome}
-The advent of next generation sequencing prompted the development of various experiments on sampling the human microbiome. Samples can be collected by swabbing the target body site or collecting excretions such as saliva or stool. Products such as DNA or RNA may be extracted from these samples as appropriate for the analysis.
+The advent of next generation DNA sequencing prompted the development of various experiments on sampling the human microbiome. Samples can be collected by swabbing the target body site or collecting excretions such as saliva or stool. Products such as DNA or RNA may be extracted from these samples as appropriate for the analysis.
 
-A comparative study design involves an experimental group and a control group. The study subjects can be patients with disease and healthy controls \cite{macklaim2013comparative}, people who are susceptible and resistant to a condition \cite{theriot2014antibiotic}, or patients before and after a medical intervention \cite{graessler2013metagenomic}. The questions that scientists in this field want to answer are: Is the human microbiome driving or associated with the difference between the two groups? If so, what is the mechanism of action? There are also exploratory studies determining the similarities in the microbiomes of specific body sites among patients with similar medical conditions.
+A comparative study design involves an experimental group and a control group. The study subjects can be patients with disease and healthy controls \cite{macklaim2013comparative}, people who are susceptible and resistant to a condition \cite{theriot2014antibiotic}, or patients before and after a medical intervention \cite{graessler2013metagenomic}. The questions that scientists in this field want to answer are: Is the human microbiome driving or associated with the difference between the two groups? If so, what is the mechanism of action? There are also exploratory studies that try to determine the similarities in the microbiomes of specific body sites among patients with similar medical conditions.
 
 Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis we can gather clues about the larger questions of the mechanism of action.
 
-In this thesis, I have performed two metagenomic experiments that can be done with microbiome next generation sequencing data: gene tag abundance (Fig.~\ref{16s_workflow}) and metagenomic sequencing (Fig.~\ref{metagenomic_workflow}) \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}.
+In this thesis, I have performed two metagenomic experiments that can be done with microbiome next generation DNA sequencing data: gene tag abundance (Fig.~\ref{16s_workflow}) and metagenomic sequencing (Fig.~\ref{metagenomic_workflow}) \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}.
 
 \section{Illumina next generation sequencing platform}
-The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illumina MiSeq machines yields up to 25 million reads of paired end 300 nucleotide sequences. The Illumina HiSeq machines yield up to 4 billion reads of paired end 125 nucleotide sequences, as stated on the official Illumina website (http://www.illumina.com/systems.html). The sequencing works as follows:
+The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illumina MiSeq machines yields up to 25 million paired end reads up to 300 nucleotides long. The Illumina HiSeq machines yield up to 4 billion paired end reads up to 125 nucleotides long, as stated on the official Illumina website (http://www.illumina.com/systems.html). The general sequencing workflow is as follows:
 
 \begin{enumerate}
-\item DNA is amplified or fragmented to smaller pieces
-\item Adaptors are ligated to the ends of the DNA
-\item The DNA is denatured into single strands
-\item The DNA is placed on a flow cell covered in oligonucleotides, such that the DNA fragments are bound to the oligonucleotides
-\item The DNA on the flow cell is replicated in situ to form clusters of identical sequences
-\item The DNA is made single stranded again
-\item Primers, nucleotides, DNA polymerase, and fluorescently labelled nucleotide terminators are added
+\item DNA is amplified or fragmented to smaller pieces of approximately 1000 nucleotides or less
+\item Adaptors are joined to the ends of the DNA
+\item The DNA is denatured
+\item The DNA is placed on a flow cell covered in oligonucleotides complimentary to the adaptor sequences, such that the DNA fragments are bound to the oligonucleotides
+\item The DNA on the flow cell is replicated \textit{in situ} to form clusters of identical sequences
+\item The DNA is denatured
+\item Primers, nucleotides, DNA polymerase, and fluorescently labelled deoxyribonucleotide triphosphate terminators are added
 \item A microscope can detect the fluorescently labelled nucleotide terminators for each added base on each cluster of identical sequences, allowing the DNA to be sequenced.
-\item Fluorescent bases are added repeatedly until the desired number of cycles is complete.
+\item Fluorescent terminators are removed, exposing a 3'OH
+\item Steps 7-9 are repeated until the desired number of cycles is complete.
 \end{enumerate}
 
 The Illumina sequencing technology is the industry standard for metagenomic studies \cite{bentley2008accurate}, and library preparation kits and protocols are available commercially.
+
+[TO DO: add advantages/limitations section of illumina tech, compared to Solid, 454]
+
+Unlike a technology such as qPCR, Illumina and other next generation DNA sequencing technologies deliver data as parts per machine limit, not a count of molecules in the sample.
 
 \section{Gene tag abundance}
 Gene tag abundance experiments provide an estimate of the proportion of different bacterial taxa in the sample. This can be used to answer questions such as:
