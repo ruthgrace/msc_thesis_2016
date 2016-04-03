@@ -18,7 +18,7 @@ A comparative study design involves an experimental group and a control group. T
 
 Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis we can gather clues about the larger questions of the mechanism of action.
 
-In this thesis, I have performed the two metagenomic experiments that can be done with microbiome next generation sequencing data: gene tag abundance and metagenomic sequencing \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}.
+In this thesis, I have performed two metagenomic experiments that can be done with microbiome next generation sequencing data: gene tag abundance (Fig.~\ref{16s_workflow}) and metagenomic sequencing (Fig.~\ref{metagenomic_workflow}) \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}.
 
 \section{Illumina next generation sequencing platform}
 The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illumina MiSeq machines yields up to 25 million reads of paired end 300 nucleotide sequences. The Illumina HiSeq machines yield up to 4 billion reads of paired end 125 nucleotide sequences, as stated on the official Illumina website (http://www.illumina.com/systems.html). The sequencing works as follows:
@@ -64,7 +64,7 @@ Historically bacteria that are have 97\% identity in a variable region are consi
 However, it is difficult to determine how a batch of sequences should be partitioned into groups of 97\% identity. One way is to perform a clustering algorithm that optimally partitions the groups and then later assign taxonomic identity by matching the sequences with public databases. Another way is to start off with seed sequences from known bacteria and perform the clustering such that the 97\% identity groups are centered on the seed sequences. In any case, the resulting taxonomic groupings are known as Operational Taxonomic Units (OTUs), and are used consistently within the same experiment. While OTUs can be annotated with standard taxonomic names such that results can be compared between experiments, technically the taxonomic groupings used by different experiments are not the same.
 
 \subsection{General protocol and rationale}
-The 16S rRNA gene sequencing experiment uses next generation sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
+The 16S rRNA gene sequencing experiment (Fig.~\ref{16s_workflow}) uses next generation sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
 
 \paragraph{Pre-sequencing processing}\mbox{}\\
 There are several very general steps to the pre-sequencing process:
@@ -74,6 +74,7 @@ There are several very general steps to the pre-sequencing process:
 \includegraphics[height=0.8\textheight]{16S_rRNA_pipeline.png}
 \caption[16S rRNA gene tag experiment workflow.]{\textbf{16S rRNA gene tag experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a count table of reads per operational taxonomic unit per sample.}
 \end{center}
+\label{16s_workflow}
 \end{figure}
 
 \begin{enumerate}
@@ -129,9 +130,10 @@ In 2005, Lozupone et al introduced the UniFrac distance metric, a measure to cal
 \includegraphics[width=\textwidth]{unifrac.png}
 \caption[Unweighted UniFrac.]{\textbf{Unweighted UniFrac.} When two samples do not share any branches of the phylogenetic tree, the unweighted UniFrac distance is maximized at 1. When two samples share half of their branch lengths on the phylogenetic tree, the unweighted UniFrac distance is 0.5. If the two samples contain exactly the same taxa, the unweighted UniFrac distance is minimized at 0, since the samples share all branches.}
 \end{center}
+\label{unweighted_unifrac}
 \end{figure}
 
-Unweighted UniFrac uses an inferred evolutionary distance to measure similarity between samples. It requires a reference phylogenetic tree containing all the taxa present in the samples to be examined. The calculation is performed by dividing the branch lengths shared between the two samples by the branch lengths covered by either sample. A distance of 0 means that the samples have an identical set of taxa detected, and a distance of 1 means that the two samples share no taxa in common.
+Unweighted UniFrac uses an inferred evolutionary distance to measure similarity between samples (Fig.~\ref{unweighted_unifrac}). It requires a reference phylogenetic tree containing all the taxa present in the samples to be examined. The calculation is performed by dividing the branch lengths shared between the two samples by the branch lengths covered by either sample. A distance of 0 means that the samples have an identical set of taxa detected, and a distance of 1 means that the two samples share no taxa in common.
 
 The qualitative rather than quantitative nature of unweighted UniFrac makes the metric very sensitive to sequencing depth. A greater sequencing depth generally results in the detection of a greater number of taxa. To account for this problem, ecologists use a technique called rarefaction to normalize the sequencing depth across samples by random sampling without replacement \cite{de2011evaluation}. However, in unweighted UniFrac samples move relative to the other samples in different rarefaction instances, to the point where they can switch from being a member of one cluster of data to another, as demonstrated in the chapter Expanding the UniFrac Toolbox.
 
@@ -167,9 +169,10 @@ All of this information can be determined by either imputation or actual sequenc
 \includegraphics[height=0.8\textheight]{Metagenomic_pipeline.png}
 \caption[Metagenomic experiment workflow.]{\textbf{Metagenomic experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a table of number of sequencing reads per functionally annotated gene per sample.}
 \end{center}
+\label{metagenomic_workflow}
 \end{figure}
 
-The goal of metagenomic analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes, sorting them by the known function of the protein for which they code (such as the catalyzation of a certain reaction), and checking if any functions are differentially present between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis is as follows:
+The goal of metagenomic analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes, sorting them by the known function of the protein for which they code (such as the catalyzation of a certain reaction), and checking if any functions are differentially present between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis (Fig.~\ref{metagenomic_workflow}) is as follows:
 
 \begin{enumerate}
 \item Take a biological sample and perform DNA extraction
@@ -210,11 +213,12 @@ Data analysis can be performed by performed by seeing if functions are different
 \includegraphics[width=\textwidth]{stripchart.png}
 \caption[Example of stripcharts for subsystem 2 and 3 functional categorizations.]{\textbf{Example of stripcharts for subsystem 2 and 3 functional categorizations.} Dots on the left side are subsystem 4 annotations found to be more abundant in the healthy condition while dots on the right side are subsystem 4 annotations found to be more abundant in the bacterial vaginosis condition. Colored dots were found to be significantly differentially abundant. Figure taken from \cite{macklaim2013comparative}.}
 \end{center}
+\label{stripchart_example}
 \end{figure}
 
 We use the SEED annotation, which has four different levels of categorization. Subsystem 4 is the most atomic categorization level and describes the specific function of the protein group, for example, “Isovaleryl-CoA dehydrogenase (EC 1.3.99.10)”. Subsystem 3, 2, and 1 are increasing more general levels of categorizations, from enzyme families to large categorizations such as genes related to carbohydrate metabolism.
 
-Even if the subsystem 4 functional categories are not significantly different between groups, they each have an effect size with a direction. Stripcharts can be used to plot the effect sizes of the subsystem 4 categories for a larger category. For example, by plotting the effect sizes of all the subsystem 4 categorizations under Carbohydrate Metabolism, one can visually see if there are any obvious directional trends for carbohydrate metabolism functions being more present in the experimental group compared to the control.
+Even if the subsystem 4 functional categories are not significantly different between groups, they each have an effect size with a direction. Stripcharts can be used to plot the effect sizes of the subsystem 4 categories for a larger category (Fig.~\ref{stripchart_example}). For example, by plotting the effect sizes of all the subsystem 4 categorizations under Carbohydrate Metabolism, one can visually see if there are any obvious directional trends for carbohydrate metabolism functions being more present in the experimental group compared to the control.
 
 \FloatBarrier
 
