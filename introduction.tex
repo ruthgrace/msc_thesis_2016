@@ -217,13 +217,13 @@ The points can also be measured for separation by looking only at their position
 There are several limitations of principal coordinate analysis. First, it is an indirect analysis. If a separation between groups is found, further examination is necessary to determine the source of separation. Second, the PCA is only as good as the dissimilarity metric used. Lastly, one cannot easily determine the contributions of each OTU to the principal components.
 
 \section{The metagenomic experiment}
-Deep metagenomic sequencing provides an estimate of the proportion that each type of gene comprises out of the total genes present in the genetic material of the sample. This can be used to answer questions such as:
+Deep metagenomic sequencing provides an estimate of the proportion that each type of gene composes out of the total genes present in the genetic material of the sample. This can be used to answer questions such as:
 
 \textit{What is the metabolic potential of the microbial community?}
-The metabolic potential is made up of all the protein functions that are coded by the genetic material present in the sample. Biologically speaking, these protein functions represent the enzymatic reactions that the microbiome could produce if all the genes were expressed. For example, the human gut microbiome has more genes related to methanogenesis, compared to the average sequenced microbe \cite{gill2006metagenomic}.
+The metabolic potential is made up of all the protein functions that are encoded by the genetic material present in the sample. Biologically speaking, these protein functions represent the enzymatic reactions that the microbiome could produce if all the genes were expressed. For example, the human gut microbiome has more genes related to methanogenesis, compared to the average sequenced microbe \cite{gill2006metagenomic}.
 
 \textit{Are any genes, functional categories of genes, or metabolic pathways made up of genes differentially abundant between groups?}
-In 2006, Turnbaugh et al published a paper showing that an obesity associated gut microbiome in mice had an increased capacity for energy harvest \cite{turnbaugh2006obesity}, sparking more research into the gut microbiome and obesity related ailments such as diabetes \cite{larsen2010gut} and nonalcoholic fatty liver disease \cite{zhu2013characterization}. The ability to check if genes, functional categories of genes, or pathways are differentially abundant between groups allows scientists to find clues about the mechanisms by which the microbiome affects certain diseases.
+In 2006, Turnbaugh et al. published a paper showing that an obesity associated gut microbiome in mice had an increased capacity for energy harvest \cite{turnbaugh2006obesity}, sparking more research into the gut microbiome and obesity related ailments such as diabetes \cite{larsen2010gut} and nonalcoholic fatty liver disease \cite{zhu2013characterization}. The ability to check if genes, functional categories of genes, or pathways are differentially abundant between groups allows scientists to find clues about the mechanisms by which the microbiome affects certain diseases.
 
 All of this information can be determined by either imputation or actual sequencing, discussed in the next sections.
 
@@ -237,29 +237,37 @@ All of this information can be determined by either imputation or actual sequenc
 \label{metagenomic_workflow}
 \end{figure}
 
-The goal of metagenomic analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes, sorting them by the known function of the protein for which they code (such as the catalyzation of a certain reaction), and checking if any functions are differentially present between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis (Fig.~\ref{metagenomic_workflow}) is as follows:
+The goal of metagenomic DNA sequencing analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes by DNA sequence, sorting them by the known function of the protein that they encode (such as the catalysis of a certain reaction), and checking if any functions are differentially abundant between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis (Fig.~\ref{metagenomic_workflow}) is as follows:
 
 \begin{enumerate}
-\item Take a biological sample and perform DNA extraction
+\item Take a biological sample and perform DNA extraction\\
 The sample can be collected by swabbing the target body site or collecting excretions.
 
-\item Prepare the DNA for sequencing
-Fragment the DNA, and filter for the desired size. These steps are all part of the standard Illumina library prep protocol for the HiSeq. There are two options for fragment size, either 50 or 100 nucleotides in length, and we chose the longer one for easier assembly and mapping.
+\item Prepare the DNA for sequencing\\
+Fragment the DNA, and filter for the desired size. These steps are all part of the standard Illumina library prep protocol for the HiSeq.
 
-\item Sequence the DNA.
-We performed single end sequencing on the Illumina HiSeq platform, with our samples barcoded so that they could be pooled into the same sequencing run.
+\item Sequence the DNA.\\
+We performed single end sequencing on the Illumina HiSeq platform, with our samples barcoded so that they could be pooled into the same sequencing run. There are two options for read length: either 50 or 100 nucleotides. We chose the longer one for ease of assembly and mapping.
 
-\item Create an annotated library of reference sequences
-The annotated library contains annotations about what kind of protein each sequence codes for. The first step to creating the annotated library is to gather a database of sequences. The database of sequences can be created before the sequencing is complete by gathering all the genomes of all the bacterial strains predicted to be present in the sample, or it can be created after sequencing by assembling the sequenced reads into parts of genomes. The second step is to annotate the sequences with predicted protein functions. Some publically available genomes already have protein annotations. For genomes or partial genomes without annotations, the placement of genes can be predicted by looking for open reading frames, and these predicted genes can be aligned with databases such as SEED \cite{overbeek2005subsystems} or KEGG \cite{kanehisa2000kegg} to match them with functional annotations, using the BLAST algorithm \cite{altschul1990basic}.
+\item Create an annotated library of reference sequences\\
+The annotated library contains DNA sequence annotations about what kind of protein each sequence codes for. The first step to creating the annotated library is to gather a database of sequences. The database of sequences can be created before the sequencing is complete by gathering all the genomes of all the bacterial strains predicted to be present in the sample, or it can be created after sequencing by assembling the sequenced reads into parts of genomes. The second step is to annotate the sequences with predicted protein functions. Most publically available genomes already have protein annotations. For genomes or partial genomes without annotations, the placement of genes can be predicted by looking for open reading frames, and these predicted genes can be aligned with databases such as SEED \cite{overbeek2005subsystems} or KEGG \cite{kanehisa2000kegg} to match them with functional annotations, using the BLAST algorithm \cite{altschul1990basic}.
 
-\item Map the sequenced reads to the library.
+\item Map the sequenced reads to the library\\
 Mapping is the process of annotating the sequenced reads by aligning them with sequence that has already been annotated. We used Bowtie2 \cite{langmead2012fast} to map our sequenced reads to the annotated library created in the previous step. Bowtie2 aligns similar sequences together.
 
-\item Determine how many mapped reads match each functional annotation.
+\item Determine how many mapped reads match each functional annotation\\
 Once the sequenced reads have been mapped to the annotated reference sequence, the number of reads sequenced for each annotation can be counted up. The end result is a table of counts per gene annotation per sample.
 \end{enumerate}
 
-Issues with sequencing and the analysis of sequencing data arise from sampling and the fat nature of the data. The sequences that are read by the sequencer are only a small fraction of the DNA from the sample. Additionally, primers used for sequencing may be biased for certain sequences more than others. Lastly, the data is very fat, which is to say that there are magnitudes more variables (in the form of functional annotations of genes) than there are samples. This makes it difficult to have enough power to detect small differences in the data, a concept expanded upon in the Points of Failure section below.
+Issues with sequencing and the analysis of sequencing data arise from sampling and the ``fat'' nature of the data.
+
+The DNA has been sampled multiple times before the sequencing data is retrived: The biological sample collected from the patient is only part of the full bacterial community. The amount of DNA extracted is a sample of the sample. Only a fraction of the extracted DNA is sequenced, and finally the DNA fragments that the sequence reads are sampled out of the input DNA. As a result, on top of the biological varation present in the microbiomes being sampled, there is an additional layer of technical variation. High variation or noise in the data can obscure small but biologically significant differences between experimental conditions.
+
+Additionally, primers used for sequencing may be biased for certain sequences more than others.
+
+[TODO: find a citation for above]
+
+Lastly, the data is very fat, which is to say that there are many more variables (in the form of functional annotations of genes) than there are samples. This makes it difficult to have enough power to detect small differences in the data, a concept expanded upon in the \textit{Microbiome data involves the comparison of many features} section.
 
 \FloatBarrier
 
