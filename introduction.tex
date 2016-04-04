@@ -98,7 +98,7 @@ However, it is difficult to determine how a batch of sequences should be partiti
 [TODO: ``REF HERIZ, EDGAR SOMEWHERE'']
 
 \subsection{General protocol and rationale}
-The 16S rRNA gene sequencing experiment (Fig.~\ref{16s_workflow}) uses next generation sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
+The 16S rRNA gene sequencing experiment (Fig.~\ref{16s_workflow}) uses next generation DNA sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
 
 \paragraph{Pre-sequencing processing}\mbox{}\\
 There are several very general steps to the pre-sequencing process:
@@ -112,32 +112,32 @@ There are several very general steps to the pre-sequencing process:
 \end{figure}
 
 \begin{enumerate}
-\item Take a biological sample and extract the DNA
+\item Take a biological sample and extract the DNA\\
 The sample can be collected swabbing the target body site or by collecting samples in some other way. DNA extraction is usually done with common commercial kits.
 
-\item Run a PCR amplification
-As discussed previously, the gene tag experiments in this thesis amplify the V4 region of the 16S rRNA gene, following the Earth Microbiome Project protocol \cite{caporaso2012ultra}. The set of primers that we use are barcoded, so that we can sequence all the samples in the same sequencing run and differentiate them afterwards.
+\item Run a PCR amplification\\
+As discussed previously, the gene tag experiments in this thesis amplify the V4 region of the 16S rRNA gene, following the Earth Microbiome Project protocol \cite{caporaso2012ultra}. The set of primers that we use are combinatorial barcoded, so that we can sequence all the samples in the same sequencing run and differentiate them afterwards \cite{gloor2010microbiome}.
 
-\item Run sequencing
-We use 150 nucleotide paired-end sequencing on the Illumina MiSeq platform. The 150 nucleotide paired ends allow us to overlap paired sequences in the middle to reconstitute the full sequence of the variable region.
+\item Perform sequencing\\
+We use 2x220 nucleotide paired-end sequencing on the Illumina MiSeq platform. The 220 nucleotide paired ends allow us to overlap paired sequences in the middle to reconstitute the full sequence of the variable region.
 \end{enumerate}
 
 \paragraph{Post-sequencing processing}\mbox{}\\
 Here are the steps for going from raw sequenced reads to a table of counts per taxa per sample.
 \begin{enumerate}
-\item Demultiplex the raw sequence
-The barcodes are used to separate the sequences according to what sample they came from.
-
-\item Assemble the paired ends of sequenced DNA
+\item Assemble the paired ends of sequenced DNA\\
 The paired sequences are overlapped in the middle, resulting in the full variable region amplified by the primers.
 
-\item Group the reads into operational taxonomic units (OTUs)
+\item Demultiplex the raw sequence\\
+The barcodes are used to separate the sequences according to what sample they came from.
+
+\item Group the reads into operational taxonomic units (OTUs)\\
 We used UCLUST to cluster the reads into groups of 97\% identity \cite{edgar2010search}.
 
-\item Annotate the OTUs with bacterial taxonomy
+\item Annotate the OTUs with bacterial taxonomy\\
 Annotation was done by  matching our OTUs to the SILVA database \cite{quast2013silva}.
 
-\item Generate a phylogenetic tree
+\item Generate a phylogenetic tree\\
 This can be done using the center-most sequence of each cluster that forms each OTU, and putting the sequences in a multiple sequence alignment, using software such as MUSCLE \cite{edgar2004muscle}.
 \end{enumerate}
 
