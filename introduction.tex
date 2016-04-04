@@ -43,6 +43,16 @@ The Illumina sequencing technology is the industry standard for metagenomic stud
 Unlike a technology such as qPCR, Illumina and other next generation DNA sequencing technologies deliver data as parts per machine limit, not a count of molecules in the sample.
 
 \section{Gene tag abundance}
+Historically, Koch’s postulates have been used to determine if a microbe is a disease-causing pathogen. Koch's postulates are:
+
+\begin{enumerate}
+\item The microbe must be present in all cases of the disease.
+\item The microbe must not be present and non-pathogenic in other diseases.
+\item If the microbe is isolated in pure culture, it can be used to induce the disease \cite{koch1891uber}.
+\end{enumerate}
+
+One group has created a modified set of postulates that takes DNA sequencing into account \cite{fredericks1996sequence} which can be applied to differentially abundant taxa detected by gene tag sequencing. However, Koch’s postulates do not account for when the same bacteria can have a very different expression profile in health and disease, such as Lactobacillus iners in bacterial vaginosis \cite{macklaim2013comparative}. Gene tag abundance takes ua beyond Koch's postulates to the effect of consortia of microbiota.
+
 Gene tag abundance experiments provide an estimate of the proportion of different bacterial taxa in the sample. This can be used to answer questions such as:
 
 \textit{What bacterial taxa make up the microbial community?}
@@ -52,16 +62,26 @@ For example, the core gut microbiome was described by one group to have three en
 
 An example of a successfully characterized body site is the vaginal microbiome. The vaginal microbiome is known to be Lactobacillus dominated, except in bacterial vaginosis, where the microbiome is much more diverse \cite{hummelen2010deep}. The bacterial composition of vaginal microbiomes in bacterial vaginosis have high variation, however their expression profiles are similar, allowing for functional characterization in the absence of taxonomic characterization.
 
-[TODO: figure out what Greg's comment ``''or AU``'' means]
+[TODO: figure out what Greg's comment ``or AU'' means]
 [TODO: find citation for above]
 
 \textit{Are there any differentially abundant taxa between conditions?}
-Some theories of disease progression include the involvement of bacteria as pathogens. Others involve bacteria as probiotics, preventing disease progression. In atopic dermatitis, a flare-up is defined as an acute exacerbation of disease despite standard treatment, and flare-ups are associated with an increase in the proportion of \textit{Staphylococcus aureus} on the skin \cite{kong2012temporal}. Bacteria have also been used for therapy in the treatment of \textit{Clostridium difficile}, where 33 microbes cultured from a healthy donor were used to successfully treat symptoms, with no recurrence throughout the 6 month follow up period \cite{petrof2013stool}.
+Some theories of disease progression include the involvement of bacteria as pathogens. Others involve bacteria as probiotics, preventing disease progression.
 
-Historically, Koch’s postulates have been used to determine if a microbe is a disease-causing pathogen: First, the microbe must be present in all cases of the disease. Second, the microbe must not be present and non-pathogenic in other diseases. Third, if the microbe is isolated in pure culture, it can be used to induce the disease \cite{koch1891uber}. One group has created a modified set of postulates that takes DNA sequencing into account \cite{fredericks1996sequence} which can be applied to differentially abundant taxa detected by gene tag sequencing. However, Koch’s postulates do not account for when the same bacteria can have a very different expression profile in health and disease, such as Lactobacillus iners in bacterial vaginosis \cite{macklaim2013comparative}.
+In atopic dermatitis, a flare-up is defined as an acute exacerbation of disease despite standard treatment. Flare-ups are associated with an increase in the proportion of \textit{Staphylococcus aureus} on the skin \cite{kong2012temporal}.
+
+[TODO: make the above a paragraph, consider adding in something about how s. aureus affects inflammation]
+
+Bacteria have also been used for therapy in the treatment of \textit{Clostridium difficile}. In one study, 33 microbes cultured from a healthy donor were used to successfully treat symptoms, with no recurrence throughout the 6 month follow up period \cite{petrof2013stool}.
+
+[TODO: add bit about ``stool transplant (NIEJM)'']
 
 \textit{Do samples from different conditions cluster together?}
-Sometimes when the data is plotted, there appears to be separation between groups, even if specific taxa are not differentially abundant. One example of this is a study on discordant gut microbiomes between twins in Malawi where one twin has kwashiorkor and the other is healthy \cite{smith2013gut}. In this case the microbiomes diverge the most during treatment with ready-to-use therapeutic food.
+Beta diversity distance similarities between microbiomes can be examined for distinct sites or conditions. This is often done with DBM, the UniFrac distance, and the Bray Curtis dissimilarity.
+
+[TODO: figure out what dbm is]
+
+Sometimes when the data is plotted, there appears to be separation between groups, even if specific taxa are not differentially abundant. One example of this is a study on discordant gut microbiomes between twins in Malawi where one twin has kwashiorkor and the other is healthy \cite{smith2013gut}. In this case the microbiomes were seen to diverge the most during treatment with ready-to-use therapeutic food.
 
 \subsection{16S rRNA gene sequencing experiment}
 The gene tag chosen throughout this thesis is the gene for the 16S subunit of ribosomal RNA. The 16S rRNA gene is present in all known bacteria and has regions of variability interspersed with regions of high conservation. This allows primers to be made to match the conserved regions, such that the variable regions can be amplified, sequenced, and used to infer taxa. Entire databases exist specifically to match the 16S rRNA gene with taxonomy, such as SILVA \cite{quast2013silva}, the Ribosomal Database Project \cite{cole2009ribosomal}, and Greengenes \cite{desantis2006greengenes}.
