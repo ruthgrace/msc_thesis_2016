@@ -42,8 +42,8 @@ Several papers have already been published in the literature on the topic of NAF
 \begin{center}
 \includegraphics[width=0.7\textwidth]{nafld_papers.png}
 \caption[Venn diagram of genera found to be differentially abundant by different studies between NASH/NAFLD and healthy controls.]{\textbf{Venn diagram of genera found to be differentially abundant by different studies between NASH/NAFLD and healthy controls.} Only 3 out of the 16 genera claimed to be differentially abundant were found in two studies: members of the \textit{Escherichia} genus were found in the Zhu \cite{zhu2013characterization} and Jiang \cite{jiang2015dysbiosis} studies, and members of the \textit{Lactobacillus} and \textit{Oscillibacter} genus were found in the Jiang \cite{jiang2015dysbiosis} and Raman \cite{raman2013fecal} studies.}
-\end{center}
 \label{nafld_fig1}
+\end{center}
 \end{figure}
 
 Jiang et al, 2015 \cite{jiang2015dysbiosis} compared 53 NAFLD patients with 32 healthy controls. The NAFLD patients had a significantly higher BMI ($P<0.01$). Each sample had an average of 0.6 million reads, from sequencing the V3 region of the 16S rRNA gene on the Illumina sequencing platform. The reads were annotated with the Ribosomal Database Project \cite{cole2009ribosomal} and differential abundance was determined using Projection on Latent Structures - Discriminant Analysis (PLS-DA) methods. They found a relative increase in members of the \textit{Lentisphaerae} phyla and the \textit{Oscillibacter} and \textit{Flavonifractor} genera in the healthy group, and a relative increase in members of the \textit{Clostridium XI}, \textit{Anaerobacter}-related, \textit{Streptococcus}, and \textit{Lactobacillus} genera in the NAFLD group.
@@ -163,16 +163,14 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A 
 
 \subsection{16S rRNA gene tag experiment}
 
-[TODO: fix figure labels]
-
 The four most abundant genera detected by 16S rRNA gene sequencing (excluding unclassified bacteria) were: \textit{Bacteroides}, \textit{Faecalibacterium}, \textit{Blautia}, and \textit{Pseudobutyrivibrio} (Fig.~\ref{nafld_16s_barplot}).
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{16s_genus_barplot.png}
 \caption[Bar plot of 16S rRNA gene tag sequencing experiment.]{\textbf{Bar plot of 16S rRNA gene tag sequencing experiment.} Each column of this bar plot represents one sample, and each color represents one bacterial genus. Genus names are listed in the legend in order of decreasing total abundance across all samples. Samples do not cluster according to their condition (healthy, simple steatosis, or nonalcoholic steatohepatitis). Note that OTUs that mapped to unclassified or \textit{Incertae Sedis} were removed, and these made up just over a third of the total abundance. This operation is valid in compositional data analysis, but not in non-compositional approaches such as UniFrac.}
-\end{center}
 \label{nafld_16s_barplot}
+\end{center}
 \end{figure}
 
 No obvious structure or separation is evident from the principal co-ordinates analysis in Fig.~\ref{nafld_pcoa} or the principal component analysis in Fig.~\ref{nafld_16s_biplot}. Furthermore the variance explained by each principal component or co-ordinate axis is not notably high, indicating a rather uniform data set. Additionally, no OTUs are significantly differentially abundant between groups (Fig.~\ref{nafld_fig3})
@@ -181,24 +179,24 @@ No obvious structure or separation is evident from the principal co-ordinates an
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_pcoa.png}
 \caption[Principal co-ordinate methods of 16S rRNA gene tag sequencing data with different UniFrac weightings.]{\textbf{Principal co-ordinate methods of 16S rRNA gene tag sequencing data with different UniFrac weightings.} Each point represents one sample, and the distances between the samples have been calculated using different UniFrac metrics, taking into account phylogenetic as well as abundance information. There is no obvious separation between groups by any of the UniFrac weightings. Furthermore the variance explained by each principal co-ordinate axis is not notably high, indicating a rather uniform data set.}
-\end{center}
 \label{nafld_pcoa}
+\end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_biplot.png}
 \caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal component analysis. The variance explained by each genus is overlayed on the same principal component analysis plot. Note that the variance explained by the first and the second component is 9\% and 8\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. }
-\end{center}
 \label{nafld_16s_biplot}
+\end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_aldex.png}
 \caption[Difference within vs. difference between groups.]{\textbf{Difference within vs. difference between groups.} Each point represents one OTU, and the differential abundance of that OTU within groups is plotted against the differential abundance between groups. None of the OTUs are more different between groups than within groups. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study.}
-\end{center}
 \label{nafld_fig3}
+\end{center}
 \end{figure}
 
 The Toronto patient population is very diverse, including patients coming from different cultural backgrounds who consume different diets. With this kind of population and diversity, it can be difficult to have sufficient power to detect significant differences. We explore effect sizes, since these are known to be more robust and predict the p-values. Effect size is a standardized difference between means
@@ -209,8 +207,8 @@ When comparing all the healthy samples with all the NASH samples, the genus with
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_effect_sizes.png}
 \caption[Correlation in effect sizes of different group experiments.]{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The median difference in the absolute effect sizes is -0.005547 for Healthy vs. NASH - Healthy vs. SS, 0.01094 for Healthy vs. extreme NASH - Healthy vs. SS, and 0.03105 for Healthy vs. extreme NASH - Healthy vs. NASH. The top decile of OTUs relatively increased in NASH for the metagenomic experiment are colored pink, and the top decile of OTUs relatively increased healthy for the metagenomic experiment are colored blue.}
-\end{center}
 \label{nafld_fig4}
+\end{center}
 \end{figure}
 
 \FloatBarrier
@@ -370,32 +368,32 @@ The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_barplot_dendogram.png}
 \caption[Taxa barplot dendogram derived from MetaPhlAn.]{\textbf{Taxa barplot dendogram derived from MetaPhlAn.} The metagenomic reads were input into MetaPhlAn to generate a count table. The taxa in the count table were filtered such that only taxa with at least 1\% abundance in any sample was kept. In this barplot, each bar represents one sample, and each color represents one genus, with the size of the colored segments corresponding with the relative abundance of the genus.}
-\end{center}
 \label{nafld_metaphlan_barplot}
+\end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
 \caption[Biplot derived from MetaPhlAn.]{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlayed on the same principal component analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explained by the first and the second component is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
-\end{center}
 \label{nafld_metaphlan_biplot}
+\end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_aldex.png}
 \caption[Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.]{\textbf{Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.} This plot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. No taxa are more differential between groups than within groups. A positive difference between indicates that the taxa was relatively increased in NASH while a negative difference between indicates that the taxa was relatively increased in healthy. This analysis was done at the OTU level.}
-\end{center}
 \label{nafld_metaphlan_aldex}
+\end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_16s_effects.png}
 \caption[Effect size correlation between MetaPhlAn and 16S rRNA gene tag sequencing.]{\textbf{Effect size correlation between MetaPhlAn and 16S rRNA gene tag sequencing.} For this plot, taxa were amalgamated at the genus level. The effect sizes for the comparison of the healthy and NASH samples selected for the metagenomic study are shown. The Spearman coefficient is 0.2021001. Genera corresponding with OTUs identified to have the top deciles of effect sizes in the 16S rRNA gene tag experiment comparison are colored - red for OTUs relatively abundant in NASH, and blue for OTUs relatively abundant in the healthy condition. Genera corresponding to both OTUs in the NASH and healthy deciles are colored purple.}
-\end{center}
 \label{nafld_metaphlan_effect}
+\end{center}
 \end{figure}
 
 \FloatBarrier
