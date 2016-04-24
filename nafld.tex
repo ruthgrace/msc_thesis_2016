@@ -48,7 +48,7 @@ Several papers have already been published in the literature on the topic of NAF
 
 Jiang et al, 2015 \cite{jiang2015dysbiosis} compared 53 NAFLD patients with 32 healthy controls. The NAFLD patients had a significantly higher BMI ($P<0.01$). Each sample had an average of 0.6 million reads, from sequencing the V3 region of the 16S rRNA gene on the Illumina sequencing platform. The reads were annotated with the Ribosomal Database Project \cite{cole2009ribosomal} and differential abundance was determined using Projection on Latent Structures - Discriminant Analysis (PLS-DA) methods. They found a relative increase in members of the \textit{Lentisphaerae} phyla and the \textit{Oscillibacter} and \textit{Flavonifractor} genera in the healthy group, and a relative increase in members of the \textit{Clostridium XI}, \textit{Anaerobacter}-related, \textit{Streptococcus}, and \textit{Lactobacillus} genera in the NAFLD group.
 
-Zhu et al, 2013 \cite{zhu2013characterization} compared 16 non-obese controls, 25 obese patients, and 22 NASH patients. All of the patients were pediatric, and the NAFLD group all had a BMI higher than the 85th percentile while the healthy group had BMIs less than the 85th percentile. A 16S rRNA gene tag sequencing experiment was performed and reads were sequenced in a 454 pyrosequencer. This group used MG-RAST \cite{meyer2008metagenomics} and QIIME \cite{caporaso2010qiime} to analyze their data. Note that in the PCoA plot (Figure 1 in \cite{zhu2013characterization}), there is only 11\% variance explained by the first component, and they had to plot the first component with the 3rd component (3\% variance explained) to show the group separation. By comparing the average absolute read count for each taxa in each group, this group found that members of the \textit{Proteobacteria} phylum, the \textit{Enterobacteriaceae} family, and the \textit{Escherichia} genus had significantly higher average counts in NASH patients compared to obese patients and healthy controls.
+Zhu et al, 2013 \cite{zhu2013characterization} compared 16 non-obese controls, 25 obese patients, and 22 NASH patients. All of the patients were pediatric, and the NAFLD group all had a BMI higher than the 85th percentile while the healthy group had BMIs less than the 85th percentile. A 16S rRNA gene tag sequencing experiment was performed and reads were sequenced in a 454 pyrosequencer. This group used MG-RAST \cite{meyer2008metagenomics} and QIIME \cite{caporaso2010qiime} to analyze their data. Note that in the PCoA plot (Figure 1 in \cite{zhu2013characterization}), there is only 11\% variance explained by the first co-ordinate axis, and they had to plot the first co-ordinate axis with the 3rd co-ordinate axis (3\% variance explained) to show the group separation. By comparing the average absolute read count for each taxa in each group, this group found that members of the \textit{Proteobacteria} phylum, the \textit{Enterobacteriaceae} family, and the \textit{Escherichia} genus had significantly higher average counts in NASH patients compared to obese patients and healthy controls.
 
 Raman et al, 2013 \cite{raman2013fecal} compared 30 NAFLD patients with 30 healthy controls. All the healthy controls had a BMI less than 25 while all the NAFLD patients had a BMI greater than 30. The 16S rRNA gene was amplified and sequenced with 454 pyrosequencing, yielding 2000 reads per sample. Reads were annotated with the Ribosomal Database Project \cite{cole2009ribosomal}. UniFrac analysis was performed with QIIME \cite{caporaso2010qiime}, and differential abundance was tested with Metastats \cite{paulson2011metastats}. They found a relative increase in members of the \textit{Lactobacillus}, \textit{Robinsoniella}, \textit{Roseburia}, and \textit{Dorea} genus in NASH patients and a relative increase in members of the \textit{Oscillibacter} in healthy patients.
 
@@ -99,7 +99,7 @@ and who have been assessed by the multidisciplinary bariatric team\\
 as suitable candidates for laparoscopic RYGB\\ \hline
 Male and female\\ \hline
 Age 18 years or older\\ \hline
-Alcohol consumption <20g/d\\ \hline
+Alcohol consumption $<20$g/d\\ \hline
 If known to have hyperlipidemia or DM2,\\
 need to be stable drug regimen for at least 3 months prior to study entry\\ \hline
 \bf{Study exclusion criteria}\\ \hline
@@ -138,19 +138,19 @@ Sample not frozen immediately after collection\\ \hline
 Blood glucose over 7.8 mmol/l\\ \hline
 \end{tabular}
 \caption[List of inclusion and exclusion criteria for metagenomic study.]{ \textbf{List of inclusion and exclusion criteria for metagenomic study.} Patients were selected for the metagenomic study out of the patients selected for the 16S rRNA gene tag sequencing study with the following criteria. Ten healthy and ten patients with NASH were selected in total.}
-\label{nafld_table_1}
+\label{nafld_table_2}
 % \end{adjustwidth}
 \end{table}}
 
-A metagenomic sequencing experiment was performed using total bacterial DNA from 10 healthy controls and 10 of the patients with NASH. Samples from healthy patients were selected to exclude confounding factors. Samples from NASH patients were selected for the most extreme NASH phenotype, and had higher effect sizes in the 16S rRNA gene tag experiment than the full NASH group.
+A metagenomic sequencing experiment was performed using total bacterial DNA from 10 healthy controls and 10 of the patients with NASH. Samples from healthy patients were selected to exclude confounding factors (Table ~\ref{nafld_table_2}). Samples from NASH patients were selected for the most extreme NASH phenotype, and had higher effect sizes in the 16S rRNA gene tag experiment than the full NASH group.
 
-The DNA was sequenced on the Illumina HiSeq platform, with single end 100 nucleotide reads. Samples were barcoded and sequenced on the same sequencing run. After sequencing, the reads were quality filtered and demultiplexed to separate the reads for each sample, yielding nearly 2 billion reads in total.
+The DNA was sequenced on the Illumina HiSeq platform, with single end 100 nucleotide reads. Samples were barcoded and sequenced on the same sequencing run. After sequencing, the reads were quality filtered and demultiplexed into reads per individual sample, yielding nearly 2 billion reads in total.
 
 We used a two pronged strategy to annotate the reads:
 
-First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment. For each genus observed we randomly picked 10 strain genomes from the NCBI bacterial genome database. For genera with less than 10 fully sequenced representatives, we selected all available genomes. The library was made with 1134 genomes from 104 bacterial genera. The open reading frame (ORF) library was then clustered at 99\% identity for each genus using CD-HIT \cite{li2006cd} to decrease the number of ORFs in the library from 3,495,887 to 2,256,844. Annotation was performed with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this ORF library. Out of approximately 2 billion reads total, 58.5 million (30.6\%) were mapped by this method, over 5836 unique SEED hierarchy annotations. The primary limitation of this method is a lack of annotated bacterial sequences. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub.
+First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment. For each genus observed we randomly picked 10 strain genomes from the NCBI bacterial genome database. For genera with less than 10 fully sequenced representatives, we selected all available genomes. The library was made with 1134 genomes from 104 bacterial genera. The open reading frame (ORF) library was then clustered at 99\% identity for each genus using CD-HIT \cite{li2006cd} to decrease the number of ORFs in the library from 3.5 million to 2.25 million Annotation was performed with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this ORF library. Out of approximately 2 billion reads total, 58.5 million (30.6\%) were mapped by this method, over 5836 unique SEED hierarchy annotations. The primary limitation of this method is a lack of annotated bacterial sequences. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub.
 
-Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo}, producing 8,847,816 sequences, and removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, leaving 5,876,423 sequences. 3,571,905 of these assembled sequences were successfully annotated with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this. [FILL IN THIS] additional reads were annotated by this method, over [FILL IN THIS] unique SEED hierarchy annotations. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
+Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo}, producing 8,847,816 sequences, and removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, leaving just under 6 million sequences. Just over three and a half million of these assembled sequences were successfully annotated with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this. [FILL IN THIS] additional reads were annotated by this method, over [FILL IN THIS] unique SEED hierarchy annotations. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
 
 Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A full description of the workflow for this process is included in Appendix ~\ref{AppA}.
 
@@ -158,31 +158,37 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A 
 
 \section{Results}
 
+\subsection{Data sets}
+[TODO: Introduce data sets]
+
 \subsection{16S rRNA gene tag experiment}
-The top four genus detected by 16S rRNA gene sequencing (excluding unclassified bacteria) were: \textit{Bacteroides}, \textit{Faecalibacterium}, \textit{Blautia}, and \textit{Pseudobutyrivibrio} (Fig.~\ref{nafld_16s_barplot}).
+
+[TODO: fix figure labels]
+
+The four most abundant genera detected by 16S rRNA gene sequencing (excluding unclassified bacteria) were: \textit{Bacteroides}, \textit{Faecalibacterium}, \textit{Blautia}, and \textit{Pseudobutyrivibrio} (Fig.~\ref{nafld_16s_barplot}).
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{16s_genus_barplot.png}
-\caption[Bar plot of 16S rRNA gene tag sequencing experiment.]{\textbf{Bar plot of 16S rRNA gene tag sequencing experiment.} Each column of this bar plot represents one sample, and each color represents one bacterial genus. Genus are listed in the legend in order of decreasing total abundance across all samples. Samples do not cluster according to their condition (healthy, simple steatosis, or nonalcoholic steatohepatitis). Note that OTUs that mapped to unclassified or \textit{Incertae Sedis} were removed, and these made up just over a third of the total abundance.}
+\caption[Bar plot of 16S rRNA gene tag sequencing experiment.]{\textbf{Bar plot of 16S rRNA gene tag sequencing experiment.} Each column of this bar plot represents one sample, and each color represents one bacterial genus. Genus names are listed in the legend in order of decreasing total abundance across all samples. Samples do not cluster according to their condition (healthy, simple steatosis, or nonalcoholic steatohepatitis). Note that OTUs that mapped to unclassified or \textit{Incertae Sedis} were removed, and these made up just over a third of the total abundance. This operation is valid in compositional data analysis, but not in non-compositional approaches such as UniFrac.}
 \end{center}
 \label{nafld_16s_barplot}
 \end{figure}
 
-No obvious structure or separation is evident from the principal components analysis in Fig.~\ref{nafld_fig2} or the principal coordinate analysis in Fig.~\ref{nafld_16s_biplot}. Furthermore the variance explained by each principal component axis is not notably high, indicating a rather uniform data set. Additionally, no OTUs are significantly differentially abundant between groups (Fig.~\ref{nafld_fig3})
+No obvious structure or separation is evident from the principal co-ordinates analysis in Fig.~\ref{nafld_pcoa} or the principal component analysis in Fig.~\ref{nafld_16s_biplot}. Furthermore the variance explained by each principal component or co-ordinate axis is not notably high, indicating a rather uniform data set. Additionally, no OTUs are significantly differentially abundant between groups (Fig.~\ref{nafld_fig3})
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_pcoa.png}
-\caption[Principal Components Analysis of 16S rRNA gene tag sequencing data with different UniFrac weightings.]{\textbf{Principal Components Analysis of 16S rRNA gene tag sequencing data with different UniFrac weightings.} Each point represents one sample, and the distances between the samples have been calculated using different UniFrac metrics, taking into account phylogenetic as well as abundance information. There is no obvious separation between groups by any of the UniFrac weightings. Furthermore the variance explained by each principal component axis is not notably high, indicating a rather uniform data set.}
+\caption[Principal co-ordinate methods of 16S rRNA gene tag sequencing data with different UniFrac weightings.]{\textbf{Principal co-ordinate methods of 16S rRNA gene tag sequencing data with different UniFrac weightings.} Each point represents one sample, and the distances between the samples have been calculated using different UniFrac metrics, taking into account phylogenetic as well as abundance information. There is no obvious separation between groups by any of the UniFrac weightings. Furthermore the variance explained by each principal co-ordinate axis is not notably high, indicating a rather uniform data set.}
 \end{center}
-\label{nafld_fig2}
+\label{nafld_pcoa}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_biplot.png}
-\caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal coordinate analysis. The variance explained by each genus is overlayed on the same principal coordinate analysis plot. Note that the variance explained by the first and the second coordinate is 9\% and 8\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. }
+\caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal component analysis. The variance explained by each genus is overlayed on the same principal component analysis plot. Note that the variance explained by the first and the second component is 9\% and 8\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. }
 \end{center}
 \label{nafld_16s_biplot}
 \end{figure}
@@ -194,6 +200,8 @@ No obvious structure or separation is evident from the principal components anal
 \end{center}
 \label{nafld_fig3}
 \end{figure}
+
+The Toronto patient population is very diverse, including patients coming from different cultural backgrounds who consume different diets. With this kind of population and diversity, it can be difficult to have sufficient power to detect significant differences. We explore effect sizes, since these are known to be more robust and predict the p-values. Effect size is a standardized difference between means
 
 When comparing all the healthy samples with all the NASH samples, the genus with the highest effect sizes are \textit{Adlercreutzia}, \textit{Odoribacter}, and \textit{Escherichia-Shigella}. However, when only the select 10 healthy samples and the 10 extreme NASH samples used in the metagenomic study are compared, the genus with the highest effect sizes are \textit{Ruminococcus}, \textit{Adlercreutzia}, and \textit{Alistipes}. This corresponds with the qPCR experiment, where \textit{Bacteriodetes}, \textit{Prevotella}, and \textit{Ruminococcus} were tested, and only \textit{Ruminococcus} was found to be differentially abundant.
 
@@ -369,7 +377,7 @@ The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
-\caption[Biplot derived from MetaPhlAn.]{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal coordinate analysis. The variance explained by each genera is overlayed on the same principal coordinate analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explained by the first and the second coordinate is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
+\caption[Biplot derived from MetaPhlAn.]{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlayed on the same principal component analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explained by the first and the second component is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
 \end{center}
 \label{nafld_metaphlan_biplot}
 \end{figure}
