@@ -159,7 +159,9 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A 
 \section{Results}
 
 \subsection{Data sets}
-[TODO: Introduce data sets]
+There were originally three groups of patients within these samples: healthy controls, patients with simple steatosis, and patients who had progressed to non alcoholic steatohepatosis. For the metagenomic experiment, 10 of the healthy controls and 10 of the NASH group were selected, based on clinical criteria (Table ~\ref{nafld_table_2}).
+
+From this, three comparisons can be made: healthy compared to simple steatosis (SS), healthy vs. non alcoholic steatohepatosis (NASH), and healthy compared to the extreme NASH patients chosen for the metagenomic study. The healthy controls used in the healthy vs. extreme NASH comparison had already been chosen for the metagenomic study. Of the remaining healthy patient, half were used as controls for the healthy vs. SS comparison, and half were used for the healthy vs. NASH comparison. This way, in correlating the results of the three different comparisons, there will not be spurious correlations from using the same control samples.
 
 \subsection{16S rRNA gene tag experiment}
 
@@ -194,7 +196,7 @@ No obvious structure or separation is evident from the principal co-ordinates an
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_aldex.png}
-\caption[Difference within vs. difference between groups.]{\textbf{Difference within vs. difference between groups.} Each point represents one OTU, and the differential abundance of that OTU within groups is plotted against the differential abundance between groups. None of the OTUs are more different between groups than within groups. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study.}
+\caption[Effect plot showing difference within vs. difference between groups.]{\textbf{Effect plot showing difference within vs. difference between groups.} Each point represents one OTU, and the dispersion of that OTU within groups is plotted against the difference in abundance between groups. None of the OTUs are more different between groups than within groups. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The dashed lines represent where the difference in abundance between groups and within groups are equal.}
 \label{nafld_fig3}
 \end{center}
 \end{figure}
@@ -206,7 +208,7 @@ When comparing all the healthy samples with all the NASH samples, the genus with
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_effect_sizes.png}
-\caption[Correlation in effect sizes of different group experiments.]{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The median difference in the absolute effect sizes is -0.005547 for Healthy vs. NASH - Healthy vs. SS, 0.01094 for Healthy vs. extreme NASH - Healthy vs. SS, and 0.03105 for Healthy vs. extreme NASH - Healthy vs. NASH. The top decile of OTUs relatively increased in NASH for the metagenomic experiment are colored pink, and the top decile of OTUs relatively increased healthy for the metagenomic experiment are colored blue.}
+\caption[Correlation in effect sizes of different group experiments.]{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The median difference in the absolute effect sizes is -0.05 for Healthy vs. NASH - Healthy vs. SS, -0.05 for Healthy vs. extreme NASH - Healthy vs. SS, and -0.003 for Healthy vs. extreme NASH - Healthy vs. NASH. The top decile of OTUs relatively increased in NASH for the metagenomic experiment are colored pink, and the top decile of OTUs relatively increased healthy for the metagenomic experiment are colored blue.}
 \label{nafld_fig4}
 \end{center}
 \end{figure}
