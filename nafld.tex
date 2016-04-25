@@ -188,7 +188,7 @@ No obvious structure or separation is evident from the principal co-ordinates an
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_biplot.png}
-\caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genus is overlayed on the same principal component analysis plot. Note that the variance explained by the first and the second component is 13.6\% and 8.4\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. }
+\caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genus is overlayed on the same principal component analysis plot. Note that the variance explained by the first and the second component is 13.6\% and 8.4\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls selected for the metagenomic study are colored black while samples from patients with extreme NASH are colored dark red. The remaining healthy controls are colored gray, and the remaining NASH sampels are colored bright red. Samples from patients with simple steatosis (SS) are colored pink.}
 \label{nafld_16s_biplot}
 \end{center}
 \end{figure}
@@ -203,7 +203,7 @@ No obvious structure or separation is evident from the principal co-ordinates an
 
 The Toronto patient population is very diverse, including patients coming from different cultural backgrounds who consume different diets. With this kind of population and diversity, it can be difficult to have sufficient power to detect significant differences. We explore effect sizes, since these are known to be more robust and predict the p-values. Effect size is a standardized difference between means
 
-When comparing all the healthy samples with all the NASH samples, the genus with the highest effect sizes are \textit{Adlercreutzia}, \textit{Odoribacter}, and \textit{Escherichia-Shigella}. However, when only the select 10 healthy samples and the 10 extreme NASH samples used in the metagenomic study are compared, the genus with the highest effect sizes are \textit{Ruminococcus}, \textit{Adlercreutzia}, and \textit{Alistipes}. This corresponds with the qPCR experiment, where \textit{Bacteriodetes}, \textit{Prevotella}, and \textit{Ruminococcus} were tested, and only \textit{Ruminococcus} was found to be differentially abundant.
+When comparing all the healthy samples with all the NASH samples, the genera with the highest effect sizes are \textit{Adlercreutzia}, \textit{Odoribacter}, and \textit{Escherichia-Shigella}. However, when only the select 10 healthy samples and the 10 extreme NASH samples used in the metagenomic study are compared, the genera with the highest effect sizes are \textit{Ruminococcus}, \textit{Adlercreutzia}, and \textit{Alistipes}. This corresponds with the qPCR experiment, where \textit{Bacteriodetes}, \textit{Prevotella}, and \textit{Ruminococcus} were tested, and only \textit{Ruminococcus} was found to be differentially abundant.
 
 \begin{figure}[h]
 \begin{center}
@@ -349,7 +349,7 @@ Lachnospiraceae & Dorea & $100$ & $-1.01$ & $0.018$ & $-0.75$ \\ \hline
 Family_XIII & Incertae_Sedis & $91$ & $-0.312$ & $0.19$ & $-0.954$ \\ \hline
 \end{tabular}
 \end{tiny}
-\caption[Bottom decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.]{ \textbf{Bottom decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.} This table lists the OTUs and their effect sizes in all the comparisons. The OTUs were picked by open reference, by clustering and comparison with the SILVA database \cite{quast2013silva}. Positive effect sizes indicate that the feature was found to be relatively increased in NASH while negative effect sizes indicate that the feature was found to be relatively increased in healthy. OTUs were annotated with SILVA, and a confidence percentage is reported based on the provided bootstrapping algorithm.}
+\caption[Top decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.]{ \textbf{Top decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.} This table lists the OTUs and their effect sizes in all the comparisons. The OTUs were picked by open reference, by clustering and comparison with the SILVA database \cite{quast2013silva}. Positive effect sizes indicate that the feature was found to be relatively increased in NASH while negative effect sizes indicate that the feature was found to be relatively increased in healthy. OTUs were annotated with SILVA, and a confidence percentage is reported based on the provided bootstrapping algorithm.}
 \label{nafld_bot_otu_table}
 % \end{adjustwidth}
 \end{table}
@@ -360,12 +360,12 @@ Family_XIII & Incertae_Sedis & $91$ & $-0.312$ & $0.19$ & $-0.954$ \\ \hline
 \subsection{Metagenomic experiment}
 
 \paragraph{Functional analysis}\mbox{}\\
-
+[FILL THIS IN]
 
 \paragraph{MetaPhlAn}\mbox{}\\
-We ran the metagenomic sequences through MetaPhlAn to infer what the results would be with 16S rRNA gene tag sequencing, so that we could compare with our empirical 16S rRNA gene tag sequencing results. The effect size Spearman coefficient (Fig.~\ref{nafld_metaphlan_effect}) is smaller than the effect size coefficient between the healthy vs. SS and healthy vs. NASH comparison, even though in this case the same samples are being compared.
+We ran the sequences from the metagenomic sequencing experiment through MetaPhlAn. MetaPhlAn generates taxonomy profiles by inferring what the results would be with 16S rRNA gene tag sequencing.
 
-The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and could not be compared directly, so the effect size comparison in Fig.~\ref{nafld_metaphlan_effect} was done at the genus level. Note that OTUs can reside in between genuses, such that the genus classificaiton is not perfectly concordant between the two comparisons. The top four relatively abundant genera from the MetaPhlAn analysis were \textit{Ruminococcus}, \textit{Eubacterium}, \textit{Coprococcus}, and \textit{Bacteroides}. Only \textit{Bacteroides} is also on the top four relatively abundant genera from the 16S rRNA gene tag sequencing experiment.
+The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and can not be compared directly. Note that OTUs can reside in between genera, such that the genus classification is not perfectly concordant between the two comparisons. The top four relatively abundant genera from the MetaPhlAn analysis were \textit{Ruminococcus}, \textit{Eubacterium}, \textit{Coprococcus}, and \textit{Bacteroides}. Only \textit{Bacteroides} is also on the top four relatively abundant genera from the 16S rRNA gene tag sequencing experiment.
 
 \begin{figure}[h]
 \begin{center}
@@ -378,24 +378,24 @@ The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
-\caption[Biplot derived from MetaPhlAn.]{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with a centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlayed on the same principal component analysis plot. This biplot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. Note that the variance explained by the first and the second component is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red.}
+\caption[Biplot derived from MetaPhlAn.]{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlayed on the same principal component analysis plot. This biplot was generated from the count table inferred by MetaPhlAn. Note that the variance explained by the first and the second component is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. The two groups appear to have a nice split, but this is contradicted by the experimental 16S rRNA gene sequencing results in Figure ~\ref{nafld_16s_metagenomic_biplot}}
 \label{nafld_metaphlan_biplot}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{metaphlan_aldex.png}
-\caption[Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.]{\textbf{Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.} This plot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. No taxa are more differential between groups than within groups. A positive difference between indicates that the taxa was relatively increased in NASH while a negative difference between indicates that the taxa was relatively increased in healthy. This analysis was done at the OTU level.}
-\label{nafld_metaphlan_aldex}
+\includegraphics[width=0.95\textwidth]{16S_metagenomic_biplot.png}
+\caption[Biplot derived from 16S rRNA gene experiment.]{\textbf{Biplot derived from 16S rRNA gene experiment.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlayed on the same principal component analysis plot. This biplot was generated from the count table generated by the 16S rRNA gene sequencing experiment. Note that the variance explained by the first and the second component is 16.7\% and 12.7\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. This plot only shows the 20 samples selected for metagenomic sequencing.}
+\label{nafld_16s_metagenomic_biplot}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{metaphlan_16s_effects.png}
-\caption[Effect size correlation between MetaPhlAn and 16S rRNA gene tag sequencing.]{\textbf{Effect size correlation between MetaPhlAn and 16S rRNA gene tag sequencing.} For this plot, taxa were amalgamated at the genus level. The effect sizes for the comparison of the healthy and NASH samples selected for the metagenomic study are shown. The Spearman coefficient is 0.2021001. Genera corresponding with OTUs identified to have the top deciles of effect sizes in the 16S rRNA gene tag experiment comparison are colored - red for OTUs relatively abundant in NASH, and blue for OTUs relatively abundant in the healthy condition. Genera corresponding to both OTUs in the NASH and healthy deciles are colored purple.}
-\label{nafld_metaphlan_effect}
+\includegraphics[width=0.95\textwidth]{metaphlan_aldex.png}
+\caption[Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.]{\textbf{Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.} This plot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. No taxa are more differential between groups than within groups. A positive difference between indicates that the taxa was relatively increased in NASH while a negative difference between indicates that the taxa was relatively increased in healthy. This analysis was done at the inferred species level (using operational taxonomic units) rather than at the genus level. The circled taxa is \textit{Alistipes shahii}, and has an expected Benjamini-Hochberg p-value of 0.0776.}
+\label{nafld_metaphlan_aldex}
 \end{center}
 \end{figure}
 
@@ -403,9 +403,9 @@ The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were
 
 \section{Discussion}
 
-Given the inconsistency in the five papers that have been published about NAFLD and the gut microbiome, we have performed our analysis in a rigorous manner in an effort to find OTUs with true effects. We found that there was no significant difference between groups by sample clustering (Fig.~\ref{nafld_fig2}) or at the level of the individual OTUs (Fig.~\ref{nafld_fig3}).
+Given the inconsistency in the five papers that have been published about NAFLD and the gut microbiome, we have performed our analysis in a rigorous manner in an effort to find OTUs with true effects. We found that there was no significant difference between groups by sample clustering (Fig.~\ref{nafld_16s_barplot}) or at the level of the individual OTUs (Fig.~\ref{nafld_fig3}). The principal component analysis done with MetaPhlAn appeared to show the samples separating by group (Fig. ~\ref{nafld_metaphlan_biplot}). One taxa, \textit{Alistipes shahii}, was nearly significantly increased in the healthy condition in the MetaPhlAn analysis, which infers a taxonomic profile from metagenomic sequencing. However, when we sequenced the true taxonomic profile through 16S rRNA gene sequencing, no taxa were as differential (Fig. ~\ref{nafld_16s_aldex}), and the groups were not separated (Fig. ~\ref{nafld_16s_metagenomic_biplot}). Members of the \textit{Alistipes} genus appear in the top decile of taxa differentially abundant in both NASH (Fig. ~\ref{nafld_top_otu_table}) and healthy (Fig. ~\ref{nafld_bot_otu_table}) conditions.
 
-There are several factors that would make such a study underpowered. First, the gut microbiome is highly diverse between individuals. This is compounded by the fact that the samples were taken from a diverse Toronto population, including people who immigrated from other countries who likely have different diets. The literature shows that differences in the gut microbiome are often driven by diet \cite{david2014diet}. Additionally, the nature of microbiome data is that there are very many more variables (in the form of OTUs or annotated gene functions) than samples, and the power of the study is inversely proportional to the number of variables.
+We conclude that there are several factors that would make such a study underpowered. First, the gut microbiome is highly diverse between individuals. This is compounded by the fact that the samples were taken from a diverse Toronto population, including people who immigrated from other countries who likely have different diets. The literature shows that differences in the gut microbiome are often driven by diet \cite{david2014diet}. Additionally, the nature of microbiome data is that there are very many more variables (in the form of OTUs or annotated gene functions) than samples, and the power of the study is inversely proportional to the number of variables.
 
 From Fig.~\ref{nafld_fig4}, the correlation shows that even though there is not enough power to detect a significant difference, the difference from the healthy baseline are moving in the same direction through simple steatosis to nonalcoholic steatohepatitis to extreme NASH.
 
