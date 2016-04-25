@@ -161,7 +161,7 @@ Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A 
 \subsection{Data sets}
 There were originally three groups of patients within these samples: healthy controls, patients with simple steatosis, and patients who had progressed to non alcoholic steatohepatosis. For the metagenomic experiment, 10 of the healthy controls and 10 of the NASH group were selected, based on clinical criteria (Table ~\ref{nafld_table_2}).
 
-From this, three comparisons can be made: healthy compared to simple steatosis (SS), healthy vs. non alcoholic steatohepatosis (NASH), and healthy compared to the extreme NASH patients chosen for the metagenomic study. The healthy controls used in the healthy vs. extreme NASH comparison had already been chosen for the metagenomic study. Of the remaining healthy patient, half were used as controls for the healthy vs. SS comparison, and half were used for the healthy vs. NASH comparison. This way, in correlating the results of the three different comparisons, there will not be spurious correlations from using the same control samples.
+From this, three comparisons can be made: healthy compared to simple steatosis (SS), healthy compared to non alcoholic steatohepatosis (NASH), and healthy compared to the extreme NASH patients chosen for the metagenomic study. The healthy controls used in the healthy vs. extreme NASH comparison had already been chosen for the metagenomic study. Of the remaining healthy patient, half were used as controls for the healthy vs. SS comparison, and half were used for the healthy vs. NASH comparison. This way, in correlating the results of the three different comparisons, there will not be spurious correlations from using the same control samples. The three data sets will be denoted in figures as `Healthy vs. SS', `Healthy vs. NASH', and `Healthy vs. extreme NASH', respectively.
 
 \subsection{16S rRNA gene tag experiment}
 
@@ -208,79 +208,80 @@ When comparing all the healthy samples with all the NASH samples, the genus with
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{nafld_16s_effect_sizes.png}
-\caption[Correlation in effect sizes of different group experiments.]{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The median difference in the absolute effect sizes is -0.05 for Healthy vs. NASH - Healthy vs. SS, -0.05 for Healthy vs. extreme NASH - Healthy vs. SS, and -0.003 for Healthy vs. extreme NASH - Healthy vs. NASH. The top decile of OTUs relatively increased in NASH for the metagenomic experiment are colored pink, and the top decile of OTUs relatively increased healthy for the metagenomic experiment are colored blue.}
+\caption[Correlation in effect sizes of different group experiments.]{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The top decile of OTUs relatively increased in NASH for the metagenomic experiment are colored pink, and the top decile of OTUs relatively increased healthy for the metagenomic experiment are colored blue. The median difference in the effect sizes of the `Healthy vs. NASH' - `Healthy vs. SS' is 0.12370 for the pink points, and 0.02626 for the blue points. The median difference in the effect sizes of the `Healthy vs. extreme NASH' - `Healthy vs. SS' is 0.4014 for the pink points, and -0.3513 for the blue points. The median difference in the effect sizes of the `Healthy vs. extreme NASH' - `Healthy vs. NASH' is 0.3799 for the pink points, and -0.3742 for the blue points. }
 \label{nafld_fig4}
 \end{center}
 \end{figure}
 
 \FloatBarrier
+Here we have looked at three different comparisons: healthy compared to simple steatosis (SS), healthy compared to non alcoholic steatohepatosis (NASH), and healthy compared to extreme NASH. The healthy controls have been selected so that different healthy controls are used in each comparison. The ALDEx analysis in Figure ~\ref{nafld_fig3} showed that there are no OTUs significantly differentially abundant between conditions.
 
-A differential expression analysis performed with ALDEx2 between healthy vs. SS, healthy vs. NASH, and the 10 healthy samples selected for the metagenomic study vs. the 10 NASH samples for the metagenomic study yielded no significantly differentially abundant OTUs (Fig.~\ref{nafld_fig3}). However, the effect size (difference between groups divided by the difference within groups) of each OTU in each comparison is correlated (Fig.~\ref{nafld_fig4}). The effect sizes are higher in the Healthy vs. extreme NASH compared to the Healthy vs. SS or Healthy vs. NASH comparison.
+Effect size is a standardized difference between two groups, calculated by dividing difference by dispersion. If there were truly no effect, then there would be no correlation between the effect sizes for each OTU in the different comparisons. However, in Figure ~\ref{nafld_fig4}, we show that the effect sizes for each OTU in each comparison are correlated. The effect sizes are higher in the Healthy vs. extreme NASH compared to the Healthy vs. SS or Healthy vs. NASH comparison at the extreme deciles.
 
 \begin{table}[!ht]
 % \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \begin{tiny}
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\bf{OTU family} & \bf{OTU genus} & \bf{SILVA} &\bf{H Vs. NASH} & \bf{H Vs. SS} & \bf{H vs. NASH} & \bf{16S genus} & \bf{MetaPhlAn}\\
-& & \bf{bootstrap} & \bf{metagenomic} & \bf{effect sizes} & \bf{effect sizes} & \bf{effect sizes} & \bf{effect sizes}\\
-& & \bf{value} & \bf{study effect sizes} & & & & \\ \hline
-Acidaminococcaceae & Phascolarctobacterium & $100$ & $0.998$ & $0.122$ & $0.407$ & $0.827$ & $0.081$ \\ \hline
-Lactobacillaceae & Lactobacillus & $97$ & $0.896$ & $0.534$ & $0.736$ & $0.587$ & $-0.899$ \\ \hline
-Prevotellaceae & Paraprevotella & $100$ & $0.819$ & $0.208$ & $0.489$ & $0.843$ & $0.064$ \\ \hline
-Lachnospiraceae & Incertae Sedis & $98$ & $0.673$ & $0.37$ & $0.2$ & NA & NA \\ \hline
-Lachnospiraceae & Marvinbryantia & $77$ & $0.65$ & $0.159$ & $0.858$ & $0.077$ & $0.269$ \\ \hline
-Lachnospiraceae & Incertae Sedis & $73$ & $0.634$ & $0.557$ & $0.32$ & NA & NA \\ \hline
-Bifidobacteriaceae & Bifidobacterium & $100$ & $0.616$ & $0.262$ & $0.304$ & $0.188$ & $0.032$ \\ \hline
-Ruminococcaceae & Incertae Sedis & $72$ & $0.586$ & $0.331$ & $0.291$ & NA & NA \\ \hline
-Prevotellaceae & Paraprevotella & $100$ & $0.529$ & $0.691$ & $0.787$ & $0.843$ & $0.064$ \\ \hline
-Lachnospiraceae & unclassified & $100$ & $0.505$ & $0.371$ & $0.571$ & NA & NA \\ \hline
-unclassified & unclassified & $72$ & $0.505$ & $0.533$ & $0.244$ & NA & NA \\ \hline
-Ruminococcaceae & Butyricicoccus & $71$ & $0.502$ & $0.198$ & $0.372$ & $0.449$ & $0.28$ \\ \hline
-Lachnospiraceae & Incertae Sedis & $91$ & $0.5$ & $0.411$ & $0.339$ & NA & NA \\ \hline
-Ruminococcaceae & Ruminococcus & $93$ & $0.494$ & $0.369$ & $0.253$ & $-0.866$ & $0.023$ \\ \hline
-Coriobacteriaceae & unclassified & $97$ & $0.491$ & $0.334$ & $0.301$ & NA & NA \\ \hline
-Lachnospiraceae & unclassified & $98$ & $0.478$ & $0.178$ & $0.341$ & NA & NA \\ \hline
-Lactobacillaceae & Lactobacillus & $98$ & $0.476$ & $0.341$ & $0.439$ & $0.587$ & $-0.899$ \\ \hline
-Ruminococcaceae & Subdoligranulum & $87$ & $0.475$ & $0.582$ & $0.483$ & $-0.087$ & $-0.177$ \\ \hline
-Ruminococcaceae & Incertae Sedis & $98$ & $0.465$ & $0.939$ & $0.409$ & NA & NA \\ \hline
-Ruminococcaceae & unclassified & $100$ & $0.462$ & $-0.4$ & $0.202$ & NA & NA \\ \hline
-Coriobacteriaceae & Olsenella & $91$ & $0.443$ & $0.429$ & $0.183$ & $0.318$ & $0.141$ \\ \hline
-Ruminococcaceae & Subdoligranulum & $98$ & $0.429$ & $0.245$ & $0.388$ & $-0.087$ & $-0.177$ \\ \hline
-Lachnospiraceae & unclassified & $100$ & $0.429$ & $0.397$ & $0.342$ & NA & NA \\ \hline
-Prevotellaceae & Prevotella & $99$ & $0.427$ & $0.111$ & $0.183$ & $0.212$ & $0.188$ \\ \hline
-Lachnospiraceae & Anaerostipes & $100$ & $0.423$ & $0.298$ & $0.338$ & $0.244$ & $0.344$ \\ \hline
-Prevotellaceae & unclassified & $70$ & $0.419$ & $0.203$ & $0.316$ & NA & NA \\ \hline
-unclassified & unclassified & $92$ & $0.414$ & $0.136$ & $0.137$ & NA & NA \\ \hline
-Ruminococcaceae & Incertae Sedis & $99$ & $0.412$ & $0.35$ & $0.473$ & NA & NA \\ \hline
-Ruminococcaceae & Faecalibacterium & $100$ & $0.404$ & $0.185$ & $0.251$ & $-0.226$ & $-0.173$ \\ \hline
-Alcaligenaceae & Sutterella & $100$ & $0.4$ & $0.177$ & $0.309$ & $0.162$ & $0.051$ \\ \hline
-unclassified & unclassified & $73$ & $0.4$ & $0.345$ & $0.25$ & NA & NA \\ \hline
-Rikenellaceae & Alistipes & $100$ & $0.397$ & $0.139$ & $0.17$ & $-0.687$ & $0.053$ \\ \hline
-Lachnospiraceae & Roseburia & $98$ & $0.392$ & $0.612$ & $0.273$ & $0.18$ & $0.168$ \\ \hline
-Prevotellaceae & unclassified & $75$ & $0.387$ & $0.131$ & $0.274$ & NA & NA \\ \hline
-Coriobacteriaceae & Enterorhabdus & $72$ & $0.38$ & $0.029$ & $0.135$ & $0.429$ & $0.224$ \\ \hline
-Ruminococcaceae & Ruminococcus & $100$ & $0.378$ & $0.146$ & $0.317$ & $-0.866$ & $0.023$ \\ \hline
-unclassified & unclassified & $98$ & $0.366$ & $0.398$ & $0.275$ & NA & NA \\ \hline
-Veillonellaceae & Dialister & $100$ & $0.353$ & $0.25$ & $0.145$ & $-0.297$ & $-0.038$ \\ \hline
-Lachnospiraceae & unclassified & $100$ & $0.342$ & $-0.211$ & $0.301$ & NA & NA \\ \hline
-Family XIII & Incertae Sedis & $100$ & $0.341$ & $0.295$ & $0.317$ & NA & NA \\ \hline
-Bacteroidaceae & Bacteroides & $100$ & $0.333$ & $0.093$ & $0.201$ & $-0.356$ & $-0.124$ \\ \hline
-Lachnospiraceae & unclassified & $100$ & $0.327$ & $0.155$ & $0.333$ & NA & NA \\ \hline
-Lachnospiraceae & unclassified & $100$ & $0.327$ & $0.01$ & $0.214$ & NA & NA \\ \hline
-Desulfovibrionaceae & Desulfovibrio & $100$ & $0.326$ & $-0.009$ & $-0.065$ & $0.283$ & $0.046$ \\ \hline
-Lachnospiraceae & unclassified & $100$ & $0.309$ & $0.011$ & $0.117$ & NA & NA \\ \hline
-Lachnospiraceae & Blautia & $96$ & $0.308$ & $0.218$ & $0.087$ & $-0.031$ & $0.192$ \\ \hline
-Lachnospiraceae & Blautia & $97$ & $0.306$ & $-0.036$ & $0.215$ & $-0.031$ & $0.192$ \\ \hline
-Ruminococcaceae & unclassified & $100$ & $0.305$ & $0.353$ & $0.462$ & NA & NA \\ \hline
-Christensenellaceae & unclassified & $99$ & $0.303$ & $0.11$ & $0.277$ & NA & NA \\ \hline
-Alcaligenaceae & Parasutterella & $100$ & $0.302$ & $0.252$ & $0.308$ & $0.389$ & $0.521$ \\ \hline
-Lachnospiraceae & Incertae Sedis & $100$ & $0.3$ & $0.052$ & $0.153$ & NA & NA \\ \hline
-Ruminococcaceae & Subdoligranulum & $92$ & $0.299$ & $0.056$ & $0.076$ & $-0.087$ & $-0.177$ \\ \hline
-Acidaminococcaceae & Acidaminococcus & $100$  & $0.295$ & $0.287$ & $0.006$ & $0.345$ & $-0.737$ \\ \hline
+\bf{OTU family} & \bf{OTU genus} & \bf{SILVA} &\bf{H Vs. SS} & \bf{H Vs. NASH} & \bf{H vs. extreme} \\
+& & \bf{bootstrap} & \bf{effect sizes} & \bf{effect sizes} & \bf{NASH effect} \\
+& & \bf{value} & & & \bf{sizes}\\ \hline
+Acidaminococcaceae & Phascolarctobacterium & $97$ & $-0.701$ & $-0.329$ & $0.999$ \\ \hline
+Lactobacillaceae & Lactobacillus & $100$ & $0.33$ & $0.727$ & $0.875$ \\ \hline
+Prevotellaceae & Paraprevotella & $100$ & $-0.089$ & $0.192$ & $0.837$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $77$ & $-0.204$ & $-0.004$ & $0.649$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $98$ & $0.022$ & $0.038$ & $0.622$ \\ \hline
+Lachnospiraceae & Marvinbryantia & $72$ & $-0.146$ & $-0.001$ & $0.613$ \\ \hline
+Bifidobacteriaceae & Bifidobacterium & $73$ & $-0.27$ & $0.958$ & $0.595$ \\ \hline
+Lachnospiraceae & unclassified & $100$ & $0.024$ & $-0.094$ & $0.585$ \\ \hline
+Coriobacteriaceae & unclassified & $71$ & $0.136$ & $-0.093$ & $0.54$ \\ \hline
+Ruminococcaceae & Ruminococcus & $100$ & $-0.047$ & $0.313$ & $0.536$ \\ \hline
+Ruminococcaceae & Butyricicoccus & $100$ & $-0.072$ & $0.11$ & $0.533$ \\ \hline
+Prevotellaceae & Paraprevotella & $97$ & $0.134$ & $0.14$ & $0.529$ \\ \hline
+Ruminococcaceae & Incertae_Sedis & $72$ & $-0.113$ & $0.011$ & $0.513$ \\ \hline
+Ruminococcaceae & Incertae_Sedis & $91$ & $0.053$ & $0.158$ & $0.5$ \\ \hline
+Lachnospiraceae & unclassified & $100$ & $0.278$ & $0.003$ & $0.479$ \\ \hline
+Ruminococcaceae & Subdoligranulum & $98$ & $0.426$ & $-0.043$ & $0.469$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $91$ & $-0.504$ & $-0.284$ & $0.466$ \\ \hline
+unclassified & unclassified & $98$ & $-0.179$ & $0.088$ & $0.466$ \\ \hline
+unclassified & unclassified & $87$ & $0.155$ & $0.171$ & $0.456$ \\ \hline
+Ruminococcaceae & unclassified & $93$ & $0.859$ & $0.115$ & $0.455$ \\ \hline
+Lactobacillaceae & Lactobacillus & $100$ & $-0.087$ & $-0.088$ & $0.452$ \\ \hline
+Prevotellaceae & Prevotella & $98$ & $0.314$ & $0.101$ & $0.431$ \\ \hline
+Lachnospiraceae & unclassified & $99$ & $0.121$ & $0.001$ & $0.425$ \\ \hline
+Prevotellaceae & unclassified & $100$ & $-0.06$ & $0.214$ & $0.415$ \\ \hline
+Ruminococcaceae & Subdoligranulum & $92$ & $0.767$ & $0.236$ & $0.415$ \\ \hline
+Rikenellaceae & Alistipes & $99$ & $-0.037$ & $-0.125$ & $0.411$ \\ \hline
+Ruminococcaceae & Incertae_Sedis & $98$ & $-0.154$ & $0.157$ & $0.411$ \\ \hline
+unclassified & unclassified & $100$ & $-0.263$ & $-0.025$ & $0.406$ \\ \hline
+Coriobacteriaceae & Olsenella & $73$ & $0.589$ & $-0.062$ & $0.404$ \\ \hline
+Ruminococcaceae & Faecalibacterium & $98$ & $0.49$ & $0.188$ & $0.402$ \\ \hline
+Lachnospiraceae & Anaerostipes & $100$ & $-0.338$ & $-0.235$ & $0.395$ \\ \hline
+Alcaligenaceae & Sutterella & $72$ & $0.021$ & $0.241$ & $0.392$ \\ \hline
+Veillonellaceae & Dialister & $70$ & $0.108$ & $0.444$ & $0.371$ \\ \hline
+Ruminococcaceae & Ruminococcus & $100$ & $0.035$ & $-0.175$ & $0.367$ \\ \hline
+Desulfovibrionaceae & Desulfovibrio & $100$ & $0.023$ & $0.206$ & $0.366$ \\ \hline
+Family_XIII & Incertae_Sedis & $98$ & $0.012$ & $-0.363$ & $0.365$ \\ \hline
+unclassified & unclassified & $100$ & $0.3$ & $-0.033$ & $0.347$ \\ \hline
+Lachnospiraceae & Blautia & $100$ & $0.204$ & $-0.462$ & $0.342$ \\ \hline
+Lachnospiraceae & unclassified & $100$ & $-0.061$ & $0.086$ & $0.34$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $100$ & $-0.043$ & $0.111$ & $0.337$ \\ \hline
+Bacteroidaceae & Bacteroides & $100$ & $0.208$ & $-0.347$ & $0.337$ \\ \hline
+Coriobacteriaceae & Enterorhabdus & $100$ & $0.487$ & $0.129$ & $0.336$ \\ \hline
+Lachnospiraceae & unclassified & $97$ & $-0.132$ & $0.062$ & $0.333$ \\ \hline
+Christensenellaceae & unclassified & $100$ & $-0.197$ & $-0.001$ & $0.333$ \\ \hline
+Lachnospiraceae & unclassified & $99$ & $-0.062$ & $0.076$ & $0.33$ \\ \hline
+Acidaminococcaceae & Acidaminococcus & $100$ & $0.031$ & $0.512$ & $0.319$ \\ \hline
+Lachnospiraceae & Roseburia & $94$ & $-0.708$ & $0.375$ & $0.315$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $100$ & $-0.36$ & $-0.126$ & $0.315$ \\ \hline
+Prevotellaceae & Alloprevotella & $100$ & $0.073$ & $-0.381$ & $0.313$ \\ \hline
+Ruminococcaceae & Subdoligranulum & $96$ & $0.62$ & $0.088$ & $0.309$ \\ \hline
+Lachnospiraceae & unclassified & $92$ & $-0.097$ & $0.039$ & $0.304$ \\ \hline
+Ruminococcaceae & unclassified & $100$ & $-1.169$ & $-0.257$ & $0.302$ \\ \hline
+Lachnospiraceae & unclassified & $100$ & $0.117$ & $0.058$ & $0.298$ \\ \hline
 \end{tabular}
 \end{tiny}
-\caption[Top decile of OTUs relatively increased in NASH based on effect size from healthy vs. NASH comparison.]{ \textbf{Top decile of OTUs relatively increased in NASH based on effect size from healthy vs. NASH comparison.} This table lists the OTUs, their effect sizes in all the comparisons, as well as the corresponding genus-level effect sizes in the 16S rRNA gene tag experiment and MetaPhlAn comparisons between the 10 healthy and 10 NASH samples selected for the metagenomic study. The OTUs were picked by open reference, by clustering and comparison with the SILVA database \cite{quast2013silva}. Positive effect sizes indicate that the feature was found to be relatively increased in NASH while negative effect sizes indicate that the featuer was found to be relatively increased in healthy. OTUs were annotated with SILVA, and a confidence percentage is reported based on the provided bootstrapping algorithm. \textit{Incertae Sedis} and unclassified genera were not analyzed at the genus level.}
+\caption[Top decile of OTUs relatively increased in NASH based on effect size from healthy vs. NASH comparison.]{ \textbf{Top decile of OTUs relatively increased in NASH based on effect size from healthy vs. NASH comparison.} This table lists the OTUs and their effect sizes in all the comparisons. The OTUs were picked by open reference, by clustering and comparison with the SILVA database \cite{quast2013silva}. Positive effect sizes indicate that the feature was found to be relatively increased in NASH while negative effect sizes indicate that the feature was found to be relatively increased in healthy. OTUs were annotated with SILVA, and a confidence percentage is reported based on the provided bootstrapping algorithm.}
 \label{nafld_top_otu_table}
 % \end{adjustwidth}
 \end{table}
@@ -290,65 +291,65 @@ Acidaminococcaceae & Acidaminococcus & $100$  & $0.295$ & $0.287$ & $0.006$ & $0
 \begin{tiny}
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\bf{OTU family} & \bf{OTU genus} & \bf{SILVA} &\bf{H Vs. NASH} & \bf{H Vs. SS} & \bf{H vs. NASH} & \bf{16S genus} & \bf{MetaPhlAn}\\
-& & \bf{bootstrap} & \bf{metagenomic} & \bf{effect sizes} & \bf{effect sizes} & \bf{effect sizes} & \bf{effect sizes}\\
-& & \bf{value} & \bf{study effect sizes} & & & & \\ \hline
-Ruminococcaceae & Incertae Sedis & $100$ & $-0.349$ & $-0.539$ & $-0.411$ & NA & NA \\ \hline
-Verrucomicrobiaceae & Akkermansia & $100$ & $-0.35$ & $-0.169$ & $-0.433$ & $-0.496$ $0.343$ & \\ \hline
-Porphyromonadaceae & Parabacteroides & $100$ & $-0.35$ & $-0.529$ & $-0.349$ & $-0.313$ $0.016$ & \\ \hline
-Rikenellaceae & Alistipes & $100$ & $-0.356$ & $-0.534$ & $-0.208$ & $-0.687$ $0.053$ & \\ \hline
-Lachnospiraceae & Incertae Sedis & $73$ & $-0.36$ & $-0.392$ & $-0.173$ & NA & NA \\ \hline
-Lachnospiraceae & unclassified & $100$ & $-0.361$ & $-0.549$ & $-0.411$ & NA & NA \\ \hline
-Streptococcaceae & Streptococcus & $100$ & $-0.363$ & $-0.245$ & $-0.24$ & $-0.18$ $0.233$ & \\ \hline
-Lachnospiraceae & unclassified & $100$ & $-0.369$ & $-0.082$ & $-0.169$ & NA & NA \\ \hline
-Lachnospiraceae & Dorea & $100$ & $-0.369$ & $-0.241$ & $-0.252$ & $-0.267$ $-0.154$ & \\ \hline
-Lachnospiraceae & Roseburia & $83$ & $-0.371$ & $0.019$ & $-0.507$ & $0.18$ $0.168$ & \\ \hline
-Lachnospiraceae & Incertae Sedis & $82$ & $-0.379$ & $-0.3$ & $-0.424$ & NA & NA \\ \hline
-Christensenellaceae & unclassified & $98$ & $-0.386$ & $-0.051$ & $-0.14$ & NA & NA \\ \hline
-Christensenellaceae & unclassified & $100$ & $-0.387$ & $-0.571$ & $-0.467$ & NA & NA \\ \hline
-Lachnospiraceae & Blautia & $93$ & $-0.387$ & $-0.704$ & $-0.532$ & $-0.031$ $0.192$ & \\ \hline
-Ruminococcaceae & unclassified & $100$ & $-0.393$ & $-0.511$ & $-0.2$ & NA & NA \\ \hline
-Lachnospiraceae & Roseburia & $91$ & $-0.397$ & $-0.568$ & $-0.603$ & $0.18$ $0.168$ & \\ \hline
-Porphyromonadaceae & Odoribacter & $100$ & $-0.397$ & $0.005$ & $-0.135$ & $-0.541$ $-0.333$ & \\ \hline
-Lachnospiraceae & Incertae Sedis & $85$ & $-0.397$ & $-0.265$ & $-0.362$ & NA & NA \\ \hline
-Lachnospiraceae & unclassified & $98$ & $-0.401$ & $-0.135$ & $-0.289$ & NA & NA \\ \hline
-Porphyromonadaceae & Odoribacter & $100$ & $-0.422$ & $-0.625$ & $-0.492$ & $-0.541$ $-0.333$ & \\ \hline
-Erysipelotrichaceae & Turicibacter & $100$ & $-0.424$ & $-0.206$ & $-0.251$ & $-0.52$ $-0.717$ & \\ \hline
-Christensenellaceae & unclassified & $100$ & $-0.443$ & $-0.452$ & $-0.329$ & NA & NA \\ \hline
-Ruminococcaceae & Ruminococcus & $100$ & $-0.444$ & $-0.429$ & $-0.282$ & $-0.866$ $0.023$ & \\ \hline
-Christensenellaceae & unclassified & $99$ & $-0.445$ & $-0.602$ & $-0.464$ & NA & NA \\ \hline
-Lachnospiraceae & unclassified & $100$ & $-0.452$ & $-0.387$ & $-0.564$ & NA & NA \\ \hline
-Bacteroidaceae & Bacteroides & $100$ & $-0.456$ & $-0.038$ & $-0.4$ & $-0.356$ $-0.124$ & \\ \hline
-Ruminococcaceae & Incertae Sedis & $84$ & $-0.461$ & $-1.024$ & $-0.668$ & NA & NA \\ \hline
-Veillonellaceae & Dialister & $100$ & $-0.479$ & $0.036$ & $-0.405$ & $-0.297$ $-0.038$ & \\ \hline
-Bacteroidaceae & Bacteroides & $100$ & $-0.488$ & $-0.534$ & $-0.521$ & $-0.356$ $-0.124$ & \\ \hline
-Prevotellaceae & Alloprevotella & $100$ & $-0.5$ & $-0.667$ & $-0.172$ & $-0.001$ $0.863$ & \\ \hline
-Bacteroidaceae & Bacteroides & $100$ & $-0.502$ & $-0.487$ & $-0.272$ & $-0.356$ $-0.124$ & \\ \hline
-Rikenellaceae & Alistipes & $100$ & $-0.517$ & $-0.369$ & $-0.367$ & $-0.687$ $0.053$ & \\ \hline
-Coriobacteriaceae & Adlercreutzia & $100$ & $-0.521$ & $-0.309$ & $-0.452$ & $-0.372$ $-0.298$ & \\ \hline
-Ruminococcaceae & unclassified & $100$ & $-0.522$ & $-0.571$ & $-0.436$ & NA & NA \\ \hline
-Family XIII & Anaerovorax & $91$ & $-0.533$ & $-0.611$ & $-0.624$ & $-0.476$ $-0.152$ & \\ \hline
-Ruminococcaceae & unclassified & $76$ & $-0.54$ & $-0.59$ & $-0.573$ & NA & NA \\ \hline
-Lachnospiraceae & Pseudobutyrivibrio & $98$ & $-0.543$ & $-0.712$ & $-0.46$ & $-0.423$ $-0.091$ & \\ \hline
-Bacteroidaceae & Bacteroides & $100$ & $-0.546$ & $-0.766$ & $-0.647$ & $-0.356$ $-0.124$ & \\ \hline
-Bacteroidaceae & Bacteroides & $100$ & $-0.561$ & $-0.069$ & $-0.184$ & $-0.356$ $-0.124$ & \\ \hline
-Lachnospiraceae & Blautia & $85$ & $-0.562$ & $-0.906$ & $-0.561$ & $-0.031$ $0.192$ & \\ \hline
-Ruminococcaceae & Faecalibacterium & $100$ & $-0.566$ & $-0.704$ & $-0.724$ & $-0.226$ $-0.173$ & \\ \hline
-unclassified & unclassified & $85$ & $-0.601$ & $-0.381$ & $-0.382$ & NA & NA \\ \hline
-Ruminococcaceae & Incertae Sedis & $100$ & $-0.63$ & $-0.463$ & $-0.635$ & NA & NA \\ \hline
-Ruminococcaceae & Subdoligranulum & $99$ & $-0.636$ & $-0.523$ & $-0.422$ & $-0.087$ $-0.177$ & \\ \hline
-Ruminococcaceae & Incertae Sedis & $97$ & $-0.668$ & $-0.544$ & $-0.565$ & NA & NA \\ \hline
-Ruminococcaceae & Ruminococcus & $100$ & $-0.669$ & $-0.516$ & $-0.591$ & $-0.866$ $0.023$ & \\ \hline
-Lachnospiraceae & Incertae Sedis & $85$ & $-0.67$ & $-0.532$ & $-0.686$ & NA & NA \\ \hline
-Lachnospiraceae & Coprococcus & $91$ & $-0.686$ & $-0.733$ & $-0.577$ & $-0.647$ $0.469$ & \\ \hline
-Ruminococcaceae & unclassified & $74$ & $-0.725$ & $-0.533$ & $-0.658$ & NA & NA \\ \hline
-Erysipelotrichaceae & unclassified & $100$ & $-0.736$ & $-0.621$ & $-0.83$ & NA & NA \\ \hline
-Ruminococcaceae & Subdoligranulum & $85$ & $-0.746$ & $-0.594$ & $-0.581$ & $-0.087$ $-0.177$ & \\ \hline
-Lachnospiraceae & Dorea & $100$ & $-0.759$ & $-0.94$ & $-0.554$ & $-0.267$ $-0.154$ & \\ \hline
-Family XIII & Incertae Sedis & $91$ & $-0.985$ & $-0.563$ & $-0.622$ & NA & NA \\ \hline
+\bf{OTU family} & \bf{OTU genus} & \bf{SILVA} &\bf{H Vs. SS} & \bf{H Vs. NASH} & \bf{H vs. extreme} \\
+& & \bf{bootstrap} & \bf{effect sizes} & \bf{effect sizes} & \bf{NASH effect} \\
+& & \bf{value} & & & \bf{sizes}\\ \hline
+Christensenellaceae & unclassified & $100$ & $-0.045$ & $0.032$ & $-0.342$ \\ \hline
+Coriobacteriaceae & unclassified & $100$ & $-0.173$ & $0$ & $-0.346$ \\ \hline
+Streptococcaceae & Streptococcus & $100$ & $-0.381$ & $0.135$ & $-0.35$ \\ \hline
+Lachnospiraceae & Roseburia & $100$ & $0.049$ & $0.287$ & $-0.35$ \\ \hline
+Lachnospiraceae & unclassified & $100$ & $-0.232$ & $-0.033$ & $-0.355$ \\ \hline
+Lachnospiraceae & unclassified & $100$ & $0.188$ & $0.179$ & $-0.362$ \\ \hline
+Porphyromonadaceae & Odoribacter & $100$ & $-0.413$ & $-0.099$ & $-0.373$ \\ \hline
+Porphyromonadaceae & Odoribacter & $73$ & $0.232$ & $-0.129$ & $-0.378$ \\ \hline
+Bacteroidaceae & Bacteroides & $100$ & $-0.046$ & $-0.356$ & $-0.379$ \\ \hline
+Lachnospiraceae & Roseburia & $100$ & $-0.382$ & $0.014$ & $-0.379$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $91$ & $-0.222$ & $-0.121$ & $-0.381$ \\ \hline
+Christensenellaceae & unclassified & $100$ & $-0.064$ & $-0.189$ & $-0.386$ \\ \hline
+Ruminococcaceae & unclassified & $98$ & $-0.476$ & $-0.5$ & $-0.393$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $83$ & $-0.198$ & $-0.041$ & $-0.394$ \\ \hline
+Lachnospiraceae & Blautia & $100$ & $0.185$ & $-0.607$ & $-0.394$ \\ \hline
+Verrucomicrobiaceae & Akkermansia & $100$ & $0.212$ & $-0.146$ & $-0.399$ \\ \hline
+Christensenellaceae & unclassified & $100$ & $-0.671$ & $-0.115$ & $-0.412$ \\ \hline
+Verrucomicrobiaceae & Akkermansia & $85$ & $0.473$ & $-0.088$ & $-0.414$ \\ \hline
+Lachnospiraceae & unclassified & $93$ & $0.231$ & $0.209$ & $-0.416$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $100$ & $-0.254$ & $-0.382$ & $-0.422$ \\ \hline
+Lachnospiraceae & Dorea & $98$ & $-0.834$ & $0.224$ & $-0.434$ \\ \hline
+Ruminococcaceae & Ruminococcus & $100$ & $0.038$ & $-0.082$ & $-0.44$ \\ \hline
+Lachnospiraceae & unclassified & $84$ & $-0.209$ & $-0.31$ & $-0.442$ \\ \hline
+Christensenellaceae & unclassified & $99$ & $-0.352$ & $0.234$ & $-0.449$ \\ \hline
+Erysipelotrichaceae & Turicibacter & $100$ & $-0.334$ & $-0.104$ & $-0.46$ \\ \hline
+Ruminococcaceae & Incertae_Sedis & $82$ & $-0.122$ & $0.008$ & $-0.473$ \\ \hline
+Rikenellaceae & Alistipes & $91$ & $-0.113$ & $-0.218$ & $-0.475$ \\ \hline
+Veillonellaceae & Dialister & $100$ & $0.257$ & $-0.054$ & $-0.487$ \\ \hline
+Prevotellaceae & Alloprevotella & $76$ & $0.086$ & $0.16$ & $-0.489$ \\ \hline
+Ruminococcaceae & unclassified & $100$ & $-0.185$ & $-0.373$ & $-0.503$ \\ \hline
+Lachnospiraceae & Pseudobutyrivibrio & $85$ & $-0.151$ & $0.047$ & $-0.507$ \\ \hline
+Family_XIII & Anaerovorax & $100$ & $-0.277$ & $-0.25$ & $-0.514$ \\ \hline
+Lachnospiraceae & Blautia & $98$ & $-0.16$ & $-0.616$ & $-0.519$ \\ \hline
+unclassified & unclassified & $100$ & $-0.094$ & $0.215$ & $-0.529$ \\ \hline
+Bacteroidaceae & Bacteroides & $100$ & $-0.267$ & $-0.308$ & $-0.543$ \\ \hline
+Bacteroidaceae & Bacteroides & $100$ & $0.166$ & $0.04$ & $-0.546$ \\ \hline
+Bacteroidaceae & Bacteroides & $100$ & $-0.65$ & $-0.39$ & $-0.55$ \\ \hline
+Bacteroidaceae & Bacteroides & $85$ & $-0.928$ & $0.085$ & $-0.551$ \\ \hline
+Coriobacteriaceae & Adlercreutzia & $100$ & $0.276$ & $0.128$ & $-0.551$ \\ \hline
+Ruminococcaceae & Faecalibacterium & $100$ & $-0.227$ & $-0.621$ & $-0.566$ \\ \hline
+Ruminococcaceae & unclassified & $100$ & $-0.479$ & $0.204$ & $-0.584$ \\ \hline
+Ruminococcaceae & Incertae_Sedis & $97$ & $-0.58$ & $0.08$ & $-0.621$ \\ \hline
+Ruminococcaceae & Incertae_Sedis & $100$ & $-0.091$ & $-0.542$ & $-0.621$ \\ \hline
+Ruminococcaceae & Ruminococcus & $100$ & $0.256$ & $-0.066$ & $-0.654$ \\ \hline
+Bacteroidaceae & Bacteroides & $99$ & $-0.128$ & $-0.417$ & $-0.655$ \\ \hline
+Ruminococcaceae & Subdoligranulum & $91$ & $-0.291$ & $-0.234$ & $-0.669$ \\ \hline
+Lachnospiraceae & Coprococcus & $74$ & $-0.047$ & $-0.168$ & $-0.686$ \\ \hline
+Erysipelotrichaceae & unclassified & $100$ & $-0.25$ & $-0.165$ & $-0.691$ \\ \hline
+Lachnospiraceae & Incertae_Sedis & $85$ & $-0.308$ & $-0.28$ & $-0.696$ \\ \hline
+Ruminococcaceae & unclassified & $85$ & $0.484$ & $-0.245$ & $-0.699$ \\ \hline
+Ruminococcaceae & Subdoligranulum & $100$ & $0.062$ & $-0.167$ & $-0.745$ \\ \hline
+Lachnospiraceae & Dorea & $100$ & $-1.01$ & $0.018$ & $-0.75$ \\ \hline
+Family_XIII & Incertae_Sedis & $91$ & $-0.312$ & $0.19$ & $-0.954$ \\ \hline
 \end{tabular}
 \end{tiny}
-\caption[Bottom decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.]{ \textbf{Bottom decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.} This table lists the OTUs, their effect sizes in all the comparisons, as well as the corresponding genus-level effect sizes in the 16S rRNA gene tag experiment and MetaPhlAn comparisons between the 10 healthy and 10 NASH samples selected for the metagenomic study. The OTUs were picked by open reference, by clustering and comparison with the SILVA database \cite{quast2013silva}. Positive effect sizes indicate that the feature was found to be relatively increased in NASH while negative effect sizes indicate that the featuer was found to be relatively increased in healthy. OTUs were annotated with SILVA, and a confidence percentage is reported based on the provided bootstrapping algorithm. \textit{Incertae Sedis} and unclassified genera were not analyzed at the genus level.}
+\caption[Bottom decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.]{ \textbf{Bottom decile of OTUs relatively increased in healthy based on effect size from healthy vs. NASH comparison.} This table lists the OTUs and their effect sizes in all the comparisons. The OTUs were picked by open reference, by clustering and comparison with the SILVA database \cite{quast2013silva}. Positive effect sizes indicate that the feature was found to be relatively increased in NASH while negative effect sizes indicate that the feature was found to be relatively increased in healthy. OTUs were annotated with SILVA, and a confidence percentage is reported based on the provided bootstrapping algorithm.}
 \label{nafld_bot_otu_table}
 % \end{adjustwidth}
 \end{table}
