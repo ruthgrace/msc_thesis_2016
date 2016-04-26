@@ -58,9 +58,7 @@ Scientists often want to characterize microbiomes for certain conditions. The id
 
 For example, the core gut microbiome was described by one group to have three enterotypes \cite{arumugam2011enterotypes}. The enterotype structure would have been very useful for measuring the association of certain enterotypes with conditions, and for observing how gut microbiomes transition across enterotypes. However, when another group studied a diverse population including non-Western people, the enterotypes did not hold \cite{yatsunenko2012human}. The gut microbiome is highly diverse between individuals, and the enterotype model does not capture this diversity.
 
-An example of a successfully characterized body site is the vaginal microbiome. The vaginal microbiome is known to be Lactobacillus dominated, except in bacterial vaginosis, where the microbiome is much more diverse \cite{hummelen2010deep}. The bacterial composition of vaginal microbiomes in bacterial vaginosis have high variation, however their expression profiles are similar, allowing for functional characterization in the absence of taxonomic characterization \cite{macklaim2013comparative}.
-
-[TODO: figure out what Greg's comment ``or AU'' means]
+An example of a successfully characterized body site is the vaginal microbiome. The vaginal microbiome is known to be Lactobacillus dominated, except in bacterial vaginosis \cite{hummelen2010deep} or anaerobic vaginitis \cite{donders2002definition}, where the microbiome is much more diverse. The bacterial composition of vaginal microbiomes in bacterial vaginosis have high variation, however their expression profiles are similar, allowing for functional characterization in the absence of taxonomic characterization \cite{macklaim2013comparative}.
 
 \textit{Are there any differentially abundant taxa between conditions?}
 Some theories of disease progression include the involvement of bacteria as pathogens. Others involve bacteria as probiotics, preventing disease progression.
@@ -163,7 +161,7 @@ The qualitative rather than quantitative nature of unweighted UniFrac makes the 
 In the UniFrac paper, the authors pointed out that UniFac was unstable with rarefaction and recommended that users take the average of multiple UniFrac instances \cite{lozupone2011unifrac}. This is generally disregarded, sometimes even by the original authors \cite{mckenna2008macaque} \cite{mcnulty2011impact}.
 
 \begin{figure}[h]
-\includegraphics[scale=0.7]{sample_migration.eps}
+\includegraphics[scale=0.4]{sample_migration.eps}
 \caption[Sample migration in different rarefactions, plotted on principal components, measured with unweighted UniFrac.]{{\bf Sample migration in different rarefactions, plotted on principal components, measured with unweighted UniFrac.}
 The left panel shows the movement across clusters for a set of randomly selected tongue dorsum samples from healthy volunteers in the Human Microbiome Project database. The right plot has samples from tongue dorsum and buccal mucosa, which have real separation. If the tongue only experiment were run once, one might mistakenly assume that there are two clusters of data, however, the inconsistent sample membership of the two groups between rarefactions proves the clustering irreproducible. Note that the variance explained in the tongue data set by the first and second component is merely 16.1\% and 9.8\% respectively, indicating that the data is rather spherical, even though the points on the plot appear to show two separated clusters.}
 \label{figure_sample_migration}
@@ -176,7 +174,7 @@ In unweighted UniFrac, samples move relative to the other samples in different r
 \paragraph{Weighted UniFrac}\mbox{}\\
 
 \begin{figure}[h]
-\includegraphics[scale=0.7]{weights.png}
+\includegraphics[scale=0.5]{weights.png}
 \caption[Unweighted vs. weighted UniFrac weights.]{{\bf Unweighted vs. weighted UniFrac weights.}
 The red line represents the weight that unweighted UniFrac would produce with the given proportional abundance, and the blue line represents the weight that weighted UniFrac would produce.}
 \label{figure_weights}
@@ -312,9 +310,15 @@ First, the total number of reads per sample is irrelevant to the biological impl
 
 Second, spurious correlations can arise from proportional microbiome data, and should be avoided. In the late 19th century, many studies were being published about how organ sizes (normalized by dividing the size by the individual's height) were correlated. However, it was discovered that when two sets of uncorrelated data are both divided by a third set of uncorrelated data, the two sets will appear spuriously correlated. This is analogous to microbiome data where raw counts are normalized by dividing by the total number of counts \cite{pearson1896mathematical}.
 
-Additionally, the constrained sum causes the abundance of different taxa to appear to be negatively correlated with each other when analyzed by conventional statistics. When one taxa increases in abundance, the counts detected in other taxa decrease in proportional abundance, even if the taxa are not decreasing in absolute abundance biologically. This negative correlation bias arises when the data are treated as univariate, when it should be analysed as multivariate data. All non-parametric tests (Principal Coordinates Analysis, correlations, etc.) assume that the abundance measured for each feature is independant. This is true in ecology where the abundance of different species is measured in an area of land where animals can move freely in and out. It is not true in next generation sequencing where the abundance of different species is measured by a sequencing platform with a limited number of measurements, such that detecting extra members of one species means detecting less members of another species.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{lions_ladybugs.png}
+\caption[Counting vs. sequencing.]{\textbf{Counting vs. sequencing.} In ecology, where all the animals in a given area are counted, there is no upper limit on the number of animals that can be detected. In sequencing, there is a constraint on the total number of sequences detected by the sequencing platform. If one were to detect one more ladybug, one would have to detect one less lion. Figure courtesy of Dr. Greg Gloor, \url{http://gloorlab.blogspot.ca/2016/04/sequencing-is-not-counting-idea-of.html}.}
+\end{center}
+\label{introduction_lions_ladybugs}
+\end{figure}
 
-[TODO: include greg's window and animals figure, and cite in above text]
+Additionally, the constrained sum causes the abundance of different taxa to appear to be negatively correlated with each other when analyzed by conventional statistics. When one taxa increases in abundance, the counts detected in other taxa decrease in proportional abundance, even if the taxa are not decreasing in absolute abundance biologically. This negative correlation bias arises when the data are treated as univariate, when it should be analysed as multivariate data. All non-parametric tests (Principal Coordinates Analysis, correlations, etc.) assume that the abundance measured for each feature is independant. This is true in ecology where the abundance of different species is measured in an area of land where animals can move freely in and out. It is not true in next generation sequencing where the abundance of different species is measured by a sequencing platform with a limited number of measurements, such that detecting extra members of one species means detecting less members of another species (Fig. ~\ref{introduction_lions_ladybugs}).
 
 Third, removing an entire variable (an OTU in gene tag sequencing, or a functional annotation in deep metagenomic sequencing) from the analysis should not change correlations between OTUs. This is true with counts but not true with proportions. A correlation between two OTUs is suspect if it is dependant on the presence of an additional unrelated OTU. Removing variables occur routinely in microbiome research. For example, rare OTUs are thought to not be very informative, and low counts have high variability, so they are often filtered out. Additionally, primers may be biased against certain taxa, which are underrepresented in the data. Finally, some experiments are performed only on taxa of interest (as is the case with qPCR), and all other OTUs are not considered in the analysis. Without the proper data transformation, removing variables from the full set will change the correlation between variables \cite{aitchison1982statistical}.
 
