@@ -54,7 +54,7 @@ Raman et al, 2013 \cite{raman2013fecal} compared 30 NAFLD patients with 30 healt
 
 Wong et al, 2013 \cite{wong2013molecular} compared 16 NASH patients with 22 healthy controls. They amplified the V1-V2 variable region of the 16S rRNA gene with pyrosequencing, yielding 4-11 thousand reads per sample. Reads were clustered with UCLUST \cite{edgar2010search} and annotated with the Ribosomal Database Project \cite{cole2009ribosomal}. Members of the the genera \textit{Parabacteroides} and \textit{Allisonella} were found to be relatively increased in NASH patients, while members of the genera \textit{Faecalibacterium} and \textit{Anaerosporobacter} were relatively increased in healthy controls.
 
-Boursier et al, 2015 \cite{boursier2016severity}} compared 30 patients with F0 or F1 fibrosis to 27 patients with F2 or greater fibrosis, 35 of which had NASH A gene tag experiment was performed on the V4 region of the 16S rRNA gene, and sequenced on an Illumina platform, yeilding an average of 0.2 million reads per sample. Reads were annotated with the Greengenes database \cite{desantis2006greengenes}, and differential abundance was measured by Mann-Whitney's test. A metagenomic imputation was performed with PiCrust \cite{langille2013predictive}, annotated with KEGG \cite{kanehisa2000kegg}, and analysed with LEfSE \cite{segata2011metagenomic}. A relative increase in members of the \textit{Bacteroides} phylum and a relative decrease in members of the \textit{Prevotella} phylum was found in NASH, compared to healthy controls. From the metagenomic imputation, the gut microbiome of NASH patients was found to be significantly enriched functional categories related to carbohydrate, lipid, amino acid, and secondary metabolism.
+Boursier et al, 2015 \cite{boursier2016severity} compared 30 patients with F0 or F1 fibrosis to 27 patients with F2 or greater fibrosis, 35 of which had NASH A gene tag experiment was performed on the V4 region of the 16S rRNA gene, and sequenced on an Illumina platform, yeilding an average of 0.2 million reads per sample. Reads were annotated with the Greengenes database \cite{desantis2006greengenes}, and differential abundance was measured by Mann-Whitney's test. A metagenomic imputation was performed with PiCrust \cite{langille2013predictive}, annotated with KEGG \cite{kanehisa2000kegg}, and analysed with LEfSE \cite{segata2011metagenomic}. A relative increase in members of the \textit{Bacteroides} phylum and a relative decrease in members of the \textit{Prevotella} phylum was found in NASH, compared to healthy controls. From the metagenomic imputation, the gut microbiome of NASH patients was found to be significantly enriched functional categories related to carbohydrate, lipid, amino acid, and secondary metabolism.
 
 Many of the studies had healthy controls with a lower BMI, so it is difficult to separate whether the differences found are related to NAFLD progression or obesity.
 
@@ -207,7 +207,7 @@ When comparing all the healthy samples with all the NASH samples, the genera wit
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{nafld_16s_effect_sizes.png}
+\includegraphics[width=0.9\textwidth]{nafld_16s_effect_sizes.png}
 \caption[Correlation in effect sizes of different group experiments.]{\textbf{Correlation in effect sizes of different group experiments.} Each point represents one OTU, and the effect size of that OTU in one comparison (for example, comparing the gut microbiome of healthy patients with patients who have simple steatosis) is plotted against the effect size of that OTU in another comparison. The healthy samples used for these comparisons are the 10 healthy samples used for the metagenomic study. The extreme NASH samples used for these comparisons are the subset of the NASH patients selected for the metegenomic study. The top decile of OTUs relatively increased in NASH for the metagenomic experiment are colored pink, and the top decile of OTUs relatively increased healthy for the metagenomic experiment are colored blue. The median difference in the effect sizes of the `Healthy vs. NASH' - `Healthy vs. SS' is 0.12370 for the pink points, and 0.02626 for the blue points. The median difference in the effect sizes of the `Healthy vs. extreme NASH' - `Healthy vs. SS' is 0.4014 for the pink points, and -0.3513 for the blue points. The median difference in the effect sizes of the `Healthy vs. extreme NASH' - `Healthy vs. NASH' is 0.3799 for the pink points, and -0.3742 for the blue points. }
 \label{nafld_fig4}
 \end{center}
@@ -410,3 +410,13 @@ We conclude that there are several factors that would make such a study underpow
 From Fig.~\ref{nafld_fig4}, the correlation shows that even though there is not enough power to detect a significant difference, the difference from the healthy baseline are moving in the same direction through simple steatosis to nonalcoholic steatohepatitis to extreme NASH.
 
 We hypothesize that there is a characterizable difference in the gut microbiome between patients prone to NASH and healthy controls. Further study with a higher sample size, a more homogenous population, and a greater phenotypic difference between groups may provide the statistical power required to detect the nature of this difference.
+
+\section*{\DIFadd{Supporting Information}}
+
+%DIF >  Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
+\begin{figure}[h]
+\paragraph*{\DIFaddFL{S1 Fig.}}\DIFaddFL{\mbox{}}\\
+\includegraphics[width=0.9\textwidth]{nafld_16s_effect_sizes_partitioned_healthy.png}
+\caption[NAFLD comparision effect sizes, with non overlapping healthy samples.]{{\bf \DIFaddFL{NAFLD comparision effect sizes, with non overlapping healthy samples.}} In these plots, the healthy and extreme NASH comparison is the same as in Figure ~\ref{nafld_fig4}. To show what the correlations look like without the spurious correlation effects of overlapping samples, the healthy samples not used in the healthy vs. extreme NASH comparison have been partitioned between the healthy vs. SS and the healthy vs. NASH comparison. Additionally, only the NASH samples not used in the extreme NASH comparision are used in the NASH comparison. This way none of the comparisons have overlapping samples.}
+\label{nafld_non_overlapping_16s_effect}
+\end{figure}
