@@ -150,7 +150,7 @@ We used a two pronged strategy to annotate the reads:
 
 First, we created a reference library using the inferred taxa from the 16S rRNA gene tag experiment. For each genus observed we randomly picked 10 strain genomes from the NCBI bacterial genome database. For genera with less than 10 fully sequenced representatives, we selected all available genomes. The library was made with 1134 genomes from 104 bacterial genera. The open reading frame (ORF) library was then clustered at 99\% identity for each genus using CD-HIT \cite{li2006cd} to decrease the number of ORFs in the library from 3.5 million to 2.25 million Annotation was performed with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this ORF library. Out of approximately 2 billion reads total, 58.5 million (30.6\%) were mapped by this method, over 5836 unique SEED hierarchy annotations. The primary limitation of this method is a lack of annotated bacterial sequences. The code for the \href{https://github.com/ruthgrace/make_functional_mapping_library}{reference library creation} and \href{https://github.com/ruthgrace/mapping_library_annotated_counts}{annotation} is on GitHub.
 
-Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo}, producing 8,847,816 sequences, and removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, leaving just under 6 million sequences. Just over three and a half million of these assembled sequences were successfully annotated with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this. [FILL IN THIS] additional reads were annotated by this method, over [FILL IN THIS] unique SEED hierarchy annotations. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
+Second, we assembled the reads per sample de novo using Trinity \cite{haas2013novo}, producing 8,847,816 sequences, and removed sequences that matched our reference library with 90\% identity as determined by BLAST \cite{altschul1990basic}, leaving just under 6 million sequences. Just over three and a half million of these assembled sequences were successfully annotated with the SEED database \cite{overbeek2005subsystems}, and sequenced reads were mapped onto this. Approximately 1.32 billion additional reads were annotated by this method, over 7026 unique SEED hierarchy annotations. The code for the custom assembly pipeline is on \href{https://github.com/ruthgrace/exploring_nafld_assembly}{GitHub}, and described in Appendix ~\ref{AppA}. The data from both prongs was amalgamated into a single table of counts per annotation per sample.
 
 Differential abudance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A full description of the workflow for this process is included in Appendix ~\ref{AppA}.
 
@@ -360,7 +360,142 @@ Family XIII & Incertae Sedis & $91$ & $-0.563$ & $-0.622$ & $-0.985$ \\ \hline
 \subsection{Metagenomic experiment}
 
 \paragraph{Functional analysis}\mbox{}\\
-[FILL THIS IN]
+The reads were annotated into SEED subsystems \cite{overbeek2005subsystems}. The most descriptive and specific SEED subsystem is subsystem 4. Each read is categorized into at most one subsystem 4. Subsystems 1, 2, and 3 are broader, and a read can be categorized into multiple higher categories. We use ALDEx to test for differential expression at the subsystem 4 categorization level (Fig. ~\ref{nafld_metagenomic_aldex}). Because the reads do not have unique categorizations at the higher levels, we use stripcharts to examine these (Fig. ~\ref{nafld_metagenomic_subsys1}).
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_aldex.png}
+\caption[Difference within vs. difference between healthy and extreme NASH for metagenomic data.]{\textbf{Difference within vs. difference between healthy and extreme NASH for metagenomic data.} Each point on this plot represents a functional annotation at the SEED subsystem 4 level. None of the subsystem 4 functional annotations have a significantly greater abundance between groups than within groups.}
+\label{nafld_metagenomic_aldex}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_subsys1.png}
+\caption[Difference within vs. difference between healthy and extreme NASH for metagenomic data.]{\textbf{Difference within vs. difference between healthy and extreme NASH for metagenomic data.} Each point on this plot represents a functional annotation at the SEED subsystem 4 level. The different rows of the plots show the subsystem 4 annotations within each subsystem 1 group. Points on the positive side were more abundant in the extreme NASH condition while points on the negative side were more abundant in the healthy condition. None of the points were significantly differentially abundant between groups.}
+\label{nafld_metagenomic_subsys1}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_pca.png}
+\caption[Principal components analysis of metagenomic data.]{\textbf{Principal components analysis of metagenomic data.} In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. The location of the subsystem 4 labels (in blue) show which direction they pull the samples in, in terms of variance. The biplot shows only the thirty four subsystem 4 categories with an effect size greater than 1, out of 7026 categories in total. The key for the subsystem 4 labels is Table ~\ref{nafld_subsys4_labels}.}
+\label{nafld_metagenomic_pca}
+\end{center}
+\end{figure}
+
+\begin{table}[!ht]
+\begin{tabular}{|l|l|}
+\hline
+\bf{Function ID} & \bf{Function name}\\ \hline
+1 & DNA topoisomerase III (EC 5.99.1.2) \\ \hline
+2 & 3-oxoacyl-[acyl-carrier protein] reductase (EC 1.1.1.100) \\ \hline
+3 & 2-hydroxy-3-oxopropionate reductase (EC 1.1.1.60) \\ \hline
+4 & Imidazolonepropionase (EC 3.5.2.7) \\ \hline
+5 & Flagellar basal-body rod modification protein FlgD \\ \hline
+6 & HflC protein \\ \hline
+7 & Diaminobutyrate-pyruvate aminotransferase (EC 2.6.1.46) \\ \hline
+8 & Metal-dependent hydrolases of the beta-lactamase \\
+& superfamily II \\ \hline
+9 & pyoverdine-specific efflux macA-like protein \\ \hline
+10 & Homoserine O-acetyltransferase (EC 2.3.1.31) \\ \hline
+11 & Threonine kinase in B12 biosynthesis \\ \hline
+12 & Molybdopterin biosynthesis protein MoeB \\ \hline
+13 & D-allose kinase (EC 2.7.1.55) \\ \hline
+14 & Gluconate permease, Bsu4004 homolog \\ \hline
+15 & 2-methylisocitrate dehydratase (EC 4.2.1.99) \\ \hline
+16 & Uncharacterized protein ImpH/VasB \\ \hline
+17 & Phosphate starvation-inducible ATPase PhoH \\
+& with RNA binding motif \\ \hline
+18 & Spore germination protein GerLC \\ \hline
+19 & Phosphohistidine phosphatase SixA \\ \hline
+20 & Glutathione-regulated potassium-efflux system \\
+& ancillary protein KefG \\ \hline
+21 & Histidyl-tRNA synthetase, archaeal-type paralog (EC 6.1.1.21) \\ \hline
+22 & 3-hydroxydecanoyl-[acyl-carrier-protein] dehydratase (EC 4.2.1.60) \\ \hline
+23 & FKBP-type peptidyl-prolyl cis-trans isomerase slpA (EC 5.2.1.8) \\ \hline
+24 & 3-oxoacyl-[ACP] synthase \\ \hline
+25 & IncW plasmid conjugative relaxase protein TrwC (TraI homolog) \\ \hline
+26 & CO dehydrogenase iron-sulfur protein CooF (EC 1.2.99.2) \\ \hline
+27 & Transcriptional regulator of AraC family, \\
+& enterobactin-dependent, predicted \\ \hline
+28 & Antitoxin YgiT \\ \hline
+29 & acyl-acyl carrier protein synthetase (EC 6.2.1.20) \\ \hline
+30 & Outer membrane protein GumB, \\
+& involved in the export of xanthan \\ \hline
+31 & C3 family ADP-ribosyltransferase (EC 2.4.2.-) \\ \hline
+32 & Hypothetical SAV0786 homolog in superantigen-encoding \\
+& pathogenicity islands SaPI \\ \hline
+33 & Predicted cellobiose ABC transport system, \\
+& sugar-binding protein \\ \hline
+34 & Lipoprotein Bor \\ \hline
+\end{tabular}
+\caption[Subsystem 4 label key for Figure ~\ref{nafld_metagenomic_pca}.]{ \textbf{Subsystem 4 label key for Figure ~\ref{nafld_metagenomic_pca}.} This table lists the subsystem 4 labels and corresponding names.}
+\label{nafld_subsys4_labels}
+% \end{adjustwidth}
+\end{table}
+
+ALDEx analysis results show that no functional annotations are differentially abundant between the healthy and the NASH conditions (Fig. ~\ref{nafld_metagenomic_aldex}). In the principal components analysis, the healthy samples appear to be clustered in the middle, with sample HLD\_23 as an outlier. The extreme NASH samples are more spread out, and the functional annotations that contribute the most to their spread are written in blue in Figure. ~\ref{nafld_metagenomic_pca}. We were particularly interested in the subset of functional annotations related to carbohydrates and lipids, as they are relevant to obesity and potentially NASH. When the carbohydrate or lipid subset is analyzed separately (Figures ~\ref{nafld_metagenomic_carb_pca} and ~\ref{nafld_metagenomic_lipid_pca}), the samples are still arranged in the same way as the full data set in the principal components analysis. What differentiates the samples in the full set is not lost in the carbohydrate or the lipid subset, even though the lipid subset is much smaller and does not include functional annotations with an effect size greater than 0.68.
+
+The Boursier et al. \cite{boursier2016severity} paper imputed the metagenomic analysis, and reported that KEGG pathways for carbohydate, lipid, and amino acid metabolism were significantly differential between groups. We did a principal components analysis on the Amino Acids and Derivatives subsystem 1 category (Figure ~\ref{nafld_metagenomic_amino_pca}). This produced a spread of samples less similar to the principal components analysis with all the functional annotations (Fig. \ref{nafld_metagenomic_pca}), compared to the lipid subset (Fig. ~\ref{nafld_metagenomic_lipid_pca}), despite the amino acid subset containing more annotations than the lipid subset (449 compared to 134 annotations).
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_carb_pca.png}
+\caption[Principal components analysis of carbohydrate metagenomic data.]{\textbf{Principal components analysis of carbohydrate metagenomic data.} This biplot shows the sample separation produced when only the 1164 subsystem 4 categories under the `Carbohydrates' subsystem 1 categorization are used. In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. The location of the subsystem 4 labels (in blue) show which direction they pull the samples in, in terms of variance. The biplot shows only the thirty four subsystem 4 categories with an effect size greater than 1. Below is the key for the subsystem 4 labels.
+\begin{tabular}{|l|l|}
+\hline
+\bf{Function ID} & \bf{Function name}\\ \hline
+1 & Maltodextrin phosphorylase (EC 2.4.1.1) \\ \hline
+2 & Dihydrolipoamide acyltransferase component of branched-chain \\ \hline
+& alpha-keto acid dehydrogenase complex (EC 2.3.1.168) \\ \hline
+3 & Predicted L-arabinose isomerase (EC 5.3.1.4) \\ \hline
+4 & Predicted galactoside ABC transporter, permease protein 2 \\ \hline
+\end{tabular}
+}
+\label{nafld_metagenomic_carb_pca}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_lipid_pca.png}
+\caption[Principal components analysis of lipid metagenomic data.]{\textbf{Principal components analysis of lipid metagenomic data.} This biplot shows the sample separation produced when only the 134 subsystem 4 categories under the `Fatty Acids, Lipids, and Isoprenoids' subsystem 1 categorization are used. In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. The location of the subsystem 4 labels (in blue) show which direction they pull the samples in, in terms of variance. The biplot shows only the thirty four subsystem 4 categories with an effect size greater than 0.5. Below is the key for the subsystem 4 labels.
+\begin{tabular}{|l|l|}
+\hline
+\bf{Function ID} & \bf{Function name}\\ \hline
+1 & 3-oxoacyl-[acyl-carrier-protein] synthase, KASII (EC 2.3.1.41) \\ \hline
+2 & 3-oxoacyl-[acyl-carrier-protein] synthase, KASIII (EC 2.3.1.41) \\ \hline
+3 & Acetyl-coenzyme A carboxyl transferase alpha chain (EC 6.4.1.2) \\ \hline
+4 & 3-ketoacyl-CoA thiolase (EC 2.3.1.16) \\ \hline
+5 & Squalene--hopene cyclase (EC 5.4.99.17) \\ \hline
+6 & Hydroxyneurosporene methyltransferase (EC 2.1.1.-) \\ \hline
+7 & FIG143263: Glycosyl transferase \\ \hline
+8 & Phytoene dehydrogenase and related proteins \\ \hline
+\end{tabular}
+}
+\label{nafld_metagenomic_lipid_pca}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_amino_pca.png}
+\caption[Principal components analysis of lipid metagenomic data.]{\textbf{Principal components analysis of lipid metagenomic data.} This biplot shows the sample separation produced when only the 449 subsystem 4 categories under the `Amino Acids and Derivatives' subsystem 1 categorization are used. In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. The location of the subsystem 4 labels (in blue) show which direction they pull the samples in, in terms of variance. The biplot shows only the thirty four subsystem 4 categories with an effect size greater than 1. Below is the key for the subsystem 4 labels.
+\begin{tabular}{|l|l|}
+\hline
+\bf{Function ID} & \bf{Function name}\\ \hline
+1 & Phosphoadenylyl-sulfate reductase [thioredoxin] (EC 1.8.4.8) \\ \hline
+2 & 2,3-diketo-5-methylthiopentyl-1-phosphate enolase \\ \hline
+\end{tabular}
+}
+\label{nafld_metagenomic_amino_pca}
+\end{center}
+\end{figure}
+
+\FloatBarrier
 
 \paragraph{MetaPhlAn}\mbox{}\\
 We ran the sequences from the metagenomic sequencing experiment through MetaPhlAn. MetaPhlAn generates taxonomy profiles by inferring what the results would be with 16S rRNA gene tag sequencing.
@@ -409,7 +544,17 @@ We conclude that there are several factors that would make such a study underpow
 
 From Fig.~\ref{nafld_fig4}, the correlation shows that even though there is not enough power to detect a significant difference, the difference from the healthy baseline are moving in the same direction through simple steatosis to nonalcoholic steatohepatitis to extreme NASH.
 
-We hypothesize that there is a characterizable difference in the gut microbiome between patients prone to NASH and healthy controls. Further study with a higher sample size, a more homogenous population, and a greater phenotypic difference between groups may provide the statistical power required to detect the nature of this difference.
+We hypothesize that there is a characterizable taxonomic profile difference in the gut microbiome between patients prone to NASH and healthy controls. Further study with a higher sample size, a more homogenous population, and a greater phenotypic difference between groups may provide the statistical power required to detect the nature of this difference.
+
+In our metagenomic analysis, we performed a principal component analysis and found that our healthy samples clustered together into two groups (with the exception of one outlier). The extreme NASH samples were much more spread out. The samples were not arranged this way in the principal component analysis of the 16S rRNA gene experiment. This could be indicative of a core healthy microbiome profile that is more distinguishable by metabolic potential (gene content profile), and potentially by transcriptomic profile, than the taxonomic profile. Rather than deviating from the healthy samples in a specific direction, the microbiome of extreme NASH patients could deviate from the healthy microbiome in a number of directions and yet produce the same clinical outcomes. One other example of this is bacterial vaginosis, which may differ taxonomically from the typical lactobacillus-dominated microbiome in many different ways, but has a common transcriptomic profile that lead to the same clinical symptoms \cite{macklaim2013comparative}.
+
+Boursier et al. \cite{boursier2016severity} imputed a metagenomic analysis with PICRUSt \cite{langille2013predictive}, and found significantly differentially abundant functional annotations in KEGG pathways for carbohydrate, lipid, and amino acid metabolism. We performed the metagenomic experiment with principal component analysis on the full set of functional annotations, and subsets of annotations categorized under carbohydrate, lipid, and amino acid. We found that the carbohydrate subset and the lipid subset spread out the samples in a pattern closer to that of the full set of functional annotations, compared to the amino acid subset. This makes sense for the carbohydrate subset which contains over one seventh of all the functional annotations. However, the amino acid subset actually contains several times more annotations (449) compared to the lipid subset (134). Still, the healthy samples cluster together (with the exception of one outlier), and the extreme NASH samples are more spread out.
+
+[TODO: add in information about which are the most extreme nash things]
+
+[TODO: look at extraction dates and clustering]
+
+The next step in exploring the relationship between the gut microbiome and non alcoholic fatty liver disease progression is to perform studies with a more homogenous population that have more extreme phenotypic differences, and to include transcriptomic as well as metagenomic experiments. Additionally, we implore other research groups to employ multiple test corrections in their statistical analysis so that we are not chasing false positives, and our research will be replicable.
 
 \section*{\DIFadd{Supporting Information}}
 
