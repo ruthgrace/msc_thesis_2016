@@ -3,9 +3,9 @@
 This thesis focuses on the human microbiome, its relation to human diseases, and techniques used in the analysis and exploration of data derived from it. During the course of my thesis, I conducted one study about nonalcoholic fatty liver disease, and investigated alternate weightings of a common microbiome analysis technique (UniFrac). Each of these topics is represented as a chapter of my thesis.
 
 \section{The human microbiome}
-Approximately half of the cells that make up the human body are bacterial \cite{sender2016revised}. Trillions of these bacteria live in the gut \cite{guarner2003gut}, and have a massive metabolic potential. For example, the gut microbiome has been shown to produce changes in hormone levels \cite{markle2013sex}, short chain fatty acid levels \cite{turnbaugh2008diet}, and ethanol levels \cite{krebs1970physiological}, to name a few. The human gut microbiome can even digest polysaccharides otherwise unusable by humans \cite{flint2008polysaccharide}.
+Approximately half of the cells that make up the human body are bacterial \cite{sender2016revised}. Trillions of these bacteria live in the gut \cite{guarner2003gut}, and have a massive metabolic potential. For example, the gut microbiome has been shown to produce changes in hormone levels \cite{markle2013sex}, short chain fatty acid levels \cite{turnbaugh2008diet}, and ethanol levels \cite{krebs1970physiological}, to name a few. The human gut microbiome can also digest polysaccharides otherwise unusable by humans \cite{flint2008polysaccharide}.
 
-This massive metabolic potential produces measurable symptomatic effects. Transplanting gut bacteria from obese mice to lean mice has been shown to allow lean mice to absorb more calories from the same amount of food, thereby becoming more obese \cite{turnbaugh2006obesity}. The microbiome can also affect behavior: Completely germ free mice exhibit more anxiety-like behaviors than specific pathogen free mice that contain a complex gut microbiome \cite{neufeld2011reduced}.
+This massive metabolic potential produces measurable physiological effects. Transplanting gut bacteria from obese mice to lean mice has been shown to allow lean mice to absorb more calories from the same amount of food, thereby becoming more obese \cite{turnbaugh2006obesity}. The microbiome can also affect behavior: Completely germ free mice exhibit more anxiety-like behaviors than specific pathogen free mice that contain a complex gut microbiome \cite{neufeld2011reduced}.
 
 Study of the human microbiome opens up a host of possibilities for reducing the effects of disease and improving quality of life. However, until recently, a deep understanding of the human microbiome has been beyond the reach of available technology. For example, \textit{Escherichia coli} is a common model gut bacteria because it is easy to culture, however in reality this species makes up less than 1\% of the average human gut microbiome \cite{arumugam2011enterotypes}.
 
@@ -18,9 +18,10 @@ A comparative study design involves an experimental group and a control group. T
 
 Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis we can gather clues about the larger questions of the mechanism of action.
 
-In this thesis, I have performed two metagenomic experiments that can be done with microbiome next generation DNA sequencing data: gene tag abundance (Fig.~\ref{16s_workflow}) and metagenomic sequencing (Fig.~\ref{metagenomic_workflow}) \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}.
+In this thesis, I have performed two experiments that can be done with microbiome next generation DNA sequencing data: gene tag abundance (Fig. ~\ref{16s_workflow}) and metagenomic sequencing (Fig. ~
+ef{metagenomic_workflow}) \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene that is presumed to track taxonomic identity \cite{gloor2010microbiome}.
 
-\section{Illumina next generation sequencing platform}
+\section{Illumina next generation sequencing}
 The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illumina MiSeq machines yields up to 25 million paired end reads up to 300 nucleotides long. The Illumina HiSeq machines yield up to 4 billion paired end reads up to 125 nucleotides long, as stated on the official Illumina website (http://www.illumina.com/systems.html). The general sequencing workflow is as follows:
 
 \begin{enumerate}
@@ -38,32 +39,44 @@ The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illum
 
 The Illumina sequencing technology is the industry standard for metagenomic studies \cite{bentley2008accurate}, and library preparation kits and protocols are available commercially. Roche 454 pyrosequencing \cite{margulies2005genome} and sequencing on the SOLiD platform \cite{shendure2005accurate} \cite{mckernan2009reagents} are other next generation sequencing options. The pyrosequencing platform has the advantage of longer reads, but yields higher error rates and is more expensive. SOLiD uses shorter read lengths and also has a higher error rate \cite{mardis2008next} \cite{shendure2008next}.
 
-Unlike a technology such as qPCR, Illumina and other next generation DNA sequencing technologies deliver data as parts per machine limit, not a count of molecules in the sample.
+One unappreciated feature of Illumina and other next generation DNA sequencing technologies is that they deliver data as parts per machine limit, not a count of molecules in the sample \cite{fernandes2013anova} \cite{fernandes2014unifying} \cite{gloor2010microbiome} \cite{gloor2016compositional} \cite{gloor2016s}.
 
 \section{Gene tag abundance}
 Historically, Koch’s postulates have been used to determine if a microbe is a disease-causing pathogen. Koch's postulates are:
 
 \begin{enumerate}
 \item The microbe must be present in all cases of the disease.
-\item The microbe must not be present and non-pathogenic in other diseases.
+\item The microbe must not be present but non-pathogenic in other diseases.
 \item If the microbe is isolated in pure culture, it can be used to induce the disease \cite{koch1891uber}.
 \end{enumerate}
 
-One group has created a modified set of postulates that takes DNA sequencing into account \cite{fredericks1996sequence} which can be applied to differentially abundant taxa detected by gene tag sequencing. However, Koch’s postulates do not account for when the same bacteria can have a very different expression profile in health and disease, such as Lactobacillus iners in bacterial vaginosis \cite{macklaim2013comparative}. Gene tag abundance takes ua beyond Koch's postulates to the effect of consortia of microbiota.
+Fredricks et al. have created a modified set of postulates that takes DNA sequencing into account which can be applied to differentially abundant taxa detected by gene tag sequencing \cite{fredericks1996sequence}:
+
+\begin{enumerate}
+\item A nucleic acid sequence belonging to a putative pathogen should be present in most cases of an infectious disease. Microbial nucleic acids should be found preferentially in those organs or gross anatomic sites known to be diseased and not in those organs that lack pathology.
+\item Fewer, or no, copy numbers of pathogen-associated nucleic acid sequences should occur in hosts or tissues without disease.
+\item With resolution of disease (for example, with clinically effective treatment), the copy number of pathogen-associated nucleic acid sequences should decrease or become undetectable. With clinical relapse, the opposite should occur.
+\item When sequence detection predates disease, or sequence copy number correlates with severity of disease or pathology, the sequence-disease association is more likely to be a causal relationship.
+\item The nature of the microorganism inferred from the available sequence should be consistent with the known biological characteristics of that group of organisms. When phenotypes are predicted by sequence-based phylogenetic relationships, the meaningfulness of the sequence is enhanced.
+\item Tissue-sequence correlates should be sought at the cellular level: efforts should be made to demonstrate specific in situ hybridization of microbial sequence to areas of tissue pathology and to visible microorganisms or to areas where microorganisms are presumed to be located.
+\item These sequence-based forms of evidence for microbial causation should be reproducible.
+\end{enumerate}
+
+However, Koch’s postulates do not account for when the same bacteria can have a very different expression profile in health and disease, such as \textit{Lactobacillus iners} in bacterial vaginosis \cite{macklaim2013comparative}. Gene tag abundance takes us beyond Koch's postulates to the effect of consortia of microbiota.
 
 Gene tag abundance experiments provide an estimate of the proportion of different bacterial taxa in the sample. This can be used to answer questions such as:
 
 \textit{What bacterial taxa make up the microbial community?}
 Scientists often want to characterize microbiomes for certain conditions. The idea is that characterizing what the core microbiome is can lead to insight on core functions and how they can be altered when the core microbiome is disrupted.
 
-For example, the core gut microbiome was described by one group to have three enterotypes \cite{arumugam2011enterotypes}. The enterotype structure would have been very useful for measuring the association of certain enterotypes with conditions, and for observing how gut microbiomes transition across enterotypes. However, when another group studied a diverse population including non-Western people, the enterotypes did not hold \cite{yatsunenko2012human}. The gut microbiome is highly diverse between individuals, and the enterotype model does not capture this diversity.
+For example, the core gut microbiome was described by one group to have three enterotypes \cite{arumugam2011enterotypes}. The enterotype structure would have been very useful for measuring the association of certain enterotypes with conditions, and for observing how gut microbiomes transition across enterotypes. However, when another group studied a diverse population including non-Western people, the enterotypes did not hold \cite{yatsunenko2012human}. A second group showed that these enterotypes were artifacts induced by the analysis methods that depended on the abundance of the predominant taxa \cite{gorvitovskaia2016interpreting}. The gut microbiome is highly diverse between individuals, and the enterotype model does not capture this diversity.
 
-An example of a successfully characterized body site is the vaginal microbiome. The vaginal microbiome is known to be Lactobacillus dominated, except in bacterial vaginosis \cite{hummelen2010deep} or anaerobic vaginitis \cite{donders2002definition}, where the microbiome is much more diverse. The bacterial composition of vaginal microbiomes in bacterial vaginosis have high variation, however their expression profiles are similar, allowing for functional characterization in the absence of taxonomic characterization \cite{macklaim2013comparative}.
+An example of a successfully characterized body site is the vaginal microbiome. The vaginal microbiome is known to be \textit{Lactobacillus} dominated, except in bacterial vaginosis \cite{hummelen2010deep} or anaerobic vaginitis \cite{donders2002definition}, where the microbiome is much more diverse. The bacterial composition of vaginal microbiomes in bacterial vaginosis have high variation, however their expression profiles are similar, allowing for functional characterization in the absence of taxonomic characterization \cite{macklaim2013comparative}.
 
 \textit{Are there any differentially abundant taxa between conditions?}
 Some theories of disease progression include the involvement of bacteria as pathogens. Others involve bacteria as probiotics, preventing disease progression.
 
-In atopic dermatitis, a flare-up is defined as an acute exacerbation of disease despite standard treatment. Flare-ups are associated with a significant increase in the proportion of \textit{Staphylococcus aureus} on the skin \cite{kong2012temporal}. However, the exact mechanisms by which \textit{Staphylococcus aureus} and atopic dermatitis are unknown.
+For example, in atopic dermatitis, a flare-up is defined as an acute exacerbation of disease despite standard treatment. Flare-ups are associated with a significant increase in the proportion of \textit{Staphylococcus aureus} on the skin \cite{kong2012temporal}. However, the exact mechanisms by which \textit{Staphylococcus aureus} causes atopic dermatitis are unknown.
 
 Bacteria have also been used for therapy in the treatment of \textit{Clostridium difficile}. Stool transplants have been found to be more effective than the vancomycin antibiotic \cite{van2013duodenal}. Work is being done to standardize treatments: In one study, 33 microbes cultured from a healthy donor were used to successfully treat symptoms, with no recurrence throughout the 6 month follow up period \cite{petrof2013stool}.
 
@@ -80,12 +93,12 @@ Specifically, this work uses the 16S rRNA gene primers from the Earth Microbiome
 \subsection{Operational Taxonomic Units}
 Unlike more distinct species, such as mammalian species, bacterial species are not well defined. Bacterial genomes are highly variable, and regions used to identify bacteria vary in a continuum rather than clusters of similar sequences.
 
-Historically bacteria that are have 97\% identity in a variable region are considered to be the same taxa. The 97\% cutoff was arbitrarily chosen to best map sequence data to bacterial classifications. This threshold maximizes the grouping of bacteria classified as the same species while minimizing the grouping of bacteria classified as different species. Before sequencing bacterial classification was often done by appearance or by metabolic products, so there are examples where bacteria classified in the same species are actually genetically very different, or bacteria classified in different genera are genetically very similar \cite{ciccarelli2006toward}.
+Historically bacteria that have 97\% identity in a variable region are considered to be the same taxa. The 97\% cutoff was arbitrarily chosen to best map sequence data to bacterial classifications. This threshold maximizes the grouping of bacteria classified as the same species while minimizing the grouping of bacteria classified as different species. Before sequencing bacterial classification was often done by appearance or by metabolic products, so there are examples where bacteria classified in the same species are actually genetically very different, or bacteria classified in different genera are genetically very similar \cite{ciccarelli2006toward}.
 
 However, it is difficult to determine how a batch of sequences should be partitioned into groups of 97\% identity. Two common ways of doing this are open reference OTU picking \cite{rideout2014subsampled} and closed reference OTU picking. Open reference OTU picking performs a clustering algorithm that partitions the groups and then later assign taxonomic identity by matching the sequences with public databases \cite{edgar2013uparse}. Closed reference OTU picking starts off with seed sequences from known bacteria and performs the clustering such that the 97\% identity groups are centered on the seed sequences. In any case, the resulting taxonomic groupings are known as Operational Taxonomic Units (OTUs), and are used consistently within the same experiment. While OTUs can be annotated with standard taxonomic names such that results can be compared between experiments, technically the taxonomic groupings used by different experiments are not likely to be the same.
 
 \subsection{General protocol and rationale}
-The 16S rRNA gene sequencing experiment (Fig.~\ref{16s_workflow}) uses next generation DNA sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
+The 16S rRNA gene sequencing experiment (Fig. ~\ref{16s_workflow}) uses next generation DNA sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis.
 
 \paragraph{Pre-sequencing processing}\mbox{}\\
 There are several very general steps to the pre-sequencing process:
@@ -94,8 +107,8 @@ There are several very general steps to the pre-sequencing process:
 \begin{center}
 \includegraphics[height=0.8\textheight]{16S_rRNA_pipeline.png}
 \caption[16S rRNA gene tag experiment workflow.]{\textbf{16S rRNA gene tag experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a count table of reads per operational taxonomic unit per sample.}
-\end{center}
 \label{16s_workflow}
+\end{center}
 \end{figure}
 
 \begin{enumerate}
@@ -150,11 +163,11 @@ In 2005, Lozupone et al introduced the UniFrac distance metric, a measure to cal
 \begin{center}
 \includegraphics[width=\textwidth]{unifrac.png}
 \caption[Unweighted UniFrac.]{\textbf{Unweighted UniFrac.} When two samples do not share any branches of the phylogenetic tree, the unweighted UniFrac distance is maximized at 1. When two samples share half of their branch lengths on the phylogenetic tree, the unweighted UniFrac distance is 0.5. If the two samples contain exactly the same taxa, the unweighted UniFrac distance is minimized at 0, since the samples share all branches.}
-\end{center}
 \label{unweighted_unifrac}
+\end{center}
 \end{figure}
 
-Unweighted UniFrac uses an inferred evolutionary distance to measure similarity between samples (Fig.~\ref{unweighted_unifrac}). It requires a reference phylogenetic tree containing all the taxa present in the samples to be examined. The calculation is performed by dividing the branch lengths shared between the two samples by the branch lengths covered by either sample. A distance of 0 means that the samples have an identical set of taxa detected, and a distance of 1 means that the two samples share no taxa in common.
+Unweighted UniFrac uses an inferred evolutionary distance to measure similarity between samples (Fig. ~\ref{unweighted_unifrac}). It requires a reference phylogenetic tree containing all the taxa present in the samples to be examined. The calculation is performed by dividing the branch lengths shared between the two samples by the branch lengths covered by either sample. A distance of 0 means that the samples have an identical set of taxa detected, and a distance of 1 means that the two samples share no taxa in common.
 
 The qualitative rather than quantitative nature of unweighted UniFrac makes the metric very sensitive to sequencing depth. A greater sequencing depth generally results in the detection of a greater number of taxa. To account for this problem, microbial ecologists use a technique called rarefaction to normalize the sequencing depth across samples by random sampling without replacement \cite{de2011evaluation}, although this is controversial \cite{mcmurdie2014waste}.
 
@@ -167,7 +180,8 @@ The left panel shows the movement across clusters for a set of randomly selected
 \label{figure_sample_migration}
 \end{figure}
 
-In unweighted UniFrac, samples move relative to the other samples in different rarefaction instances, to the point where they can switch from being a member of one cluster of data to another (Fig.~\ref{sample_migration}). Any published finding done with an unweighted UniFrac analysis is suspect, especially if most of the variance is not explained by the first and second principal components. This is further explored in the chapter \textit{Expanding the UniFrac Toolbox}.
+In unweighted UniFrac, samples move relative to the other samples in different rarefaction instances, to the point where they can switch from being a member of one cluster of data to another (Fig. ~
+ef{sample_migration}). Any published finding done with an unweighted UniFrac analysis is suspect, especially if most of the variance is not explained by the first and second principal components. This is further explored in the chapter \textit{Expanding the UniFrac Toolbox}.
 
 \FloatBarrier
 
@@ -180,14 +194,16 @@ The red line represents the weight that unweighted UniFrac would produce with th
 \label{figure_weights}
 \end{figure}
 
-Weighted UniFrac is an implementation of the Kantorovich-Rubinstein distance in mathematics, also known as the earth mover's distance \cite{evans2012phylogenetic}. Rather than looking only at the presence or absence of taxa, each branch length of the phylogenetic tree is weighted by the difference in proportional abundance of the taxa between the two samples (Fig.~\ref{figure_weights}). This technique reduces the problem of low abundance taxa being represented as a 0 or by a low count depending on sampling depth. In unweighted UniFrac, such taxa would flip from absent to present, and could skew the measurement: this would be especially problematic if the taxa are on a long branch. In weighted UniFrac, low abundance taxa have a much lower weight and so will have a reduced impact on the total distance reported by the metric.
+Weighted UniFrac is an implementation of the Kantorovich-Rubinstein distance in mathematics, also known as the earth mover's distance \cite{evans2012phylogenetic}. Rather than looking only at the presence or absence of taxa, each branch length of the phylogenetic tree is weighted by the difference in proportional abundance of the taxa between the two samples (Fig. ~
+ef{figure_weights}). This technique reduces the problem of low abundance taxa being represented as a 0 or by a low count depending on sampling depth. In unweighted UniFrac, such taxa would flip from absent to present, and could skew the measurement: this would be especially problematic if the taxa are on a long branch. In weighted UniFrac, low abundance taxa have a much lower weight and so will have a reduced impact on the total distance reported by the metric.
 
 UniFrac is constituted as either a presence/absence (unweighted UniFrac) \cite{lozupone2005unifrac}, a linear proportion in the form of weighted UniFrac \cite{lozupone2007quantitative}, or some combination of the two in the form of Generalized UniFrac \cite{chen2012associating}. However, the data are not linear, because the sum of the total number of reads is constrained by the sequencing machinery \cite{friedman2012inferring}. Alternative weightings and nonlinear transformations of data need to be explored, and this is the focus of Chapter 2.
 
 \paragraph{Principal Co-ordinate Analysis}\mbox{}\\
 Once the dissimilarity between each pair of samples has been calculated, they can be visualized on a plot, with each sample represented as one point. For visualization, the data should be placed so distances are preserved as much as possible, so that clustering and separation of samples can be clearly seen. This is done using the Principal Co-ordinate Analysis method of multidimensional scaling \cite{dollhopf2001interpreting}, shortened as PCoA. PCoA is a single value decomposition of the distane relationships.
 
-To plot all of the samples as points in space such that the distances between each pair of samples are preserved, multiple dimensions are required. In this data specifically, the number of dimensions required is equal to one less than the number of samples. PCoA rescales all the dimensions as components, so that the first component captures the largest distances, or spread of the data, the second component captures the largest distances remaining in the data after the first component, and so on. This way, even if only the first two components are used to plot all the samples as points on a two dimensional graph, the data is spread out to enable visualization of separation or clustering. Ideally the first and the second principal components should explain most of the distance in the data. For example, there is much less variance explained in the uniform tongue dorsum data set, compared to the data set with separation between tongue dorsum and buccal mucosa samples (Fig.~\ref{figure_sample_migration}).
+To plot all of the samples as points in space such that the distances between each pair of samples are preserved, multiple dimensions are required. In this data specifically, the number of dimensions required is equal to one less than the number of samples. PCoA rescales all the dimensions as components, so that the first component captures the largest distances, or spread of the data, the second component captures the largest distances remaining in the data after the first component, and so on. This way, even if only the first two components are used to plot all the samples as points on a two dimensional graph, the data is spread out to enable visualization of separation or clustering. Ideally the first and the second principal components should explain most of the distance in the data. For example, there is much less variance explained in the uniform tongue dorsum data set, compared to the data set with separation between tongue dorsum and buccal mucosa samples (Fig. ~
+ef{figure_sample_migration}).
 
 After multidimensional scaling the data can be analyzed in several ways. The data can be examined by k-means analysis clustering \cite{tibshirani2005cluster} or by unsupervised clustering.
 
@@ -212,11 +228,12 @@ All of this information can be determined by either imputation or actual sequenc
 \begin{center}
 \includegraphics[height=0.8\textheight]{Metagenomic_pipeline.png}
 \caption[Metagenomic experiment workflow.]{\textbf{Metagenomic experiment workflow.} This shows the workflow from sample collection to data generation. The end result is a table of number of sequencing reads per functionally annotated gene per sample.}
-\end{center}
 \label{metagenomic_workflow}
+\end{center}
 \end{figure}
 
-The goal of metagenomic DNA sequencing analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes by DNA sequence, sorting them by the known function of the protein that they encode (such as the catalysis of a certain reaction), and checking if any functions are differentially abundant between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis (Fig.~\ref{metagenomic_workflow}) is as follows:
+The goal of metagenomic DNA sequencing analysis is to examine the metabolic potential of the microbiota in the microbiome. This is done by identifying genes by DNA sequence, sorting them by the known function of the protein that they encode (such as the catalysis of a certain reaction), and checking if any functions are differentially abundant between conditions. Further analysis can also include checking for pathway enrichment, and assembling the sequenced reads into genomes. The general protocol for metagenomic analysis (Fig. ~
+ef{metagenomic_workflow}) is as follows:
 
 \begin{enumerate}
 \item Take a biological sample and perform DNA extraction\\
@@ -260,13 +277,14 @@ Data analysis can be performed to determine if functions are differentially abun
 \begin{center}
 \includegraphics[width=\textwidth]{stripchart.png}
 \caption[Example stripcharts for subsystem 2 and 3 functional categorizations.]{\textbf{Example stripcharts for subsystem 2 and 3 functional categorizations.} Dots on the left side are SEED subsystem 4 annotations found to be more abundant in the healthy condition while dots on the right side are subsystem 4 annotations found to be more abundant in the bacterial vaginosis condition. Colored dots were found to be significantly differentially abundant. Figure taken from \cite{macklaim2013comparative}.}
-\end{center}
 \label{stripchart_example}
+\end{center}
 \end{figure}
 
 We typically use the SEED annotation, which has four different levels of categorization. Subsystem 4 is the most atomic categorization level and describes the specific function of the protein group, for example, “Isovaleryl-CoA dehydrogenase (EC 1.3.99.10)”. Subsystem 3, 2, and 1 are increasing more general levels of categorizations, from enzyme families to large categorizations such as genes related to carbohydrate metabolism. These levels are simply aggregations of subsystem 4 levels, and one subsystem 4 annotation can be found in one or more higher level groups.
 
-An effect size is measured by taking the difference in means between two groups of data, and dividing by the standard deviation within groups. The effect size is stronger when there is less overlap between the two groups. Even if the subsystem 4 functional categories are not significantly different between groups, they each have an effect size with a direction. Stripcharts can be used to plot the effect sizes of the subsystem 4 categories for a larger category (Fig.~\ref{stripchart_example}). For example, by plotting the effect sizes of all the subsystem 4 categorizations under Carbohydrate Metabolism, one can visually see if there are any obvious directional trends for carbohydrate metabolism functions being relatively abundant in the experimental group compared to the control.
+An effect size is measured by taking the difference in means between two groups of data, and dividing by the standard deviation within groups. The effect size is stronger when there is less overlap between the two groups. Even if the subsystem 4 functional categories are not significantly different between groups, they each have an effect size with a direction. Stripcharts can be used to plot the effect sizes of the subsystem 4 categories for a larger category (Fig. ~
+ef{stripchart_example}). For example, by plotting the effect sizes of all the subsystem 4 categorizations under Carbohydrate Metabolism, one can visually see if there are any obvious directional trends for carbohydrate metabolism functions being relatively abundant in the experimental group compared to the control.
 
 \FloatBarrier
 
@@ -301,7 +319,8 @@ Oftentimes, the number of taxa or gene functions is more than a magnitude larger
 
 One way to conceptualize the problem is through combinatorics. Hypothetically, there could exist many bacterial taxa that are equally present in both conditions, but have a low abundance such that a 0 or 1 count is ofen detected. In this case the chances of observing all 0 counts in one condition and all 1 counts in another condition by simple combinatorics is quite high. This situation is common in microbiome data, where most of the bacteria are abundant in low proportions, sample sizes are often low, and a typical 16S rRNA gene sequencing experiment detects hundreds of OTUs.
 
-Multiple test corrections assume that the experiment has more samples than variables, and result in very high p-values when this condition is not met. However, when using p-value based tests, researchers should include multiple test corrections to ensure that the results they are reporting are not all false positives. Unfortunately many studies have been published in peer reviewed journals without multiple test corrections. For example, four out of five papers in the literature about the gut microbiome and non-alcoholic fatty liver disease did not use a multiple test correction (Fig.~\ref{introduction_nafld_fig1}).
+Multiple test corrections assume that the experiment has more samples than variables, and result in very high p-values when this condition is not met. However, when using p-value based tests, researchers should include multiple test corrections to ensure that the results they are reporting are not all false positives. Unfortunately many studies have been published in peer reviewed journals without multiple test corrections. For example, four out of five papers in the literature about the gut microbiome and non-alcoholic fatty liver disease did not use a multiple test correction (Fig. ~
+ef{introduction_nafld_fig1}).
 
 \subsection{Microbiome data is compositional}
 In both gene tag sequencing and metagenomic sequencing experiments, the data is in the form of a list of counts per feature, with the features composing an aspect of the microbiome for each sample. Therefore, the number of counts observed is arbitrary and not related to number of counts in the original environment. For example, an oral sample ($10^{7}$ Colony Forming Units/ml) and a gut sample ($10^{10}$ CFU/ml) will give same number of counts (~$1 \times 100^{5}$) after DNA sequencing. This is compositional data. There are several core truths about microbiome data and its compositional nature that should be considered when making an analysis strategy.
@@ -314,8 +333,8 @@ Second, spurious correlations can arise from proportional microbiome data, and s
 \begin{center}
 \includegraphics[width=0.7\textwidth]{lions_ladybugs.png}
 \caption[Counting vs. sequencing.]{\textbf{Counting vs. sequencing.} In ecology, where all the animals in a given area are counted, there is no upper limit on the number of animals that can be detected. In sequencing, there is a constraint on the total number of sequences detected by the sequencing platform. If one were to detect one more ladybug, one would have to detect one less lion. Figure courtesy of Dr. Greg Gloor, \url{http://gloorlab.blogspot.ca/2016/04/sequencing-is-not-counting-idea-of.html}.}
-\end{center}
 \label{introduction_lions_ladybugs}
+\end{center}
 \end{figure}
 
 Additionally, the constrained sum causes the abundance of different taxa to appear to be negatively correlated with each other when analyzed by conventional statistics. When one taxa increases in abundance, the counts detected in other taxa decrease in proportional abundance, even if the taxa are not decreasing in absolute abundance biologically. This negative correlation bias arises when the data are treated as univariate, when it should be analysed as multivariate data. All non-parametric tests (Principal Coordinates Analysis, correlations, etc.) assume that the abundance measured for each feature is independant. This is true in ecology where the abundance of different species is measured in an area of land where animals can move freely in and out. It is not true in next generation sequencing where the abundance of different species is measured by a sequencing platform with a limited number of measurements, such that detecting extra members of one species means detecting less members of another species (Fig. ~\ref{introduction_lions_ladybugs}).
@@ -336,7 +355,8 @@ The centered log ratio transform prevents the total number of reads from affecti
 
 Compositional techniques such as those espoused in the ANOVA-Like Differential Expression 2 (ALDEx2) software \cite{fernandes2014unifying} and the Analysis of Composition of Microbiomes (ANCOM) framework \cite{mandal2015analysis} should be used to promote consistent data analysis. ALDEx2 models the technical variation using the Dirichlet distribution and then performs a log ratio transform while ANCOM uses log ratio analysis to make point estimates of the variance and mean, without any distributional assumptions.
 
-However, these techniques are not yet mainstream in the field, resulting in many conclusions that are not reproducible. One example of this is referenced in the chapter about the gut microbiome and non alcoholic fatty liver disease, where five papers have been published on the same topic with almost non overlapping results (Fig.~\ref{introduction_nafld_fig1}).
+However, these techniques are not yet mainstream in the field, resulting in many conclusions that are not reproducible. One example of this is referenced in the chapter about the gut microbiome and non alcoholic fatty liver disease, where five papers have been published on the same topic with almost non overlapping results (Fig. ~
+ef{introduction_nafld_fig1}).
 
 \subsection{Microbiome data is sparse}
 One of the fundamental challenges in analyzing differential abundance is accounting for zeroes. Unlike a presence/absence test, a zero does not necessarily mean that the OTU is not there. The OTU could be present in an amount smaller than the resolution of the test, or it could be present but missed due to random sampling. This is a problem because when statistical methods are used to examine significantly different OTU abundance, as the comparison of zero values to non-zero values are likely to come out as significant whether or not the OTU abundance is differential. However, a 0 and a 1 count are easily interchangeable between technical replicates and the difference is not biologically significant \cite{gloor2016s} \cite{fernandes2013anova} \cite{fernandes2014unifying}. Additionally, the log transformations used in compositional data analysis cannot be performed on zeros. Statisticians often recommend that any sample with at least one zero count be removed during compositional data analysis, but for microbiome data this would often result in the removal of all the samples \cite{aitchison1982statistical}.
@@ -362,10 +382,11 @@ The microbiome is thought to have an effect on host digestion and absorption of 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{nafld_papers.png}
 \caption[Venn diagram of genera found to be differentially abundant by different studies between NASH/NAFLD and healthy controls.]{\textbf{Venn diagram of genera found to be differentially abundant by different studies between NASH/NAFLD and healthy controls.} Only 3 out of the 16 genera claimed to be differentially abundant were found in two studies: members of the \textit{Escherichia} genus were found in the Zhu \cite{zhu2013characterization} and Jiang \cite{jiang2015dysbiosis} studies, and members of the \textit{Lactobacillus} and \textit{Oscillibacter} genus were found in the Jiang \cite{jiang2015dysbiosis} and Raman \cite{raman2013fecal} studies. Of these, only Raman et al \cite{raman2013fecal} reported using a multiple test correction.}
-\end{center}
 \label{introduction_nafld_fig1}
+\end{center}
 \end{figure}
 
-Fig.~\ref{introduction_nafld_fig1} shows a Venn diagram illustrating the inconsistency of the literature on the gut microbiome and NAFLD. Of these, only Raman et al \cite{raman2013fecal} reported using a multiple test correction. Many of the studies had healthy controls with a lower BMI, so it is difficult to separate whether the differences found are related to NAFLD progression or obesity. These five studies do not form a consistent story about the gut microbiome and NAFLD. In one chapter of this thesis, we conduct our own non alcoholic steatohepatosis gut microbiome study, such that our results are replicable. Additionally, we generate the first deeply sequenced metagenomic sample set to examine functional capabilities in this disease.
+Fig. ~
+ef{introduction_nafld_fig1} shows a Venn diagram illustrating the inconsistency of the literature on the gut microbiome and NAFLD. Of these, only Raman et al \cite{raman2013fecal} reported using a multiple test correction. Many of the studies had healthy controls with a lower BMI, so it is difficult to separate whether the differences found are related to NAFLD progression or obesity. These five studies do not form a consistent story about the gut microbiome and NAFLD. In one chapter of this thesis, we conduct our own non alcoholic steatohepatosis gut microbiome study, such that our results are replicable. Additionally, we generate the first deeply sequenced metagenomic sample set to examine functional capabilities in this disease.
 
 We compare the gut microbiome of 29 patients with nonalcoholic steatohepatitis (NASH), 14 patients with simple steatosis (SS), and 24 healthy controls. We found no significantly differentially abundant features between groups. However, the effect sizes of OTUs between extreme and intermediate groups appear to increase in a subset of the samples selected with more stringent clinical criteria. We believe that there may be a real difference between patients, if a study were performed with sufficient power.
