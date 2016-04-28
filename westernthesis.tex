@@ -6,7 +6,7 @@
 
 \documentclass[12pt,twoside]{report}
 %% Decomment next line to use PostScript fonts
-%%\UsePackage{times}
+%%\UsePackage{times}colorlinks=true
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                    %%
 %%                    ***   I M P O R T A N T   ***                   %%
@@ -20,7 +20,7 @@
 %%  - \super{...}    supervisor
 %%  - \firstname, \middlename, \lastname... there is additional documentation by the actual fields, so I'll leave it at that
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{appendix}
+\usepackage[titletoc]{appendix}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage[byname]{smartref}
@@ -51,7 +51,8 @@
 \usepackage{cite}
 
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
-\usepackage{nameref,hyperref}
+\usepackage{nameref}
+\usepackage[colorlinks=true]{hyperref}
 
 % line numbers
 \usepackage[right]{lineno}
@@ -388,7 +389,7 @@ Chair of the Thesis Examination Board
 %%  ***  Put your Abstract here.   ***
 %% (150 words for M.Sc. and 350 words for Ph.D.)
 
-With the advent of next generation DNA sequencing, scientists can obtain a more comprehensive snapshot of the composition of the microbiome, what genes are present, and what proteins are produced. The scientific community is in a phase of developing the experiments and accompanying statistical techniques to investigate the mechanisms by which the human microbiome affects health and disease. In this thesis we explore alternatives to the standard weighted and unweighted UniFrac difference metric that measure the difference between microbiome samples. I show that alternative weightings provide novel insight and allow the extraction of trends and outliers that are not visible with traditional methods. I also apply next generation DNA sequencing and computational analysis techniques to gut microbiome data from a nonalcoholic fatty liver disease cohort to examine the potential role of the microbiota in this condition.
+With the advent of next generation DNA sequencing, scientists can obtain a more comprehensive snapshot of the composition of the microbiome, what genes are present, and what proteins are produced. The scientific community is in a phase of developing the experiments and accompanying statistical techniques to investigate the mechanisms by which the human microbiome affects health and disease. In this thesis I explore alternatives to the standard weighted and unweighted UniFrac difference metric that measure the difference between microbiome samples. I show that alternative weightings provide novel insight and allow the extraction of trends and outliers that are not visible with traditional methods. I also apply next generation DNA sequencing and computational analysis techniques to gut microbiome data from a nonalcoholic fatty liver disease cohort to examine the potential role of the microbiota in this condition.
 
 \vfill
 \textbf{Keywords:} Human microbiome, next generation sequencing, bioinformatics, nonalcoholic fatty liver disease
@@ -441,6 +442,7 @@ With the advent of next generation DNA sequencing, scientists can obtain a more 
 %Appendices.
 \begin{appendices}
 \include{appendixa}
+\include{appendixb}
 \end{appendices}
 
 %CV only relevant stuff... not full CV.
