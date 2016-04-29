@@ -278,7 +278,7 @@ These results suggest that members of the \textit{Alistipes}, \textit{Bacteroide
 \subsection{Metagenomic experiment}
 
 \paragraph{Functional analysis}\mbox{}\\
-The reads were annotated into SEED subsystems \cite{overbeek2005subsystems}. The most descriptive and specific SEED subsystem is subsystem 4. Each read is categorized into at most one subsystem 4. Subsystems 1, 2, and 3 are broader, and a read can be categorized into multiple higher categories. We use ALDEx to test for differential expression at the subsystem 4 categorization level (Fig. ~\ref{nafld_metagenomic_aldex}). Because the reads do not have unique categorizations at the higher levels, we use stripcharts to examine these (Fig. ~\ref{nafld_metagenomic_subsys1}).
+The reads were annotated into SEED subsystems, which are functional categorizations of gene sequences \cite{overbeek2005subsystems}. The most descriptive and specific SEED subsystem is subsystem 4. Each read is categorized into at most one subsystem 4. Subsystems 1, 2, and 3 are broader, and a read can be categorized into multiple higher categories. We use ALDEx to test for differential expression at the subsystem 4 categorization level (Fig. ~\ref{nafld_metagenomic_aldex}). Because the reads do not have unique categorizations at the higher levels, we use stripcharts to examine these in a descriptive manner (Fig. ~\ref{nafld_metagenomic_subsys1}).
 
 \begin{figure}[h]
 \begin{center}
@@ -290,16 +290,8 @@ The reads were annotated into SEED subsystems \cite{overbeek2005subsystems}. The
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{metagenomic_subsys1.png}
-\caption[Difference within vs. difference between healthy and extreme NASH for metagenomic data.]{\textbf{Difference within vs. difference between healthy and extreme NASH for metagenomic data.} Each point on this plot represents a functional annotation at the SEED subsystem 4 level. The different rows of the plots show the subsystem 4 annotations within each subsystem 1 group. Points on the positive side were more abundant in the extreme NASH condition while points on the negative side were more abundant in the healthy condition. None of the points were significantly differentially abundant between groups.}
-\label{nafld_metagenomic_subsys1}
-\end{center}
-\end{figure}
-
-\begin{figure}[h]
-\begin{center}
 \includegraphics[width=0.95\textwidth]{metagenomic_pca.png}
-\caption[Principal components analysis of metagenomic data.]{\textbf{Principal components analysis of metagenomic data.} In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. Samples CL\_119, CL\_139, CL\_160, and CL\_165 have a steatosis grading of 3. Samples CL\_141, CL\_144, CL\_169, CL\_173, and Cl\_177 have a steatosis grading of 2. Sample CL\_166 has a steatosis grading of 1. The steatosis grading doesn't appear to separate the samples. The location of the subsystem 4 labels (in blue) show which direction they pull the samples in, in terms of variance. The biplot shows only the thirty four subsystem 4 categories with an effect size greater than 1, out of 7026 categories in total. The key for the subsystem 4 labels is Table ~\ref{nafld_subsys4_labels}.}
+\caption[Principal components analysis of metagenomic data.]{\textbf{Principal components analysis of metagenomic data.} In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. Samples CL\_119, CL\_139, CL\_160, and CL\_165 have a steatosis grading of 3. Samples CL\_141, CL\_144, CL\_169, CL\_173, and Cl\_177 have a steatosis grading of 2. Sample CL\_166 has a steatosis grading of 1. The steatosis grading does not appear to separate the samples. The location of the subsystem 4 labels (in blue) show which direction they pull the samples in, in terms of variance. The biplot shows only the thirty four subsystem 4 categories with an effect size greater than 1, out of 7026 categories in total. The key for the subsystem 4 labels is Table ~\ref{nafld_subsys4_labels}.}
 \label{nafld_metagenomic_pca}
 \end{center}
 \end{figure}
@@ -355,7 +347,22 @@ The reads were annotated into SEED subsystems \cite{overbeek2005subsystems}. The
 % \end{adjustwidth}
 \end{table}
 
-ALDEx analysis results show that no functional annotations are differentially abundant between the healthy and the NASH conditions (Fig. ~\ref{nafld_metagenomic_aldex}). In the principal components analysis, the healthy samples appear to be clustered in the middle, with sample HLD\_23 as an outlier. The extreme NASH samples are more spread out, and the functional annotations that contribute the most to their spread are written in blue in Figure. ~\ref{nafld_metagenomic_pca}. We were particularly interested in the subset of functional annotations related to carbohydrates and lipids, as they are relevant to obesity and potentially NASH. When the carbohydrate or lipid subset is analyzed separately (Figures ~\ref{nafld_metagenomic_carb_pca} and ~\ref{nafld_metagenomic_lipid_pca}), the samples are still arranged in the same way as the full data set in the principal components analysis. What differentiates the samples in the full set is not lost in the carbohydrate or the lipid subset, even though the lipid subset is much smaller and does not include functional annotations with an effect size greater than 0.68.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_pca_no_outliers.png}
+\caption[Principal components analysis of metagenomic data.]{\textbf{Principal components analysis of metagenomic data.} In this biplot, the healthy samples are shown in black, while the extreme NASH samples are shown in red. Outliers HLD\_23 and CL\_166 have been removed. With the outliers removed, the healthy samples occupy a space four times smaller than the extreme NASH samples, indicating that they have a much lower variance between samples.}
+\label{nafld_metagenomic_pca_no_outliers}
+\end{center}
+\end{figure}
+
+
+ALDEx analysis results show that no functional annotations at the subsystem 4 level are significantly differentially abundant between the healthy and the NASH conditions (Fig. ~\ref{nafld_metagenomic_aldex}). There are over seven thousand annotations analyzed here, so it is very difficult to have enough power to detect statistical significance. Even with broader functional categories in supporting figure ~\ref{nafld_metagenomic_subsys1}, there is no category with a large skew towards the extreme NASH or the healthy condition.
+
+In the principal components analysis (Figure ~\ref{nafld_metagenomic_pca}), the healthy samples appear to be clustered in the middle, with sample HLD\_23 as an outlier. The extreme NASH samples are more spread out, and the functional annotations that contribute the most to their spread are written in blue. Outlier analysis shows that sample CL\_166 is an outlier in the extreme NASH group. CL\_166 has the lowest steatosis grading out of all the NASH samples. This plot measures variance, and implies that the samples from the extreme NASH patients have a much higher variance between samples than the samples from the healthy patients. The Scree plot on the side of Figure ~\ref{nafld_metagenomic_pca} shows that a lot of variance (over 40\%) is explained by the first two component axis, which means that the samples have a lot of structural spread compared to a random set of points.
+
+With the outliers removed (Figure ~\ref{nafld_metagenomic_pca_no_outliers}), the healthy samples occupy a space four times smaller than the extreme NASH samples, indicating that they have a much lower variance between samples.
+
+We were particularly interested in the subset of functional annotations related to carbohydrates and lipids, as they are relevant to obesity and potentially NASH. When the carbohydrate or lipid subset is analyzed separately (Figures ~\ref{nafld_metagenomic_carb_pca} and ~\ref{nafld_metagenomic_lipid_pca}), the samples are still arranged in the same way as the full data set in the principal components analysis. What differentiates the samples in the full set is not lost in the carbohydrate or the lipid subset, even though the lipid subset is much smaller and does not include functional annotations with an effect size greater than 0.68.
 
 The Boursier et al. \cite{boursier2016severity} paper imputed the metagenomic analysis, and reported that KEGG pathways for carbohydrate, lipid, and amino acid metabolism were significantly differential between groups. We did a principal components analysis on the Amino Acids and Derivatives subsystem 1 category (Figure ~\ref{nafld_metagenomic_amino_pca}). This produced a spread of samples less similar to the principal components analysis with all the functional annotations (Fig. \ref{nafld_metagenomic_pca}), compared to the lipid subset (Fig. ~\ref{nafld_metagenomic_lipid_pca}), despite the amino acid subset containing more annotations than the lipid subset (449 compared to 134 annotations).
 
@@ -416,9 +423,13 @@ The Boursier et al. \cite{boursier2016severity} paper imputed the metagenomic an
 \FloatBarrier
 
 \paragraph{MetaPhlAn}\mbox{}\\
-We ran the sequences from the metagenomic sequencing experiment through MetaPhlAn. MetaPhlAn generates taxonomy profiles by inferring what the results would be with 16S rRNA gene tag sequencing.
+We ran the sequences from the metagenomic sequencing experiment through MetaPhlAn to examine if the taxonomic profile derived from the metagenomic sequences was similar to the taxonomic profile we measured. MetaPhlAn generates taxonomy profiles that can be compared to the results of 16S rRNA gene tag sequencing.
 
-The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and can not be compared directly. Note that OTUs can reside in between genera, such that the genus classification is not perfectly concordant between the two comparisons. The top four relatively abundant genera from the MetaPhlAn analysis were \textit{Ruminococcus}, \textit{Eubacterium}, \textit{Coprococcus}, and \textit{Bacteroides}. Only \textit{Bacteroides} is also on the top four relatively abundant genera from the 16S rRNA gene tag sequencing experiment.
+The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were derived from different databases, and can not be compared directly. Note that OTUs can reside in between genera, such that the genus classification is not perfectly concordant between the two comparisons. The top four relatively abundant genera from the MetaPhlAn analysis were \textit{Ruminococcus}, \textit{Eubacterium}, \textit{Coprococcus}, and \textit{Bacteroides}. \textit{Ruminococcus} \textit{Coprococcus} are also on the top four relatively abundant genera from the 16S rRNA gene tag sequencing experiment.
+
+Figure ~\ref{nafld_metaphlan_barplot} shows the taxonomic composition of each sample, as calculated by MetaPhlAn. The healthy and the extreme NASH samples are not separated by unsupervised clustering, as shown in the dendrogram.
+
+In the ALDEx analysis of differential abundance for each taxa (Figure ~\ref{nafld_metaphlan_aldex}), \textit{Alistipes shahii} was the most differentially abundant (although not significantly so). Other members of the \textit{Alistipes} genus were identified as having top decile effect sizes for relative abundance in the healthy condition in the 16S rRNA gene sequencing experiment, as shown in supporting figure ~\ref{nafld_bot_otu_table}. The OTUs from the 16S rRNA gene sequencing experiment and the taxa in the MetaPhlAn analysis cannot be mapped to each other directly, but it is possible that some members of the 16S OTUs may have genes grouped under \textit{Alistipes shahii} in the MetaPhlAn analysis. Note that one cannot infer information about a bacterial species from the analysis of a bacterial genus, or vice versa, due to the ecological paradox: Inferences cannot be made about members of a group based on the group as a whole.
 
 \begin{figure}[h]
 \begin{center}
@@ -430,27 +441,13 @@ The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{metaphlan_biplot.png}
-\caption[Biplot derived from MetaPhlAn.]{\textbf{Biplot derived from MetaPhlAn.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlayed on the same principal component analysis plot. This biplot was generated from the count table inferred by MetaPhlAn. Note that the variance explained by the first and the second component is 17\% and 11\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. The two groups appear to have a nice split, but this is contradicted by the experimental 16S rRNA gene sequencing results in Figure ~\ref{nafld_16s_metagenomic_biplot}}
-\label{nafld_metaphlan_biplot}
-\end{center}
-\end{figure}
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{16S_metagenomic_biplot.png}
-\caption[Biplot derived from 16S rRNA gene experiment.]{\textbf{Biplot derived from 16S rRNA gene experiment.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genera is overlaid on the same principal component analysis plot. This biplot was generated from the count table generated by the 16S rRNA gene sequencing experiment. Note that the variance explained by the first and the second component is 16.7\% and 12.7\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls are colored black while samples from patients with NASH are colored red. This plot only shows the 20 samples selected for metagenomic sequencing.}
-\label{nafld_16s_metagenomic_biplot}
-\end{center}
-\end{figure}
-
-\begin{figure}[h]
-\begin{center}
 \includegraphics[width=0.95\textwidth]{metaphlan_aldex.png}
-\caption[Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.]{\textbf{Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.} This plot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. No taxa are more differential between groups than within groups. A positive difference between indicates that the taxa was relatively increased in NASH while a negative difference between indicates that the taxa was relatively increased in healthy. This analysis was done at the inferred species level (using operational taxonomic units) rather than at the genus level. The circled taxa is \textit{Alistipes shahii}, and has an expected Benjamini-Hochberg p-value of 0.0776.}
+\caption[Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.]{\textbf{Difference within groups vs. difference between groups per taxa, derived from MetaPhlAn.} This plot was generated from the count table inferred by MetaPhlAn, with taxa filtered such that only taxa with at least 1\% abundance in any sample was kept. No taxa are more differential between groups than within groups. A positive difference between indicates that the taxa was relatively increased in NASH while a negative difference between indicates that the taxa was relatively increased in healthy. This analysis was done at the inferred species level (using operational taxonomic units) rather than at the genus level. The circled taxa is \textit{Alistipes shahii}, and has an expected Benjamini-Hochberg p-value of 0.078, and an effect size of -1.25.}
 \label{nafld_metaphlan_aldex}
 \end{center}
 \end{figure}
+
+
 
 \FloatBarrier
 
@@ -620,3 +617,11 @@ Family_XIII & Incertae_Sedis & 91 & $-0.219$ & $-0.297$ & $-0.93$ \\ \hline
 % \end{adjustwidth}
 \end{table}
 
+\begin{figure}[h]
+\paragraph*{S4 Fig.}{\mbox{}}\\
+\begin{center}
+\includegraphics[width=0.95\textwidth]{metagenomic_subsys1.png}
+\caption[Difference within vs. difference between healthy and extreme NASH for metagenomic data.]{\textbf{Difference within vs. difference between healthy and extreme NASH for metagenomic data.} Each point on this plot represents a functional annotation at the SEED subsystem 4 level. The different rows of the plots show the subsystem 4 annotations within each subsystem 1 group. Points on the positive side were more abundant in the extreme NASH condition while points on the negative side were more abundant in the healthy condition. None of the points were significantly differentially abundant between groups. In this plot, a large skew of points on one side indicates that a functional category may be more abundant in one condition, but no such large skew exists in this figure.}
+\label{nafld_metagenomic_subsys1}
+\end{center}
+\end{figure}
