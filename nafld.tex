@@ -26,7 +26,7 @@ Applying next generation DNA sequencing techniques to microbiome research is a r
 \paragraph{Data is multivariate}\mbox{}\\
 Experiments of this nature typically have low sample sizes due to budget constraints, sample collection difficulties, patient compliance, and other issues. As a result, the number of taxon or gene function comparisons made are often a magnitude larger than the sample size. This is known in statistics as having more variables than observations, or having fat data. The higher the ratio of variables to observations are, the less likely standard statistical techniques are to be reliable \cite{osborne2004sample}.
 
-At a minimum, researchers should include multiple test corrections to ensure that the results they are reporting are more likely to be reproducible, at the expense of having p-values less than 0.05. Unfortunately many studies have been published in high impact journals without multiple test corrections, including four out of five of the papers in the literature about the gut microbiome and NAFLD (Fig.~\ref{nafld_fig1}).
+At a minimum, researchers should include multiple test corrections to ensure that the results they are reporting are more likely to be reproducible, at the expense of having p-values less than 0.05. Unfortunately many studies have been published in high impact journals without multiple test corrections, including four out of five of the papers in the literature about the gut microbiome and NAFLD (Fig\. ~\ref{nafld_fig1}).
 
 \paragraph{Data is compositional}\mbox{}\\
 In both gene tag sequencing and metagenomic sequencing experiments, the data is in the form of a list of counts per feature, with the features composing an aspect of the microbiome for each sample. This is compositional data. The total number of reads yielded by the sequencing platform is often platform-dependant and not biologically relevant.
@@ -60,7 +60,7 @@ Boursier et al, 2015 \cite{boursier2016severity} compared 30 patients with norma
 
 Many of the studies had healthy controls with a lower BMI, so it is difficult to separate whether the differences found are related to NAFLD progression or obesity.
 
-Fig.~\ref{nafld_fig1} shows a Venn diagram illustrating the inconsistency of the literature on the gut microbiome and NAFLD. Of these, only Raman et al. \cite{raman2013fecal} reported using a multiple test correction.
+Fig\. ~\ref{nafld_fig1} shows a Venn diagram illustrating the inconsistency of the literature on the gut microbiome and NAFLD. Of these, only Raman et al. \cite{raman2013fecal} reported using a multiple test correction.
 
 Since these five studies do not form a consistent story about the gut microbiome and NAFLD, we conducted own analysis using a compositional data (CoDa) approach with effect size as the primary measure, such that our results are replicable \cite{halsey2015fickle}. Additionally, we generate the first deeply sequenced metagenomic sample set to examine functional capabilities in this disease.
 
@@ -171,31 +171,44 @@ From this, three comparisons can be made: healthy compared to simple steatosis (
 
 \subsection{16S rRNA gene tag experiment}
 
-The four most abundant genera detected by 16S rRNA gene sequencing (excluding unclassified bacteria) were: \textit{Bacteroides}, \textit{Faecalibacterium}, \textit{Blautia}, and \textit{Pseudobutyrivibrio} (Fig.~\ref{nafld_16s_barplot}).
+The four most abundant genera detected by 16S rRNA gene sequencing (excluding unclassified bacteria) were: \textit{Bacteroides}, \textit{Faecalibacterium}, \textit{Blautia}, and \textit{Pseudobutyrivibrio} (Fig\. ~\ref{nafld_16s_barplot}).
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{16s_genus_barplot.png}
-\caption[Bar plot of 16S rRNA gene tag sequencing experiment.]{\textbf{Bar plot of 16S rRNA gene tag sequencing experiment.} Each column of this bar plot represents one sample, and each color represents one bacterial genus. Genus names are listed in the legend in order of decreasing total abundance across all samples. Samples do not cluster according to their condition (healthy, simple steatosis, or nonalcoholic steatohepatitis). Note that OTUs that mapped to unclassified or \textit{Incertae Sedis} were removed, and these made up just over a third of the total abundance. This operation is valid in compositional data analysis, but not in non-compositional approaches such as UniFrac.}
+\caption[Bar plot of 16S rRNA gene tag sequencing experiment.]{\textbf{Bar plot of 16S rRNA gene tag sequencing experiment.} Each column of this bar plot represents one sample, and each color represents one bacterial genus. Genus names are listed in the legend in order of decreasing total abundance across all samples. Samples do not cluster according to their condition (healthy, simple steatosis, or nonalcoholic steatohepatitis). Note that OTUs that mapped to unclassified or \textit{Incertae Sedis} were removed, and these made up just over a third of the total abundance. This operation is valid in compositional data analysis since it is the rato between OTUs that is measured, but not in non-compositional approaches where the apparent abundance is examined.}
 \label{nafld_16s_barplot}
 \end{center}
 \end{figure}
 
-No obvious structure or separation is evident from the principal co-ordinates analysis in Fig.~\ref{nafld_pcoa} or the principal component analysis in Fig.~\ref{nafld_16s_biplot}. Furthermore the variance explained by each principal component or co-ordinate axis is not notably high, indicating a rather uniform data set. Additionally, no OTUs are significantly differentially abundant between groups (Fig.~\ref{nafld_fig3})
+Figure ~\ref{nafld_16s_barplot} has both a dendrogram and a bar plot. The dendrogram is the result of unsupervised clustering on the centered log ratio transformed values of the 16S rRNA count table. The samples from the different groups (healthy, simple steatosis, and non alcoholic steatohepatitis) are scattered and do not cluster together. The bar plot shows the composition of each sample. Each bar represents one sample, and each color represents one genus. Visually there is no obvious difference in the sample compositions of the different groups.
+
+Unlike the one dimensional representation of the data in the dendrogram, figure ~\ref{nafld_16s_biplot} shows the data in two dimensions, in the form of a principal co-ordinate analysis (PCoA) plot. This plot is variance-based, and shows the samples and OTUs on the same scale. The closer points are to each other, the tighter their correlation. For example, samples CL\_154 and CL\_147 are in close proximity on the plot, so one would expect them to have similar compositions. Genera \textit{Lactobacillus} and \textit{Desulfovibrio} are close, and would be expected to have similar abundances in the different samples. The data is actually multi-dimensional, and the variance explained by each axis is shown in the Scree plot. In a well separated data set, most of the variance would be accounted for by the first two component axis. In this data set the samples are not well separated, and the first two component axis explain just over 20\% of the total variance.
+
+Figure ~\ref{nafld_pcoa} shows a principal component analysis on four UniFrac differences. The first is unweighted UniFrac, which is able to distinguish differences between groups stemming from the presence or absence of taxonomic groups. The second is weighted UniFrac, which incorporates phylogenetic information with abundance. The third is information UniFrac, which can separate groups with different abundance profiles (for example, samples where one taxa is dominant, compared to samples that have more even abundances). The fourth is ratio UniFrac, which can separate groups with taxa that are outliers above the baseline abundance. Based on these methods, there are no obvious outliers in this data set - the data is just not well separated.
+
+No obvious structure or separation is evident from the unsupervised clustering on the centered log ratio transformed values in Fig. ~\ref{nafld_16s_barplot}, the principal co-ordinates analysis in Fig. ~\ref{nafld_pcoa} or the principal component analysis in Fig. ~\ref{nafld_16s_biplot}.
+
+To examine individual taxa, ALDEx was used (Fig. ~\ref{nafld_fig3}).
+
+Furthermore the variance explained by each principal component or co-ordinate axis is not notably high, indicating a rather uniform data set.
+
+
+Additionally, no OTUs are significantly differentially abundant between groups (Fig. ~\ref{nafld_fig3})
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{nafld_16s_pcoa.png}
-\caption[Principal co-ordinate analysis of 16S rRNA gene tag sequencing data with different UniFrac weightings.]{\textbf{Principal co-ordinate analysis of 16S rRNA gene tag sequencing data with different UniFrac methods.} Each point represents one sample, and the distances between the samples have been calculated using different UniFrac metrics, taking into account phylogenetic as well as abundance information. There is no obvious separation between groups by any of the UniFrac weightings. Furthermore the variance explained by each principal co-ordinate axis is not notably high, indicating a rather uniform data set.}
-\label{nafld_pcoa}
+\includegraphics[width=0.95\textwidth]{nafld_16s_biplot.png}
+\caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Exploratory analysis using compositional data techniques is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genus is overlaid on the same principal component analysis plot. Note that the variance explained by the first and the second component is 13.6\% and 8.4\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls selected for the metagenomic study are colored black and prefixed with `HLD' while samples from patients with extreme NASH are colored dark red and prefixed with `CL'. The remaining healthy controls are colored gray, and the remaining NASH samples are colored bright red. Samples from patients with simple steatosis (SS) are colored pink.}
+\label{nafld_16s_biplot}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{nafld_16s_biplot.png}
-\caption[16S rRNA gene tag sequencing experiment biplot.]{\textbf{16S rRNA gene tag sequencing experiment biplot.} Compositional data analysis is done by transforming the counts with the centered log ratio transform, and then performing a principal component analysis. The variance explained by each genus is overlaid on the same principal component analysis plot. Note that the variance explained by the first and the second component is 13.6\% and 8.4\% respectively, indicating that there is not a clear unidirectional separation between groups. Samples from healthy controls selected for the metagenomic study are colored black while samples from patients with extreme NASH are colored dark red. The remaining healthy controls are colored gray, and the remaining NASH samples are colored bright red. Samples from patients with simple steatosis (SS) are colored pink.}
-\label{nafld_16s_biplot}
+\includegraphics[width=0.95\textwidth]{nafld_16s_pcoa.png}
+\caption[Principal co-ordinate analysis of 16S rRNA gene tag sequencing data with different UniFrac weightings.]{\textbf{Principal co-ordinate analysis of 16S rRNA gene tag sequencing data with different UniFrac methods.} Each point represents one sample, and the distances between the samples have been calculated using different UniFrac metrics, taking into account phylogenetic as well as abundance information. There is no obvious separation between groups by any of the UniFrac weightings. Furthermore the variance explained by each principal co-ordinate axis is not notably high, indicating a rather uniform data set, and no samples were observed to be outliers.}
+\label{nafld_pcoa}
 \end{center}
 \end{figure}
 
@@ -207,9 +220,13 @@ No obvious structure or separation is evident from the principal co-ordinates an
 \end{center}
 \end{figure}
 
-The Toronto patient population is very diverse, including patients coming from different cultural backgrounds who consume different diets. With this kind of population and diversity, it can be difficult to have sufficient power to detect significant differences. We explore effect sizes, since these are known to be more robust and predict the p-values. Effect size is a standardized difference between means
+The Toronto patient population is very diverse, including patients coming from different cultural backgrounds who consume different diets. With this kind of population and diversity, it can be difficult to have sufficient power to detect significant differences. We explore effect sizes, since these are known to be more robust and predict the p-values \cite{halsey2015fickle}. Effect size is a standardized difference between means. One common effect size measure is a z-score, which is a difference in means divided by the average standard deviation. In the measure used here, the difference between groups is the median of the signed difference between pairs of points, where one point is in one group, and one point is in the other group. The difference within groups is the median of the absolute difference of pairs of points within a group. The effect size is the ratio of the difference between groups to the difference within groups. In the ALDEx differential abundance test, multiple Monte Carlo instances are sampled across a Dirichlet distribution to estimate technical variance, and the effect size is calculated as the median of the ratio of the between/within differences, across all replicates.
 
-When comparing all the healthy samples with all the NASH samples, the genera with the highest effect sizes are \textit{Adlercreutzia}, \textit{Odoribacter}, and \textit{Escherichia-Shigella}. However, when only the select 10 healthy samples and the 10 extreme NASH samples used in the metagenomic study are compared, the genera with the highest effect sizes are \textit{Ruminococcus}, \textit{Adlercreutzia}, and \textit{Alistipes}. This corresponds with the qPCR experiment, where \textit{Bacteriodetes}, \textit{Prevotella}, and \textit{Ruminococcus} were tested, and only \textit{Ruminococcus} was found to be differentially abundant.
+When comparing all the healthy samples with all the NASH samples, the genera with the highest effect sizes were \textit{Lactobacillus}, which was relatively abundant in the NASH condition, as well as \textit{Alistipes}, and \textit{Bacteroides}, which were relatively abundant in the healthy condition. However, when only the select 10 healthy samples and the 10 extreme NASH samples used in the metagenomic study are compared (the healthy vs. extreme NASH comparison), the genera with the highest effect sizes are \textit{Phascolarctobacterium} and \textit{Paraprevotella}, which were relatively abundant in the extreme NASH condition, and \textit{Ruminococcus}, which was relatively abundant in the healthy condition.
+
+This corresponds with the qPCR experiment, where \textit{Bacteriodetes}, \textit{Prevotella}, and \textit{Ruminococcus} were tested. Only \textit{Ruminococcus} was found to be significantly differentially abundant, in healthy controls (Anastasia Teterina, personal communication, March 16, 2016).
+
+These results suggest that members of the \textit{Alistipes}, \textit{Bacteroides}, and \textit{Ruminococcus} genera may play a protecting role against NASH progression in the gut microbimoe of healthy patients, and be useful in probiotic therapies. It is possible that members of the \textit{Lactobacillus}, \textit{Phascolarctobacterium}, and \textit{Paraprevotella} genera may be a contributing factor to NASH progression.
 
 \begin{figure}[h]
 \begin{center}
@@ -544,11 +561,11 @@ The operational taxonomic units in the MetaPhlAn and 16S rRNA gene analysis were
 
 \section{Discussion}
 
-Given the inconsistency in the five papers that have been published about NAFLD and the gut microbiome, we have performed our analysis in a rigorous manner in an effort to find OTUs with true effects. We found that there was no significant difference between groups by sample clustering (Fig.~\ref{nafld_16s_barplot}) or at the level of the individual OTUs (Fig.~\ref{nafld_fig3}). The principal component analysis done with MetaPhlAn appeared to show the samples separating by group (Fig. ~\ref{nafld_metaphlan_biplot}). One taxa, \textit{Alistipes shahii}, was nearly significantly increased in the healthy condition in the MetaPhlAn analysis, which infers a taxonomic profile from metagenomic sequencing. However, when we sequenced the true taxonomic profile through 16S rRNA gene sequencing, no taxa were as differential (Fig. ~\ref{nafld_16s_aldex}), and the groups were not separated (Fig. ~\ref{nafld_16s_metagenomic_biplot}). Members of the \textit{Alistipes} genus appear in the top decile of taxa differentially abundant in both NASH (Fig. ~\ref{nafld_top_otu_table}) and healthy (Fig. ~\ref{nafld_bot_otu_table}) conditions.
+Given the inconsistency in the five papers that have been published about NAFLD and the gut microbiome, we have performed our analysis in a rigorous manner in an effort to find OTUs with true effects. We found that there was no significant difference between groups by sample clustering (Fig\. ~\ref{nafld_16s_barplot}) or at the level of the individual OTUs (Fig\. ~\ref{nafld_fig3}). The principal component analysis done with MetaPhlAn appeared to show the samples separating by group (Fig. ~\ref{nafld_metaphlan_biplot}). One taxa, \textit{Alistipes shahii}, was nearly significantly increased in the healthy condition in the MetaPhlAn analysis, which infers a taxonomic profile from metagenomic sequencing. However, when we sequenced the true taxonomic profile through 16S rRNA gene sequencing, no taxa were as differential (Fig. ~\ref{nafld_16s_aldex}), and the groups were not separated (Fig. ~\ref{nafld_16s_metagenomic_biplot}). Members of the \textit{Alistipes} genus appear in the top decile of taxa differentially abundant in both NASH (Fig. ~\ref{nafld_top_otu_table}) and healthy (Fig. ~\ref{nafld_bot_otu_table}) conditions.
 
 We conclude that there are several factors that would make such a study underpowered. First, the gut microbiome is highly diverse between individuals. This is compounded by the fact that the samples were taken from a diverse Toronto population, including people who immigrated from other countries who likely have different diets. The literature shows that differences in the gut microbiome are often driven by diet \cite{david2014diet}. Additionally, the nature of microbiome data is that there are very many more variables (in the form of OTUs or annotated gene functions) than samples, and the power of the study is inversely proportional to the number of variables.
 
-From Fig.~\ref{nafld_fig4}, the correlation shows that even though there is not enough power to detect a significant difference, the difference from the healthy baseline are moving in the same direction through simple steatosis to nonalcoholic steatohepatitis to extreme NASH.
+From Fig\. ~\ref{nafld_fig4}, the correlation shows that even though there is not enough power to detect a significant difference, the difference from the healthy baseline are moving in the same direction through simple steatosis to nonalcoholic steatohepatitis to extreme NASH.
 
 We hypothesize that there is a characterizable taxonomic profile difference in the gut microbiome between patients prone to NASH and healthy controls. Further study with a higher sample size, a more homogenous population, and a greater phenotypic difference between groups may provide the statistical power required to detect the nature of this difference.
 
