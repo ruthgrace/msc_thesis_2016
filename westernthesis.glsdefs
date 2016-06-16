@@ -1,0 +1,30 @@
+\ifglsentryexists{OTU}{}%
+{%
+\gls@defglossaryentry{OTU}%
+{%
+name={Operational Taxonomic Unit (OTU)},%
+sort={Operational Taxonomic Unit (OTU)},%
+type={main},%
+first={Operational Taxonomic Unit (OTU)},%
+firstplural={Operational Taxonomic Unit (OTU)s},%
+text={Operational Taxonomic Unit (OTU)},%
+plural={Operational Taxonomic Unit (OTU)s},%
+description={The unit of taxonomy used for analysis for a particular study. Usually the taxonomic units are determined by clustering together DNA sequences at 97\% identity.},%
+descriptionplural={The unit of taxonomy used for analysis for a particular study. Usually the taxonomic units are determined by clustering together DNA sequences at 97\% identity.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
