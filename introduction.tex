@@ -160,28 +160,17 @@ UniFrac is a distance metric calculated between samples \cite{lozupone2005unifra
 
 \paragraph{Unweighted UniFrac}\mbox{}\\
 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=\textwidth]{unifrac.png}
-\caption[Unweighted UniFrac.]{\textbf{Unweighted UniFrac.} When two samples do not share any branches of the phylogenetic tree, the unweighted UniFrac distance is maximized at 1. When two samples share half of their branch lengths on the phylogenetic tree, the unweighted UniFrac distance is 0.5. If the two samples contain exactly the same taxa, the unweighted UniFrac distance is minimized at 0, since the samples share all branches.}
-\label{unweighted_unifrac}
-\end{center}
-\end{figure}
+Unweighted UniFrac is performed on two samples using a phylogenetic tree. The branch lengths of the tree associated with OTUs present in one sample but not the other are divided by the sum of all the branch lengths:\\
 
-Unweighted UniFrac uses an inferred evolutionary distance to measure similarity between samples (Fig. ~\ref{unweighted_unifrac}). It requires a reference phylogenetic tree containing all the taxa present in the samples to be examined. The calculation is performed by dividing the branch lengths shared between the two samples by the branch lengths covered by either sample. A distance of 0 means that the samples have an identical set of taxa detected, and a distance of 1 means that the two samples share no taxa in common.
+$unweighted UniFrac distance = unshared branch lengths / total branch lengths$\\
+
+The distance is maximized at 1 when the two samples have no OTUs in common, and minimized at 0 when the set of OTUs present in the samples are the same.
 
 The qualitative rather than quantitative nature of unweighted UniFrac makes the metric very sensitive to sequencing depth. A greater sequencing depth generally results in the detection of a greater number of taxa. To account for this problem, microbial ecologists use a technique called rarefaction to normalize the sequencing depth across samples by random sampling without replacement \cite{de2011evaluation}, although this is controversial \cite{mcmurdie2014waste}.
 
 In the UniFrac paper, the authors pointed out that UniFac was unstable with rarefaction and recommended that users take the average of multiple UniFrac instances \cite{lozupone2011unifrac}. This is generally disregarded, sometimes even by the original authors \cite{mckenna2008macaque} \cite{mcnulty2011impact}.
 
-\begin{figure}[h]
-\includegraphics[scale=0.4]{sample_migration.eps}
-\caption[Sample migration in different rarefactions, plotted on principal components, measured with unweighted UniFrac.]{{\bf Sample migration in different rarefactions, plotted on principal components, measured with unweighted UniFrac.}
-The left panel shows the movement across clusters for a set of randomly selected tongue dorsum samples from healthy volunteers in the Human Microbiome Project database. The right plot has samples from tongue dorsum and buccal mucosa, which have real separation. If the tongue only experiment were run once, one might mistakenly assume that there are two clusters of data, however, the inconsistent sample membership of the two groups between rarefactions proves the clustering irreproducible. Note that the variance explained in the tongue data set by the first and second component is merely 16.1\% and 9.8\% respectively, indicating that the data is rather spherical, even though the points on the plot appear to show two separated clusters.}
-\label{figure_sample_migration}
-\end{figure}
-
-In unweighted UniFrac, samples move relative to the other samples in different rarefaction instances, to the point where they can switch from being a member of one cluster of data to another (Fig. ~\ref{figure_sample_migration}). Any published finding done with an unweighted UniFrac analysis is suspect, especially if only one rarefaction instance is reported or if most of the variance is not explained by the first and second principal components. This is further explored in the chapter \textit{Expanding the UniFrac Toolbox}.
+In the next chapter, \textit{Expanding the UniFrac Toolbox}, I describe how unweighted UniFrac is not replicable between rarefaction instances, using work done by Jia R. Wu. This means that any published finding done with an unweighted UniFrac analysis is suspect, especially if only one rarefaction instance is reported or if most of the variance is not explained by the first and second principal components. I also showcase two new UniFrac-based measurements that I developed to extract more varied information from microbiome data.
 
 \FloatBarrier
 
@@ -194,9 +183,13 @@ The solid line represents the weight that unweighted UniFrac would produce with 
 \label{figure_weights}
 \end{figure}
 
+%%%%% need to un self plagiarize %%%%%
+
 Weighted UniFrac is an implementation of the Kantorovich-Rubinstein distance in mathematics, also known as the earth mover's distance \cite{evans2012phylogenetic}. Rather than looking only at the presence or absence of taxa, each branch length of the phylogenetic tree is weighted by the difference in proportional abundance of the taxa between the two samples (Fig. ~\ref{figure_weights}). This technique reduces the problem of low abundance taxa being represented as a 0 or by a low count depending on sampling depth. In unweighted UniFrac, such taxa would flip from absent to present, and could skew the measurement: this would be especially problematic if the taxa are on a long branch. In weighted UniFrac, low abundance taxa have a much lower weight and so will have a reduced impact on the total distance reported by the metric.
 
 UniFrac is constituted as either a presence/absence (unweighted UniFrac) \cite{lozupone2005unifrac}, a linear proportion in the form of weighted UniFrac \cite{lozupone2007quantitative}, or some combination of the two in the form of Generalized UniFrac \cite{chen2012associating}. However, the data are not linear, because the sum of the total number of reads is constrained by the sequencing machinery \cite{friedman2012inferring}. Alternative weightings and nonlinear transformations of data need to be explored, and this is the focus of Chapter 2.
+
+%%%%%
 
 \paragraph{Principal Co-ordinate Analysis}\mbox{}\\
 Once the dissimilarity between each pair of samples has been calculated, they can be visualized on a plot, with each sample represented as one point. For visualization, the data should be placed so distances are preserved as much as possible, so that clustering and separation of samples can be clearly seen. This is done using the Principal Co-ordinate Analysis method of multidimensional scaling \cite{dollhopf2001interpreting}, shortened as PCoA. PCoA is a singular value decomposition of the distance relationships.
