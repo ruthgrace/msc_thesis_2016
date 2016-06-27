@@ -16,7 +16,7 @@ The advent of next generation DNA sequencing prompted the development of various
 
 A comparative study design involves an experimental group and a control group. The study subjects can be patients with disease and healthy controls \cite{macklaim2013comparative}, people who are susceptible and resistant to a condition \cite{theriot2014antibiotic}, or patients before and after a medical intervention \cite{graessler2013metagenomic}. The questions that scientists in this field want to answer are: Is the human microbiome driving or associated with the difference between the two groups? If so, what is the mechanism of action? There are also exploratory studies that try to determine the similarities in the microbiomes of specific body sites among patients with similar medical conditions.
 
-Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis we can gather clues about the larger questions of the mechanism of action.
+Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis scientists may gather clues about the larger questions of the mechanism of action.
 
 In this thesis, I have performed two experiments that can be done with microbiome next generation DNA sequencing data: gene tag abundance (Fig. ~\ref{16s_workflow}) and metagenomic sequencing (Fig. ~\ref{metagenomic_workflow}) \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene, which is related to taxonomic identity \cite{gloor2010microbiome}.
 
@@ -117,10 +117,10 @@ There are several very general steps to the pre-sequencing process (Fig. ~\ref{1
 The sample can be collected swabbing the target body site or by collecting samples in some other way. DNA extraction is usually done with common commercial kits.
 
 \item Run a PCR amplification\\
-As discussed previously, the gene tag experiments in this thesis amplify the V4 region of the 16S rRNA gene, following the Earth Microbiome Project protocol \cite{caporaso2012ultra}. The set of primers that we use are combinatorial barcoded, so that we can sequence all the samples in the same sequencing run and differentiate them afterwards \cite{gloor2010microbiome}.
+As discussed previously, the gene tag experiments in this thesis amplify the V4 region of the 16S rRNA gene, following the Earth Microbiome Project protocol \cite{caporaso2012ultra}. The set of primers used by the Gloor lab research group are combinatorial barcoded, so that all the samples from the same experiment can be sequenced in the same sequencing run, and be differentiated afterwards \cite{gloor2010microbiome}.
 
 \item Perform sequencing\\
-We use 2x220 nucleotide paired-end sequencing on the Illumina MiSeq platform. The 220 nucleotide paired ends allow us to overlap paired sequences in the middle to reconstitute the full sequence of the V4 variable region, which is 298 base pairs in size.
+I used 2x220 nucleotide paired-end sequencing on the Illumina MiSeq platform. The 220 nucleotide paired ends allows for paired sequences to be overlapped in the middle to reconstitute the full sequence of the V4 variable region, which is 298 base pairs in size.
 \end{enumerate}
 
 \paragraph{Post-sequencing processing}\mbox{}\\
@@ -133,7 +133,7 @@ The paired sequences are overlapped in the middle, resulting in the full variabl
 The barcodes are used to separate the sequences according to what sample they came from.
 
 \item Group the reads into operational taxonomic units (OTUs)\\
-We used UCLUST \cite{edgar2010search} to cluster the reads into groups of 97\% identity and UCHIME \cite{edgar2011uchime} to filter out chimeric sequences.
+The Gloor lab research group uses UCLUST \cite{edgar2010search} to cluster the reads into groups of 97\% identity and UCHIME \cite{edgar2011uchime} to filter out chimeric sequences.
 
 \item Annotate the OTUs with bacterial taxonomy\\
 Annotation was done by  matching our OTUs to the SILVA database \cite{quast2013silva}.
@@ -227,13 +227,13 @@ The sample can be collected by swabbing the target body site or collecting excre
 Fragment the DNA, and filter for the desired size. These steps are all part of the standard Illumina library prep protocol for the HiSeq.
 
 \item Sequence the DNA.\\
-We performed single end sequencing on the Illumina HiSeq platform, with our samples barcoded so that they could be pooled into the same sequencing run. There are two options for read length: either 50 or 100 nucleotides. We chose the longer one for ease of assembly and mapping.
+Single end sequencing was performed on the Illumina HiSeq platform by our collaborators at the London Regional Genomics Centre, with our samples barcoded so that they could be pooled into the same sequencing run. There are two options for read length: either 50 or 100 nucleotides. I chose the longer one for ease of assembly and mapping.
 
 \item Create an annotated library of reference sequences\\
 The annotated library contains DNA sequence annotations about what kind of protein each sequence codes for. The first step to creating the annotated library is to gather a database of sequences. The database of sequences can be created before the sequencing is complete by gathering all the genomes of all the bacterial strains predicted to be present in the sample, or it can be created after sequencing by assembling the sequenced reads into parts of genomes. The second step is to annotate the sequences with predicted protein functions. Most publically available genomes already have protein annotations. For genomes or partial genomes without annotations, the placement of genes can be predicted by looking for open reading frames, and these predicted genes can be aligned with databases such as SEED \cite{overbeek2005subsystems} or KEGG \cite{kanehisa2000kegg} to match them with functional annotations, using the BLAST algorithm \cite{altschul1990basic}.
 
 \item Map the sequenced reads to the library\\
-Mapping is the process of annotating the sequenced reads by aligning them with sequence that has already been annotated. We used Bowtie2 \cite{langmead2012fast} to map our sequenced reads to the annotated library created in the previous step. Bowtie2 aligns similar sequences together.
+Mapping is the process of annotating the sequenced reads by aligning them with sequence that has already been annotated. I used Bowtie2 \cite{langmead2012fast} to map our sequenced reads to the annotated library created in the previous step. Bowtie2 aligns similar sequences together.
 
 \item Determine how many mapped reads match each functional annotation\\
 Once the sequenced reads have been mapped to the annotated reference sequence, the number of reads sequenced for each annotation can be counted up. The end result is a table of counts per gene annotation per sample.
@@ -265,7 +265,7 @@ Data analysis can be performed to determine if functions are differentially abun
 \end{center}
 \end{figure}
 
-We typically use the SEED annotation, which has four different levels of categorization. Subsystem 4 is the most atomic categorization level and describes the specific function of the protein group, for example, “Isovaleryl-CoA dehydrogenase (EC 1.3.99.10)”. Subsystem 3, 2, and 1 are increasing more general levels of categorizations, from enzyme families to large categorizations such as genes related to carbohydrate metabolism. These levels are simply aggregations of subsystem 4 levels, and one subsystem 4 annotation can be found in one or more higher level groups.
+I use the SEED annotation, which has four different levels of categorization. Subsystem 4 is the most atomic categorization level and describes the specific function of the protein group, for example, “Isovaleryl-CoA dehydrogenase (EC 1.3.99.10)”. Subsystem 3, 2, and 1 are increasing more general levels of categorizations, from enzyme families to large categorizations such as genes related to carbohydrate metabolism. These levels are simply aggregations of subsystem 4 levels, and one subsystem 4 annotation can be found in one or more higher level groups.
 
 An effect size is measured by taking the difference in means between two groups of data, and dividing by the standard deviation within groups. The effect size is stronger when there is less overlap between the two groups. Even if the subsystem 4 functional categories are not significantly different between groups, they each have an effect size with a direction. Stripcharts can be used to plot the effect sizes of the subsystem 4 categories for a larger category (Fig. ~\ref{stripchart_example}). For example, by plotting the effect sizes of all the subsystem 4 categorizations under Carbohydrate Metabolism, one can visually see if there are any obvious directional trends for carbohydrate metabolism functions being relatively abundant in the experimental group compared to the control.
 
@@ -283,7 +283,7 @@ The 16S rRNA gene sequencing experiments are very sensitive to batch effects. Mi
 \subsection{Microbiome data is highly variable between individuals}
 The gut is often studied but the gut microbiome can be affected very strongly by diet \cite{turnbaugh2009effect}. This among other factors lead to a highly diverse gut microbiome between subjects for reasons unrelated to the disease being studied. This can create a lot of variability, potentially obscuring real effects or even creating the appearance of false effects.
 
-Generally experiments of this nature typically have low sample sizes due to budget constraints, sample collection difficulties, patient compliance, and other issues. To increase cost effectiveness and reduce batch effects (such as from kit contamination \cite{salter2014reagent}), we run all the samples in an experiment on the same sequencing run, by means of a combinatorial barcode primer design \cite{gloor2010microbiome}.
+Generally experiments of this nature typically have low sample sizes due to budget constraints, sample collection difficulties, patient compliance, and other issues. To increase cost effectiveness and reduce batch effects (such as from kit contamination \cite{salter2014reagent}), I run all the samples in an experiment on the same sequencing run, by means of a combinatorial barcode primer design \cite{gloor2010microbiome}.
 
 There are several models for computationally analyzing the variance within conditions in order to determine if operational taxonomic units are significantly differentially abundant, such as LEfSe \cite{segata2011metagenomic} and Metastats \cite{paulson2011metastats} for microbiome analysis. Most of these were originally designed for RNA-seq experiments on single organisms \cite{pachter2011models}. Currently the most popular tools for analyzing differential abundance are EdgeR \cite{robinson2010edger}, DESeq2 \cite{love2014moderated}, MetagenomeSeq \cite{paulson2014metagenomeseq}, and LEfSe \cite{segata2011metagenomic}. EdgeR was cited by 52 papers that mentioned the microbiome in 2015 according to Google Scholar. DESeq2 and MetagenomeSeq are part of the QIIME pipeline, which was cited by 1,080 microbiome papers in 2015. LEfSe has been cited by 145 microbiome papers in 2015.
 
@@ -354,4 +354,4 @@ There is a substantial body of literature dedicated to examining the relationshi
 
 I performed both a gene tag sequencing experiment and a metagenomic experiment comparing patients with NASH to healthy controls. My hypothesis for the gene tag sequencing experiment was that I would find significantly differentially abundant taxa. For the metagenomic experiment, I hypothesized that I would find significantly differential groups of gene functions.
 
-We compare the gut microbiome of 29 patients with nonalcoholic steatohepatitis (NASH), 14 patients with simple steatosis (SS), and 24 healthy controls. We found no significantly differentially abundant features between groups. However, the effect sizes of OTUs between extreme and intermediate groups appear to be correlated with a subset of the samples selected with more stringent clinical criteria. We believe that there may be a real difference between patients, if a study were performed with sufficient power.
+I compared the gut microbiome of 29 patients with nonalcoholic steatohepatitis (NASH), 14 patients with simple steatosis (SS), and 24 healthy controls. I found no significantly differentially abundant features between groups. However, the effect sizes of OTUs between extreme and intermediate groups appear to be correlated with a subset of the samples selected with more stringent clinical criteria. I believe that there may be a real difference between patients, if a study were performed with sufficient power.
