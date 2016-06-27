@@ -61,7 +61,7 @@ Many of the studies had healthy controls with a lower BMI, so it is difficult to
 \FloatBarrier
 
 \section{Methods}
-In total, 67 samples were collected: 29 from patients with nonalcoholic steatohepatitis (NASH), 14 from patients with simple steatosis (SS), and 24 from healthy controls. The median BMIs were 26.70, 27.34, and 32.06, and the median ages were 36, 49, and 46.5 for healthy, SS, and NASH respectively. A full description of the patient intake, metadata collection, and sample harvesting procedures are provided in Appendix ~\ref{AppB}, written by Hannah Da Silva from Allard research group in Toronto.
+In total, 67 samples were collected: 29 from patients with nonalcoholic steatohepatitis (NASH), 14 from patients with simple steatosis (SS), and 24 from healthy controls. The median BMIs were 26.70, 27.34, and 32.06, and the median ages were 36, 49, and 46.5 for healthy, SS, and NASH respectively. Patient selection criteria are listed in Table ~\ref{nafld_table_1}. A full description of the patient intake, metadata collection, and sample harvesting procedures are provided in Appendix ~\ref{AppB}, written by Hannah Da Silva from Allard research group in Toronto.
 
 DNA extraction was performed with the \href{http://omegabiotek.com/store/product/stool-dna-kit/}{E.Z.N.A.® Stool DNA Kit}, and the protocol was followed with the addition of lysozyme with an extra 30 minute incubation at 37 degrees Celsius, between steps 2 and 3.
 
@@ -152,7 +152,7 @@ Differential abundance was analyzed using ALDEx2 \cite{fernandes2014unifying}. A
 
 \subsection{Compositional data analysis}
 
-The count tables from the 16S rRNA gene sequencing experiment and the metagenomic experiment are compositional data. I use the Centered Log Ratio transform \cite{} to put the compositional data in Euclidean space so that it can be analyzed with conventional statistics, for example, principal co-ordinate analysis (Figures ~\ref{nafld_16s_biplot}, ~\ref{nafld_metagenomic_pca}, ~\ref{nafld_metagenomic_carb_pca}, ~\ref{nafld_metagenomic_lipid_pca}, and ~\ref{nafld_metagenomic_amino_pca}).
+The count tables from the 16S rRNA gene sequencing experiment and the metagenomic experiment are compositional data. I use the Centered Log Ratio transform \cite{} to put the compositional data in Euclidean space so that it can be analyzed with conventional statistics, for example, principal co-ordinate analysis.
 
 \FloatBarrier
 
