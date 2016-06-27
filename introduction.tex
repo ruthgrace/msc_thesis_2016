@@ -142,16 +142,14 @@ Annotation was done by  matching our OTUs to the SILVA database \cite{quast2013s
 This can be done using the center-most sequence of each cluster that forms each OTU, and putting the sequences in a multiple sequence alignment, using software such as MUSCLE \cite{edgar2004muscle}. The multiple sequence alignment can be converted into a phylogenetic tree using software such as FastTree \cite{price2010fasttree}.
 \end{enumerate}
 
-Alternatively, an Individual Sequence Unit (ISU) based approach rateher than an OTU based approach can be taken, where the individual sequences are preserved even after grouping into OTUs, so that different strains within the same OTU can be analyzed separately \cite{callahan2015dada2}.
+Alternatively, an Individual Sequence Unit (ISU) based approach rather than an OTU based approach can be taken, where the individual sequences are preserved even after grouping into OTUs, so that different strains within the same OTU can be analyzed separately \cite{callahan2015dada2}.
 
 \FloatBarrier
 
 \subsection{Data analysis}
 There are two goals in gene tag data analysis. First, is there any structure in the data (separation, clustering, correlations, differentials, etc.)? Second, what drives the structure in the data?
 
-Separation or clustering can be examined by determining the dissimilarity between each sample, and using these dissimilarities to plot the samples as points on a principal co-ordinate graph. The following sections will go over the most commonly used distance metric in microbiome research, called UniFrac, as well as the Principal Co-ordinate Analysis multidimensional scaling method for plotting the points on a graph. Afterwards the data can be visually or mathematically inspected for separation or clustering.
-
-The technique used for determining if taxa are differentially abundant between groups is the same technique used for determining if gene annotations are differentially abundant between groups in the metagenomic experiment, and has its own section, titled \textit{Microbiome data is compositional}.
+Separation or clustering can be examined by determining the dissimilarity between each sample, and using these dissimilarities to plot the samples as points on a principal co-ordinate graph. The following sections will go over the most commonly used distance metric in microbiome research, called UniFrac, as well as the Principal Co-ordinate Analysis multidimensional scaling method for plotting the points on a graph. Afterwards the data can be visually or mathematically inspected for separation or clustering. The technique used for determining if taxa are differentially abundant between groups is the same technique used for determining if gene annotations are differentially abundant between groups in the metagenomic experiment, and has its own section, titled \textit{Microbiome data is compositional}.
 
 Principal Component Analysis (PCA) is a data reduction strategy used for multivariate statistics. However, the OTU abundances derived from the 16S rRNA gene sequencing experiment are proportional, so the PCA (which assumes a linear differences) is not applicable. Instead, the data must be transformed in some way into a Euclidean distance \cite{anderson2003canonical}. This is the rationale behind the development of the UniFrac distance metric. Using the pairwise UniFrac distances between the samples, a PCA can be performed to analyze the data.
 
@@ -203,9 +201,7 @@ Deep metagenomic sequencing provides an estimate of the proportion that each typ
 The metabolic potential is made up of all the protein functions that are encoded by the genetic material present in the sample. Biologically speaking, these protein functions represent the enzymatic reactions that the microbiome could produce if all the genes were expressed. For example, the human gut microbiome is known to facilitate methanogenesis. However, methanogenesis is a common function in rare taxonomic groups (mostly \textit{Archaea}). Metagenomic sequencing shows that the human gut microbiome has more genes related to methanogenesis than expected - a feature that would have not been as prominent in 16S rRNA gene sequencing analysis \cite{gill2006metagenomic}.
 
 \textit{Are any genes, functional categories of genes, or metabolic pathways made up of genes differentially abundant between groups?}
-In 2006, Turnbaugh et al. published a paper showing that an obesity associated gut microbiome in mice had an increased capacity for energy harvest \cite{turnbaugh2006obesity}, sparking more research into the gut microbiome and obesity related ailments such as diabetes \cite{larsen2010gut} and nonalcoholic fatty liver disease \cite{zhu2013characterization}. The ability to check if genes, functional categories of genes, or pathways are differentially abundant between groups allows scientists to find clues about the mechanisms by which the microbiome affects certain diseases.
-
-All of this information can be determined by either imputation or actual sequencing, discussed in the next sections.
+In 2006, Turnbaugh et al. published a paper showing that an obesity associated gut microbiome in mice had an increased capacity for energy harvest \cite{turnbaugh2006obesity}, sparking more research into the gut microbiome and obesity related ailments such as diabetes \cite{larsen2010gut} and nonalcoholic fatty liver disease \cite{zhu2013characterization}. The ability to check if genes, functional categories of genes, or pathways are differentially abundant between groups allows scientists to find clues about the mechanisms by which the microbiome affects certain diseases. All of this information can be determined by either imputation or actual sequencing, discussed in the next sections.
 
 \subsection{Sequencing}
 
@@ -239,9 +235,7 @@ Mapping is the process of annotating the sequenced reads by aligning them with s
 Once the sequenced reads have been mapped to the annotated reference sequence, the number of reads sequenced for each annotation can be counted up. The end result is a table of counts per gene annotation per sample.
 \end{enumerate}
 
-Issues with sequencing and the analysis of sequencing data arise from sampling and the ``fat'' nature of the data.
-
-The DNA has been randomly sampled multiple times before the sequencing data is retrieved: The biological sample collected from the patient is only part of the full bacterial community. The amount of DNA extracted is a sample of that sample. Only a fraction of the extracted DNA is sequenced, and finally the DNA fragments that the sequence reads are sampled out of the input DNA. As a result, on top of the biological variation present in the microbiomes being sampled, there is an additional layer of technical and random variation. High variation or noise in the data can obscure small but biologically significant differences between experimental conditions.
+Issues with sequencing and the analysis of sequencing data arise from sampling and the ``fat'' nature of the data. The DNA has been randomly sampled multiple times before the sequencing data is retrieved: The biological sample collected from the patient is only part of the full bacterial community. The amount of DNA extracted is a sample of that sample. Only a fraction of the extracted DNA is sequenced, and finally the DNA fragments that the sequence reads are sampled out of the input DNA. As a result, on top of the biological variation present in the microbiomes being sampled, there is an additional layer of technical and random variation. High variation or noise in the data can obscure small but biologically significant differences between experimental conditions.
 
 Additionally, primers used for sequencing may be biased for certain sequences more than others \cite{kanagawa2003bias}. Lastly, the data is very fat, which is to say that there are many more variables (in the form of functional annotations of genes) than there are samples. This makes it difficult to have enough power to detect small differences in the data, a concept expanded upon in the \textit{Microbiome data involves the comparison of many features} section.
 
