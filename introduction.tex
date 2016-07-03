@@ -16,9 +16,7 @@ The advent of next generation DNA sequencing prompted the development of various
 
 A comparative study design involves an experimental group and a control group. The study subjects can be patients with disease and healthy controls \cite{macklaim2013comparative}, people who are susceptible and resistant to a condition \cite{theriot2014antibiotic}, or patients before and after a medical intervention \cite{graessler2013metagenomic}. The questions that scientists in this field want to answer are: Is the human microbiome driving or associated with the difference between the two groups? If so, what is the mechanism of action? There are also exploratory studies that try to determine the similarities in the microbiomes of specific body sites among patients with similar medical conditions.
 
-Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis scientists may gather clues about the larger questions of the mechanism of action.
-
-In this thesis, I have performed two experiments that can be done with microbiome next generation DNA sequencing data: gene tag abundance and metagenomic sequencing \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene, which is related to taxonomic identity \cite{gloor2010microbiome}.
+Section \ref{sequencing_intro} expands on the role that next generation sequencing plays in microbiome research.
 
 \section{Illumina next generation sequencing}
 The Illumina MiSeq and HiSeq are next generation sequencing platforms. The Illumina MiSeq machines yields up to 25 million paired end reads up to 300 nucleotides long. The Illumina HiSeq machines yield up to 4 billion paired end reads \cite{bentley2008accurate}. The general sequencing workflow is as follows:
@@ -98,7 +96,7 @@ However, it is difficult to determine how a batch of sequences should be partiti
 
 Finally, different variable regions of the 16S rRNA gene used to cluster the OTUs are recommended for identifying archaea and bacteria \cite{kim2011evaluation}. Recent discoveries of 35 new bacterial phyla raise the question of whether entire categories of bacterial taxa are missed by 16S rRNA sequencing technologies \cite{hug2016new}. For now, though it is far from perfect, the 16S rRNA gene represents the best gene tag available.
 
-\subsection{General protocol and rationale}
+\subsection{General protocol and rationale}\label{sequencing_intro}
 The 16S rRNA gene sequencing experiment (Fig. ~\ref{16s_workflow}) uses next generation DNA sequencing to estimate the proportional abundance of different bacterial taxa. Samples are extracted and prepared for sequencing, and then the sequenced reads are collated into counts per assumed taxa per sample. The resulting table undergoes statistical analysis. The process by which these data are collected and analyzed has many steps.
 
 \paragraph{Pre-sequencing processing}\mbox{}\\
@@ -143,6 +141,10 @@ This can be done using the center-most sequence of each cluster that forms each 
 \end{enumerate}
 
 Alternatively, an Individual Sequence Unit (ISU) based approach rather than an OTU based approach can be taken, where the individual sequences are preserved even after grouping into OTUs, so that different strains within the same OTU can be analyzed separately \cite{callahan2015dada2}.
+
+Next generation sequencing experiments can deduce: Is there a significant difference in the microbiome between the control and the experimental groups? Is this difference due to different types of microbes present or the microbial genes present? Do separated groups exist in the data? Are the abundances of certain taxa or genes correlated with each other, or with patient metadata? Through metagenomic experiments and statistical analysis scientists may gather clues about the larger questions of the mechanism of action.
+
+In this thesis, I have performed two experiments that can be done with microbiome next generation DNA sequencing data: gene tag abundance and metagenomic sequencing \cite{riesenfeld2004metagenomics}. The tag used for gene tag abundance here is the conserved 16S rRNA gene, which is related to taxonomic identity \cite{gloor2010microbiome}.
 
 \FloatBarrier
 
